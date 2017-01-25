@@ -174,8 +174,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font size="6"><b>Regression Examples</b></font></p>
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>Regression Examples</b></font><br><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -206,7 +216,7 @@ $$ \text{minimize} \quad \lVert \hat{x} - x_{cor}\rVert_2 + \lambda\sum_{i=1}^{n
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% generate a corrupted time signal</span>
+<div class=" highlight hl-octave"><pre><span class="c">% generate a corrupted time signal</span>
 <span class="nb">randn</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
 
 <span class="n">n</span> <span class="p">=</span> <span class="mi">4000</span><span class="p">;</span> <span class="n">t</span> <span class="p">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
@@ -214,17 +224,17 @@ $$ \text{minimize} \quad \lVert \hat{x} - x_{cor}\rVert_2 + \lambda\sum_{i=1}^{n
 <span class="n">corrupt</span> <span class="p">=</span> <span class="n">exact</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">exact</span><span class="p">));</span>
 
 <span class="c">% to plot</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span>   <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">exact</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span> <span class="o">-</span><span class="mf">0.6</span> <span class="mf">0.6</span><span class="p">])</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;original signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;x_{original}&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">exact</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
+<span class="nb">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span> <span class="o">-</span><span class="mf">0.6</span> <span class="mf">0.6</span><span class="p">])</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;original signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;x_{original}&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">);</span>   <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span> <span class="o">-</span><span class="mf">0.6</span> <span class="mf">0.6</span><span class="p">])</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;n&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;x_{corrupted}&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;corrupted signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">);</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
+<span class="nb">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span> <span class="o">-</span><span class="mf">0.6</span> <span class="mf">0.6</span><span class="p">])</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;n&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;x_{corrupted}&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;corrupted signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -915,26 +925,26 @@ $$<ul>
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">D</span> <span class="p">=</span> <span class="n">sparse</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-<span class="n">D</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="o">-</span><span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">D</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="p">=</span> <span class="n">D</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<div class=" highlight hl-octave"><pre><span class="n">D</span> <span class="p">=</span> <span class="nb">sparse</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="n">D</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="o">-</span><span class="nb">speye</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">D</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="p">=</span> <span class="n">D</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">speye</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 
 <span class="n">mu</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>
 
-<span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="nb">speye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
      <span class="nb">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="o">*</span><span class="n">D</span><span class="p">];</span>
 
 <span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="n">corrupt</span><span class="p">;</span>
      <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)];</span>
 
-<span class="n">sol</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">b</span><span class="p">;</span>
+<span class="n">sol</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">b</span><span class="p">;</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>    <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
-<span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">leg</span> <span class="p">=</span> <span class="n">legend</span><span class="p">(</span><span class="s">&#39;corrupted&#39;</span><span class="p">,</span><span class="s">&#39;smoother&#39;</span><span class="p">);</span>
-<span class="n">set</span><span class="p">(</span><span class="n">leg</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>    <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">leg</span> <span class="p">=</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;corrupted&#39;</span><span class="p">,</span><span class="s">&#39;smoother&#39;</span><span class="p">);</span>
+<span class="k">set</span><span class="p">(</span><span class="n">leg</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1442,20 +1452,20 @@ QogXcCAhhBDihX8A2VchPfGlBNcAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 500,1000</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 500,1000</span>
 <span class="n">mu</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1000</span> <span class="mf">1e4</span> <span class="mf">1e5</span><span class="p">];</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
-    <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="n">speye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-         <span class="nb">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">*</span><span class="n">D</span><span class="p">];</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="nb">speye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+         <span class="nb">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="n">D</span><span class="p">];</span>
 
     <span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="n">corrupt</span><span class="p">;</span>
          <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)];</span>
 
-    <span class="n">sol</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">b</span><span class="p">;</span>
-    <span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\mu = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">mu</span><span class="p">(</span><span class="nb">i</span><span class="p">))])</span>
+    <span class="n">sol</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">&#39;*</span><span class="n">b</span><span class="p">;</span>
+    <span class="nb">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\mu = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">mu</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -2431,7 +2441,7 @@ $$ \min\; \left\{ \lVert x-x_{cor}\rVert_2^2 + \mu \lVert Dx \rVert_2^2 \right\}
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,420</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,420</span>
 <span class="n">clear</span> <span class="n">x</span>
 
 <span class="n">n</span> <span class="p">=</span> <span class="mi">4000</span><span class="p">;</span>
@@ -2439,14 +2449,14 @@ $$ \min\; \left\{ \lVert x-x_{cor}\rVert_2^2 + \mu \lVert Dx \rVert_2^2 \right\}
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">minimize</span><span class="p">(</span><span class="n">square_pos</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">mu</span><span class="o">*</span><span class="n">square_pos</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
+    <span class="n">minimize</span><span class="p">(</span><span class="n">square_pos</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">mu</span><span class="o">*</span><span class="n">square_pos</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
 <span class="n">cvx_end</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\mu = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">mu</span><span class="p">)])</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\mu = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">mu</span><span class="p">)])</span>
 
-<span class="n">leg</span> <span class="p">=</span> <span class="n">legend</span><span class="p">(</span><span class="s">&#39;corrupted&#39;</span><span class="p">,</span><span class="s">&#39;smoother&#39;</span><span class="p">);</span>
-<span class="n">set</span><span class="p">(</span><span class="n">leg</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">leg</span> <span class="p">=</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;corrupted&#39;</span><span class="p">,</span><span class="s">&#39;smoother&#39;</span><span class="p">);</span>
+<span class="k">set</span><span class="p">(</span><span class="n">leg</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2948,17 +2958,17 @@ oAIKCQAAqIBCAgAAKqCQAACACv8D+ukEKzUt190AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,1000</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,1000</span>
 <span class="n">clear</span> <span class="n">x</span>
 <span class="n">mu</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1000</span> <span class="mf">1e4</span> <span class="mf">1e5</span><span class="p">];</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
     <span class="n">cvx_begin</span> <span class="n">quiet</span>
         <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">minimize</span><span class="p">(</span><span class="n">square_pos</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">mu</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">square_pos</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
+        <span class="n">minimize</span><span class="p">(</span><span class="n">square_pos</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">mu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">square_pos</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
     <span class="n">cvx_end</span>
-    <span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\mu = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">mu</span><span class="p">(</span><span class="nb">i</span><span class="p">))])</span>
+    <span class="nb">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\mu = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">mu</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -3986,17 +3996,17 @@ AAAXEJAAAIALCEgAAMAFBCQAAOACAhIAAHDh/wODy1Lj4ydwKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,1000</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,1000</span>
 <span class="n">clear</span> <span class="n">x</span>
 <span class="n">alpha</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">10</span> <span class="mi">90</span> <span class="mi">100</span><span class="p">];</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
     <span class="n">cvx_begin</span> <span class="n">quiet</span>
         <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">minimize</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">minimize</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">cvx_end</span>
-    <span class="n">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\alpha = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">alpha</span><span class="p">(</span><span class="nb">i</span><span class="p">))])</span>
+    <span class="nb">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\alpha = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">alpha</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -5034,20 +5044,20 @@ IAQEJAAAEAICEgAACAEBCQAAhPD/AYwjMgwVz7MiAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,700</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,700</span>
 
 <span class="n">clear</span> <span class="n">x</span>
 <span class="nb">beta</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">8</span><span class="p">];</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">)</span>
     <span class="n">cvx_begin</span> <span class="n">quiet</span>
         <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">minimize</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">minimize</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
         <span class="n">subject</span> <span class="n">to</span>
-            <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+            <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="n">cvx_end</span>
-    <span class="n">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\beta = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="nb">beta</span><span class="p">(</span><span class="nb">i</span><span class="p">))])</span>
+    <span class="nb">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\beta = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="nb">beta</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -5958,7 +5968,7 @@ QAIAACYgkAAAgAkIJAAAYAICCQAAmIBAAmrBC/0AAAAaSURBVAAAJiCQAACACQgkAABgAgIJAACY
 <li>known as a <em>total variation problem</em></li>
 <li>Source:<ul>
 <li>Chapter 6.3 from Boyd &amp; Vandenberghe's book "<a href="http://stanford.edu/~boyd/cvxbook/">Convex Optimization</a>"</li>
-<li>m files of <a href="http://cvxr.com/cvx/examples/cvxbook/Ch06_approx_fitting/html/tv_cvx.html">total variation reconstruction</a></li>
+<li>m-files of <a href="http://cvxr.com/cvx/examples/cvxbook/Ch06_approx_fitting/html/tv_cvx.html">total variation reconstruction</a></li>
 </ul>
 </li>
 </ul>
@@ -5971,31 +5981,31 @@ QAIAACYgkAAAgAkIJAAAYAICCQAAmIBAAmrBC/0AAAAaSURBVAAAJiCQAACACQgkAABgAgIJAACY
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,420</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,420</span>
 <span class="c">%% Generate corrupted singal with sharp transition</span>
 <span class="n">n</span> <span class="p">=</span> <span class="mi">2000</span><span class="p">;</span>   <span class="c">% length of signal</span>
 <span class="n">t</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">;</span>
 <span class="n">t</span> <span class="p">=</span> <span class="n">t</span><span class="p">(:);</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">temp</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">ceil</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">exact</span><span class="p">=</span> <span class="p">[</span><span class="n">temp</span><span class="p">;</span> <span class="o">-</span><span class="n">temp</span><span class="p">;</span> <span class="n">temp</span><span class="p">;</span> <span class="o">-</span><span class="n">temp</span><span class="p">];</span>
 <span class="n">x</span> <span class="p">=</span> <span class="n">exact</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="nb">sin</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
-<span class="n">exact_variation</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">exact</span><span class="p">(</span><span class="mi">2</span><span class="p">:(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">exact</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)));</span>
+<span class="n">exact_variation</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">exact</span><span class="p">(</span><span class="mi">2</span><span class="p">:(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">exact</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)));</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">),</span>   <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span><span class="o">+</span><span class="mi">10</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;ya&#39;</span><span class="p">);</span>   <span class="n">title</span><span class="p">(</span><span class="s">&#39;signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">),</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
+<span class="nb">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span><span class="o">+</span><span class="mi">10</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;ya&#39;</span><span class="p">);</span>   <span class="nb">title</span><span class="p">(</span><span class="s">&#39;signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
 
 <span class="c">%</span>
 <span class="n">noise</span> <span class="p">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
 <span class="n">corrupt</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">noise</span><span class="p">;</span>
-<span class="n">noisy_variation</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">corrupt</span><span class="p">(</span><span class="mi">2</span><span class="p">:(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">corrupt</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)));</span>
+<span class="n">noisy_variation</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">corrupt</span><span class="p">(</span><span class="mi">2</span><span class="p">:(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">corrupt</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)));</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">),</span>   <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span><span class="o">+</span><span class="mi">10</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;yb&#39;</span><span class="p">);</span>   <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">);</span>    <span class="n">title</span><span class="p">(</span><span class="s">&#39;corrupted signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">),</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">);</span>
+<span class="nb">axis</span><span class="p">([</span><span class="mi">0</span> <span class="n">n</span><span class="o">+</span><span class="mi">10</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;yb&#39;</span><span class="p">);</span>   <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">);</span>    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;corrupted signal&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -6432,21 +6442,21 @@ QJAAACIQJACACJ+5eDGaTQlFCwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,550</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,550</span>
 <span class="c">%% CVX norm L2 with norm L2 constraints</span>
 <span class="n">clear</span> <span class="n">x</span>
 <span class="nb">beta</span> <span class="p">=</span> <span class="p">[</span><span class="mf">1.2</span> <span class="mf">0.4</span> <span class="mf">0.2</span><span class="p">];</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="n">clf</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="nb">clf</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">)</span>    
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">)</span>    
     <span class="n">cvx_begin</span> <span class="n">quiet</span>
         <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">minimize</span> <span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">minimize</span> <span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
         <span class="n">subject</span> <span class="n">to</span>
-            <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+            <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="n">cvx_end</span>
-    <span class="n">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\beta = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="nb">beta</span><span class="p">(</span><span class="nb">i</span><span class="p">))])</span>    
+    <span class="nb">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\beta = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="nb">beta</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>    
 <span class="k">end</span>
 </pre></div>
 
@@ -7231,23 +7241,23 @@ $$\min \; \lVert x - x_{cor} \rVert_2 + \lambda \sum_{i=1}^{n-1} \;\lvert x_{i+1
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,550</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,550</span>
 
 <span class="c">%% CVX norm L2 with norm L1 constraints</span>
 
 <span class="n">clear</span> <span class="n">x</span>
 <span class="nb">beta</span> <span class="p">=</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">8</span> <span class="mi">5</span><span class="p">];</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="n">clf</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="nb">clf</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">)</span>    
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">)</span>    
     <span class="n">cvx_begin</span> <span class="n">quiet</span>
         <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">minimize</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">minimize</span><span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">corrupt</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
         <span class="n">subject</span> <span class="n">to</span>
-            <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>             
+            <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>             
     <span class="n">cvx_end</span>
-    <span class="n">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">([</span><span class="s">&#39;\beta = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="nb">beta</span><span class="p">(</span><span class="nb">i</span><span class="p">))])</span>    
+    <span class="nb">subplot</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">beta</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">corrupt</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">([</span><span class="s">&#39;\beta = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="nb">beta</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>    
 <span class="k">end</span>
 </pre></div>
 
@@ -7940,14 +7950,14 @@ YII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,350</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,350</span>
 <span class="c">%% image load</span>
-<span class="n">im</span> <span class="p">=</span> <span class="n">imread</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\dog.jpg&#39;</span><span class="p">]);</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">im</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\dog.jpg&#39;</span><span class="p">]);</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="nb">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -7963,8 +7973,8 @@ YII=
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAFeCAIAAAAUhbKPAAAACXBIWXMAABcSAAAXEgFnn9JSAAAA
-B3RJTUUH4AMWByYu8gVb3wAAACR0RVh0U29mdHdhcmUATUFUTEFCLCBUaGUgTWF0aFdvcmtzLCBJ
-bmMuPFjdGAAAACJ0RVh0Q3JlYXRpb24gVGltZQAyMi1NYXItMjAxNiAxNjozODo0Nkjk4AUAACAA
+B3RJTUUH4QEXCiwNq3W21AAAACR0RVh0U29mdHdhcmUATUFUTEFCLCBUaGUgTWF0aFdvcmtzLCBJ
+bmMuPFjdGAAAACJ0RVh0Q3JlYXRpb24gVGltZQAyMy1KYW4tMjAxNyAxOTo0NDoxM1JiUggAACAA
 SURBVHic7L1Nr61Zkh70PBHr3efcm1lV/VFd1V90l90YGSOBabCaEQMk82GMEEMmIOSJkYX8ExjA
 HAmJMTNACLBA8pRxM7BsiQHCqC1XN+3uzOoqV2fl/Tj7XRHBIGKt/e597r2ZebKLPi2tR1m39t5n
 7/dzvStWRDzxBCMCCwsLCwsLf9qQP+0DWFhYWFhYAJZBWlhYWFh4JlgGaWFhYWHhWWAZpIWFhYWF
@@ -9482,7 +9492,7 @@ QmCC
 
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -9497,10 +9507,10 @@ QmCC
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,350</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,350</span>
 <span class="n">imbw</span> <span class="p">=</span> <span class="n">rgb2gray</span><span class="p">(</span><span class="n">im</span><span class="p">);</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">imshow</span><span class="p">(</span><span class="n">imbw</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="nb">imshow</span><span class="p">(</span><span class="n">imbw</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -10530,7 +10540,7 @@ jDFZ8D+qP7dgek1VvwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,350</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,350</span>
 
 <span class="c">%% image reconstruction</span>
 
@@ -10539,20 +10549,20 @@ jDFZ8D+qP7dgek1VvwAAAABJRU5ErkJggg==
 <span class="n">n</span> <span class="p">=</span> <span class="n">row</span><span class="o">*</span><span class="n">col</span><span class="p">;</span>
 
 <span class="n">imbws</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">imbw</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">imbwd</span> <span class="p">=</span> <span class="n">double</span><span class="p">(</span><span class="n">imbws</span><span class="p">);</span>
+<span class="n">imbwd</span> <span class="p">=</span> <span class="nb">double</span><span class="p">(</span><span class="n">imbws</span><span class="p">);</span>
 
 <span class="nb">beta</span> <span class="p">=</span> <span class="mi">70000</span><span class="p">;</span>
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">imbwd</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">minimize</span> <span class="p">(</span><span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">imbwd</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">subject</span> <span class="n">to</span>
-        <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">;</span>
+        <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">beta</span><span class="p">;</span>
 <span class="n">cvx_end</span>
 
 <span class="n">imbwr</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">);</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">imshow</span><span class="p">(</span><span class="n">uint8</span><span class="p">(</span><span class="n">imbwr</span><span class="p">))</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="nb">imshow</span><span class="p">(</span><span class="n">uint8</span><span class="p">(</span><span class="n">imbwr</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -10915,8 +10925,8 @@ XN0PtQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="p">[</span><span class="n">num_eletric</span><span class="p">,</span><span class="n">txt1</span><span class="p">]</span> <span class="p">=</span> <span class="n">xlsread</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\Excel_total.xls&#39;</span><span class="p">]);</span>
-<span class="p">[</span><span class="n">num_temperature</span><span class="p">,</span><span class="n">txt2</span><span class="p">]</span> <span class="p">=</span> <span class="n">xlsread</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\Excel_temp.xls&#39;</span><span class="p">]);</span>
+<div class=" highlight hl-octave"><pre><span class="p">[</span><span class="n">num_eletric</span><span class="p">,</span><span class="n">txt1</span><span class="p">]</span> <span class="p">=</span> <span class="n">xlsread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\Excel_total.xls&#39;</span><span class="p">]);</span>
+<span class="p">[</span><span class="n">num_temperature</span><span class="p">,</span><span class="n">txt2</span><span class="p">]</span> <span class="p">=</span> <span class="n">xlsread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\Excel_temp.xls&#39;</span><span class="p">]);</span>
 
 <span class="n">x</span> <span class="p">=</span> <span class="n">num_temperature</span><span class="p">(:,</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">y</span> <span class="p">=</span> <span class="n">num_eletric</span><span class="p">(:);</span>
@@ -10946,10 +10956,10 @@ XN0PtQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 560,420</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;monthly average temperature [^oC]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;electric power consumption [TWh]&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,420</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;monthly average temperature [^oC]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;electric power consumption [TWh]&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11426,7 +11436,7 @@ fD4f/4Q5DRXoDolGD1544QW5XG5jY3Pw4MGHzz0CANjZ2QmFwtra2t7eXvg1a1tb25CQEM0Xwf2L
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="polynomial-functions">polynomial functions<a class="anchor-link" href="#polynomial-functions">&#182;</a></h2>$$
+<h2 id="Polynomial-functions">Polynomial functions<a class="anchor-link" href="#Polynomial-functions">&#182;</a></h2>$$
 \hat{y} = \theta_1 + \theta_2 x + \theta_3 x^2 + \cdots
 $$$$\phi(x) = \begin{bmatrix} 1 \\ x\\x^2 \\\vdots\end{bmatrix}$$
 </div>
@@ -11437,7 +11447,7 @@ $$$$\phi(x) = \begin{bmatrix} 1 \\ x\\x^2 \\\vdots\end{bmatrix}$$
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">m</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<div class=" highlight hl-octave"><pre><span class="n">m</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 
 <span class="n">xp</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">30</span><span class="p">;</span>
 <span class="n">xp</span> <span class="p">=</span> <span class="n">xp</span><span class="p">(:);</span>
@@ -11447,20 +11457,20 @@ $$$$\phi(x) = \begin{bmatrix} 1 \\ x\\x^2 \\\vdots\end{bmatrix}$$
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
-    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
 <span class="k">end</span>
 
-<span class="n">theta</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="n">polybasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 
 <span class="n">RSS</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">yhat</span> <span class="p">=</span> <span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
-<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="n">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
+<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="nb">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
 </pre></div>
 
 </div>
@@ -11746,25 +11756,25 @@ tB1OL9rUKwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
 
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
-    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
 <span class="k">end</span>
 
-<span class="n">theta</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="n">polybasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 
-<span class="n">e</span> <span class="p">=</span> <span class="p">[];</span>
+<span class="nb">e</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">yhat</span> <span class="p">=</span> <span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
-<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="n">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
+<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="nb">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
 </pre></div>
 
 </div>
@@ -12105,24 +12115,24 @@ AQEJAAC4gIAEAABcQEACAAAuICABAAAXEJAAAIALCEgAAMAFBCQAAOACAhIAAHDh/wOVcEL9aoSw
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
 
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
-    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
 <span class="k">end</span>
 
-<span class="n">theta</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="n">polybasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 
 <span class="n">yhat</span> <span class="p">=</span> <span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
-<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="n">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
+<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="nb">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
 </pre></div>
 
 </div>
@@ -12463,24 +12473,24 @@ pS1dHAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
 
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
-    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
 <span class="k">end</span>
 
-<span class="n">theta</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="n">polybasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 
 <span class="n">yhat</span> <span class="p">=</span> <span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
-<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="n">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
+<span class="n">RSS</span> <span class="p">=</span> <span class="p">[</span><span class="n">RSS</span> <span class="nb">norm</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">,</span><span class="mi">2</span><span class="p">)];</span>
 </pre></div>
 
 </div>
@@ -12836,10 +12846,10 @@ EJAAAIALCEgAAMCF/x9VIDTS4M8GzwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">stem</span><span class="p">(</span><span class="n">RSS</span><span class="p">)</span>
-<span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">5</span><span class="p">])</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;RSS&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="nb">stem</span><span class="p">(</span><span class="n">RSS</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RSS&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13043,21 +13053,21 @@ SMAdUUhAO3I4HF9++aWXl9eoUaM6d+YIOdAWCgkAoAW+sgEAtEAhAQC0QCEBALRAIQEAtPC/OxeO
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
 
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
-    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
 <span class="k">end</span>
 
-<span class="n">theta</span> <span class="p">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">Phi</span><span class="p">)</span><span class="o">*</span><span class="n">Phi</span><span class="o">&#39;*</span><span class="n">y</span><span class="p">;</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="n">polybasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 
 <span class="n">ylim</span><span class="p">([</span><span class="mi">2</span> <span class="mi">5</span><span class="p">])</span>
 </pre></div>
@@ -13372,26 +13382,26 @@ gg==
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
 
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
-    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="nb">i</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="n">x</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">polybasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">polybasis</span> <span class="n">xp</span><span class="o">.^</span><span class="n">i</span><span class="p">];</span>
 <span class="k">end</span>
 
 <span class="n">clear</span> <span class="n">theta</span>
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">theta</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cvx_end</span>
 
 <span class="n">yp</span> <span class="p">=</span> <span class="n">polybasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 <span class="n">ylim</span><span class="p">([</span><span class="mi">2</span> <span class="mi">5</span><span class="p">])</span>
 </pre></div>
 
@@ -13813,7 +13823,7 @@ $$ \hat{y}=\sum{\theta_i \phi_i(x)} $$
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% RBF basis</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% RBF basis</span>
 <span class="n">d</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">u</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
 
@@ -13822,14 +13832,14 @@ $$ \hat{y}=\sum{\theta_i \phi_i(x)} $$
 <span class="n">sigma</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
 
 <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[];</span>
-<span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">j</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+<span class="k">for</span> <span class="n">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
 <span class="k">end</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">rbfbasis</span><span class="p">(:,</span><span class="nb">i</span><span class="p">)),</span> <span class="n">hold</span> <span class="n">on</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
+    <span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">rbfbasis</span><span class="p">(:,</span><span class="n">i</span><span class="p">)),</span> <span class="nb">hold</span> <span class="n">on</span>
 <span class="k">end</span>
-<span class="n">hold</span> <span class="n">off</span><span class="p">,</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span> <span class="mf">1.1</span><span class="p">])</span>
+<span class="nb">hold</span> <span class="n">off</span><span class="p">,</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span> <span class="mf">1.1</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -14515,7 +14525,7 @@ hBf8f3p9PDQoDkFbAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
 <span class="n">u</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
 <span class="n">xp</span> <span class="p">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">30</span><span class="p">);</span> <span class="n">xp</span> <span class="p">=</span> <span class="n">xp</span><span class="p">(:);</span>
 
@@ -14524,21 +14534,21 @@ hBf8f3p9PDQoDkFbAAAAAElFTkSuQmCC
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
-    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
 <span class="k">end</span>
 
 <span class="n">clear</span> <span class="n">theta</span>
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">theta</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cvx_end</span>
 
 <span class="n">yp</span> <span class="p">=</span> <span class="n">rbfbasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 <span class="c">%ylim([2 5])</span>
 </pre></div>
 
@@ -14851,7 +14861,7 @@ AC4gkAAAgAsIJAAA4ML/B/aRTHPJ7CJXAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
 <span class="n">u</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
 <span class="n">xp</span> <span class="p">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">30</span><span class="p">);</span> <span class="n">xp</span> <span class="p">=</span> <span class="n">xp</span><span class="p">(:);</span>
 
@@ -14860,9 +14870,9 @@ AC4gkAAAgAsIJAAA4ML/B/aRTHPJ7CJXAAAAAElFTkSuQmCC
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
-    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
 <span class="k">end</span>
 
 <span class="n">clear</span> <span class="n">theta</span>
@@ -14874,8 +14884,8 @@ AC4gkAAAgAsIJAAA4ML/B/aRTHPJ7CJXAAAAAElFTkSuQmCC
 
 <span class="n">yp</span> <span class="p">=</span> <span class="n">rbfbasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 <span class="c">%ylim([2 5])</span>
 </pre></div>
 
@@ -15241,7 +15251,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">stem</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="s">&#39;marker&#39;</span><span class="p">,</span><span class="s">&#39;none&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="nb">stem</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="s">&#39;marker&#39;</span><span class="p">,</span><span class="s">&#39;none&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15465,7 +15475,7 @@ QmCC
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">d</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
 <span class="n">u</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
 <span class="n">xp</span> <span class="p">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">30</span><span class="p">);</span> <span class="n">xp</span> <span class="p">=</span> <span class="n">xp</span><span class="p">(:);</span>
 
@@ -15474,22 +15484,22 @@ QmCC
 <span class="n">Phi</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
-    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
-    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">d</span>
+    <span class="n">Phi</span> <span class="p">=</span> <span class="p">[</span><span class="n">Phi</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
+    <span class="n">rbfbasis</span> <span class="p">=</span> <span class="p">[</span><span class="n">rbfbasis</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span>^<span class="mi">2</span><span class="p">))];</span>
 <span class="k">end</span>
 
 <span class="n">clear</span> <span class="n">theta</span>
 <span class="n">lambda</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">theta</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>    
-    <span class="n">minimize</span> <span class="n">sum_square</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">lambda</span><span class="o">*</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  
+    <span class="n">minimize</span> <span class="n">sum_square</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">theta</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">lambda</span><span class="o">*</span><span class="nb">norm</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  
 <span class="n">cvx_end</span>
 
 <span class="n">yp</span> <span class="p">=</span> <span class="n">rbfbasis</span><span class="o">*</span><span class="n">theta</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="nb">hold</span> <span class="n">off</span>
 <span class="c">%ylim([2 5])</span>
 </pre></div>
 
@@ -15856,7 +15866,7 @@ QAIAAC4gIAEAABf+f4JvyOrf+msyAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">stem</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="s">&#39;marker&#39;</span><span class="p">,</span><span class="s">&#39;none&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="nb">stem</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="s">&#39;marker&#39;</span><span class="p">,</span><span class="s">&#39;none&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16009,7 +16019,7 @@ AgCIQJAAACIQJACACP8LU4/uU76sHhYAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%javascript</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
 $<span class="p">.</span><span class="n">getScript</span><span class="p">(</span><span class="s">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
 </pre></div>
 

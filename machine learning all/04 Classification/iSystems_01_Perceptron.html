@@ -174,10 +174,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font size = "6">
-<b>Linear Classification</b>
-</font></p>
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>Linear Classification</b></font><br><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -504,7 +512,7 @@ y &= \begin{bmatrix} y_1 &y_2 &y_3 & \cdots\end{bmatrix}
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% Perceptron</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% Perceptron</span>
 
 <span class="c">% training data generation</span>
 <span class="nb">rand</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">,</span><span class="mi">47</span><span class="p">)</span>
@@ -517,13 +525,13 @@ y &= \begin{bmatrix} y_1 &y_2 &y_3 & \cdots\end{bmatrix}
 <span class="n">C1</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">g0</span> <span class="o">&gt;</span><span class="p">=</span> <span class="mi">1</span><span class="p">);</span>         <span class="c">% labels for blue </span>
 <span class="n">C2</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">g0</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>         <span class="c">% labels for red</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">h1</span> <span class="p">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="s">&#39;bo&#39;</span><span class="p">);</span>
-<span class="n">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">8</span><span class="p">])</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="n">h1</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="s">&#39;bo&#39;</span><span class="p">);</span>
+<span class="nb">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">8</span><span class="p">])</span>
 
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;linearly and strictly separable classes&#39;</span><span class="p">,</span><span class="s">&#39;fontweight&#39;</span><span class="p">,</span><span class="s">&#39;bold&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x_1&#39;</span><span class="p">),</span>   <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;x_2&#39;</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="s">&#39;C1&#39;</span><span class="p">,</span><span class="s">&#39;C2&#39;</span><span class="p">,</span><span class="s">&#39;location&#39;</span><span class="p">,</span><span class="s">&#39;SE&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;linearly and strictly separable classes&#39;</span><span class="p">,</span><span class="s">&#39;fontweight&#39;</span><span class="p">,</span><span class="s">&#39;bold&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x_1&#39;</span><span class="p">),</span>   <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;x_2&#39;</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;C1&#39;</span><span class="p">,</span><span class="s">&#39;C2&#39;</span><span class="p">,</span><span class="s">&#39;location&#39;</span><span class="p">,</span><span class="s">&#39;SE&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -937,7 +945,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% labelling and feature</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% labelling and feature</span>
 
 <span class="n">X1</span> <span class="p">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">);</span> 
       <span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">)];</span>
@@ -958,9 +966,9 @@ RU5ErkJggg==
 <span class="n">iter</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">X3</span><span class="p">);</span>          <span class="c">% iteration number</span>
 
 <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">iter</span>
-    <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">X3</span><span class="p">)</span>        
-        <span class="k">if</span> <span class="n">y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">sign</span><span class="p">(</span><span class="n">w</span><span class="o">&#39;*</span><span class="n">X3</span><span class="p">(:,</span><span class="nb">i</span><span class="p">))</span>            
-            <span class="n">w</span> <span class="p">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">X3</span><span class="p">(:,</span><span class="nb">i</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">X3</span><span class="p">)</span>        
+        <span class="k">if</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">sign</span><span class="p">(</span><span class="n">w</span><span class="o">&#39;*</span><span class="n">X3</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>            
+            <span class="n">w</span> <span class="p">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">X3</span><span class="p">(:,</span><span class="n">i</span><span class="p">);</span>
         <span class="k">end</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -968,12 +976,12 @@ RU5ErkJggg==
 <span class="n">xp</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="o">-</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">xp</span> <span class="o">-</span> <span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;--r&#39;</span><span class="p">);</span> 
-<span class="n">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">8</span><span class="p">])</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;--r&#39;</span><span class="p">);</span> 
+<span class="nb">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">8</span><span class="p">])</span>
 
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x_1&#39;</span><span class="p">),</span>   <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;x_2&#39;</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="s">&#39;C1&#39;</span><span class="p">,</span><span class="s">&#39;C2&#39;</span><span class="p">,</span><span class="s">&#39;perceptron&#39;</span><span class="p">,</span><span class="s">&#39;location&#39;</span><span class="p">,</span><span class="s">&#39;SouthEast&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x_1&#39;</span><span class="p">),</span>   <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;x_2&#39;</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;C1&#39;</span><span class="p">,</span><span class="s">&#39;C2&#39;</span><span class="p">,</span><span class="s">&#39;perceptron&#39;</span><span class="p">,</span><span class="s">&#39;location&#39;</span><span class="p">,</span><span class="s">&#39;SouthEast&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1388,29 +1396,29 @@ AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% animation</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% animation</span>
 <span class="c">% run in matlab to see animiation</span>
 
 <span class="c">% w = ones(3,1);                % w initialization</span>
 <span class="n">w</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">1</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
 <span class="n">yp</span> <span class="p">=</span> <span class="o">-</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">xp</span> <span class="o">-</span> <span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">h3</span> <span class="p">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;--r&#39;</span><span class="p">);</span> 
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="mi">8</span> <span class="o">-</span><span class="mi">4</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="n">h3</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C1</span><span class="p">),</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="n">x2</span><span class="p">(</span><span class="n">C2</span><span class="p">),</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s">&#39;--r&#39;</span><span class="p">);</span> 
+<span class="nb">axis</span><span class="p">([</span><span class="mi">0</span> <span class="mi">8</span> <span class="o">-</span><span class="mi">4</span> <span class="mi">3</span><span class="p">])</span>
 
 <span class="n">iter</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">X3</span><span class="p">);</span>              <span class="c">% iteration number</span>
 <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">iter</span>
-    <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">X3</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">sign</span><span class="p">(</span><span class="n">w</span><span class="o">&#39;*</span><span class="n">X3</span><span class="p">(:,</span><span class="nb">i</span><span class="p">))</span>
-            <span class="n">w</span> <span class="p">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">X3</span><span class="p">(:,</span><span class="nb">i</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">X3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">sign</span><span class="p">(</span><span class="n">w</span><span class="o">&#39;*</span><span class="n">X3</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">w</span> <span class="p">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">X3</span><span class="p">(:,</span><span class="n">i</span><span class="p">);</span>
 
             <span class="n">h3</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">XDataSource</span> <span class="p">=</span> <span class="s">&#39;xp&#39;</span><span class="p">;</span>
             <span class="n">h3</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">YDataSource</span> <span class="p">=</span> <span class="s">&#39;yp&#39;</span><span class="p">;</span>
 
             <span class="n">yp</span> <span class="p">=</span> <span class="o">-</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">xp</span> <span class="o">-</span> <span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>      
-            <span class="n">refreshdata</span>
-            <span class="n">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="nb">refreshdata</span>
+            <span class="nb">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
         <span class="k">end</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -1766,10 +1774,10 @@ AABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%javascript</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
 $<span class="p">.</span><span class="n">getScript</span><span class="p">(</span><span class="s">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
 </pre></div>
 

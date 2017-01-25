@@ -174,8 +174,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font size="6"><b>Statistical Thinking: Monte Carlo Simulation</b></font></p>
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>Statistical Thinking: Monte Carlo Simulation</b></font><br><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -205,10 +215,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">numTrials</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">numTrials</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="n">numH</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numTrials</span>
-    <span class="n">flip</span> <span class="p">=</span> <span class="n">randi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numTrials</span>
+    <span class="n">flip</span> <span class="p">=</span> <span class="nb">randi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
     <span class="k">if</span> <span class="n">flip</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="n">numH</span> <span class="p">=</span> <span class="n">numH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">end</span>
@@ -267,7 +277,7 @@ $$
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% analytical computation</span>
+<div class=" highlight hl-octave"><pre><span class="c">% analytical computation</span>
 
 <span class="n">val</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">20</span>
@@ -304,19 +314,19 @@ $$
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% or</span>
+<div class=" highlight hl-octave"><pre><span class="c">% or</span>
 
 <span class="n">numTrials</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>
 <span class="n">NUM</span> <span class="p">=</span> <span class="p">[];</span>
 
 <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numTrials</span>
     <span class="n">num</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span> <span class="n">randi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="o">~=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="nb">randi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="o">~=</span> <span class="mi">0</span>
         <span class="n">num</span> <span class="p">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">end</span>
     <span class="n">NUM</span> <span class="p">=</span> <span class="p">[</span><span class="n">NUM</span> <span class="n">num</span><span class="p">];</span>
 <span class="k">end</span>
-<span class="n">mean</span><span class="p">(</span><span class="n">NUM</span><span class="p">)</span>
+<span class="nb">mean</span><span class="p">(</span><span class="n">NUM</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -395,17 +405,17 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% by summing up</span>
+<div class=" highlight hl-octave"><pre><span class="c">% by summing up</span>
 
 <span class="n">dx</span> <span class="p">=</span> <span class="mf">0.001</span><span class="p">;</span>
 <span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">dx</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>
 
-<span class="n">area</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">area</span> <span class="p">=</span> <span class="n">area</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">;</span>
+<span class="nb">area</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">area</span> <span class="p">=</span> <span class="nb">area</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>^<span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">;</span>
 <span class="k">end</span>
 
-<span class="n">area</span>
+<span class="nb">area</span>
 </pre></div>
 
 </div>
@@ -436,9 +446,9 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% shortened version</span>
+<div class=" highlight hl-octave"><pre><span class="c">% shortened version</span>
 
-<span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
 </pre></div>
 
 </div>
@@ -469,7 +479,7 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% shortened version</span>
+<div class=" highlight hl-octave"><pre><span class="c">% shortened version</span>
 
 <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">&#39;*</span><span class="n">dx</span>
 </pre></div>
@@ -546,7 +556,7 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% the number of points below curve out of the total number is a fraction of area</span>
+<div class=" highlight hl-octave"><pre><span class="c">% the number of points below curve out of the total number is a fraction of area</span>
 
 <span class="n">n</span> <span class="p">=</span> <span class="mi">10000</span><span class="p">;</span>
 
@@ -556,15 +566,15 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <span class="n">y</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
 <span class="n">count</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
     <span class="c">% compute y to f(x)</span>
-    <span class="k">if</span> <span class="n">y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="n">count</span> <span class="p">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">end</span>
 <span class="k">end</span>
 
 <span class="c">% result normalized by total #</span>
-<span class="n">area</span> <span class="p">=</span> <span class="n">count</span><span class="o">/</span><span class="n">n</span>
+<span class="nb">area</span> <span class="p">=</span> <span class="n">count</span><span class="o">/</span><span class="n">n</span>
 </pre></div>
 
 </div>
@@ -595,9 +605,9 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% shortened version</span>
+<div class=" highlight hl-octave"><pre><span class="c">% shortened version</span>
 
-<span class="n">area</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+<span class="nb">area</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
 </pre></div>
 
 </div>
@@ -637,7 +647,7 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">n</span> <span class="p">=</span> <span class="mi">5000</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">n</span> <span class="p">=</span> <span class="mi">5000</span><span class="p">;</span>
 <span class="n">x</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">y</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
@@ -645,12 +655,12 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <span class="n">out</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">count</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
-    <span class="k">if</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+    <span class="k">if</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>^<span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>^<span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
         <span class="n">count</span> <span class="p">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="n">in</span> <span class="p">=</span> <span class="p">[</span><span class="n">in</span> <span class="nb">i</span><span class="p">];</span>
+        <span class="n">in</span> <span class="p">=</span> <span class="p">[</span><span class="n">in</span> <span class="n">i</span><span class="p">];</span>
     <span class="k">else</span>
-        <span class="n">out</span> <span class="p">=</span> <span class="p">[</span><span class="n">out</span> <span class="nb">i</span><span class="p">];</span>
+        <span class="n">out</span> <span class="p">=</span> <span class="p">[</span><span class="n">out</span> <span class="n">i</span><span class="p">];</span>
     <span class="k">end</span>
 <span class="k">end</span>
 <span class="p">(</span><span class="n">count</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span>
@@ -684,9 +694,9 @@ y &= 1\frac{1}{2} + 2\left( \frac{1}{2} \right)^2 + 3\left(\frac{1}{2} \right)^3
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">clf</span><span class="p">,</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="s">&#39;r.&#39;</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="n">axis</span> <span class="n">off</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="s">&#39;b.&#39;</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="n">axis</span> <span class="n">off</span>
+<div class=" highlight hl-octave"><pre><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">clf</span><span class="p">,</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="s">&#39;r.&#39;</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="nb">axis</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="s">&#39;b.&#39;</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="nb">axis</span> <span class="n">off</span>
 </pre></div>
 
 </div>
@@ -1775,9 +1785,9 @@ YBikgYGBgYEvgWGQBgYGBga+BIZBGhgYGBj4Evh/3bWKZMwPx1kAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% shortened version</span>
+<div class=" highlight hl-octave"><pre><span class="c">% shortened version</span>
 
-<span class="n">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="nb">j</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="o">*</span><span class="mi">4</span>
+<span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="o">*</span><span class="mi">4</span>
 </pre></div>
 
 </div>
@@ -1880,17 +1890,17 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%processing</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%processing</span>
 
 <span class="n">int</span> <span class="n">L1</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="n">int</span> <span class="n">L2</span> <span class="p">=</span> <span class="mi">50</span><span class="p">;</span>
 
 <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PVector</span><span class="o">&gt;</span> <span class="n">ppoints</span> <span class="p">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PVector</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PVector</span><span class="o">&gt;</span> <span class="n">mpoints</span> <span class="p">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PVector</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="n">int</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
   <span class="nb">size</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
@@ -1903,34 +1913,34 @@ $$</p>
   <span class="n">background</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
   <span class="n">translate</span><span class="p">(</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="nb">i</span> <span class="o">&gt;</span><span class="p">=</span> <span class="n">ppoints</span><span class="p">.</span><span class="nb">size</span><span class="p">())</span> <span class="p">{</span>
-    <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span><span class="p">=</span> <span class="n">ppoints</span><span class="p">.</span><span class="nb">size</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">j</span> <span class="o">&lt;</span><span class="p">=</span> <span class="nb">i</span><span class="p">;</span> <span class="nb">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">PVector</span> <span class="n">temp</span> <span class="p">=</span> <span class="n">ppoints</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="nb">j</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="nb">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fill</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="nb">j</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">50</span><span class="p">));</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">PVector</span> <span class="n">temp</span> <span class="p">=</span> <span class="n">ppoints</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">fill</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">50</span><span class="p">));</span>
       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">fill</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+        <span class="nb">fill</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
       <span class="p">}</span>
       <span class="n">noStroke</span><span class="p">();</span>
       <span class="n">ellipse</span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">temp</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="n">PVector</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">mpoints</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
-    <span class="n">PVector</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">ppoints</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+    <span class="n">PVector</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">mpoints</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">PVector</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">ppoints</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="n">stroke</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nb">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
     <span class="n">ellipse</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
     <span class="n">ellipse</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
     <span class="n">ellipse</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
   
     <span class="n">strokeWeight</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-    <span class="n">line</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="nb">line</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="nb">line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
 
-    <span class="nb">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -2006,7 +2016,7 @@ require(["http://cs.brynmawr.edu/gxk2013/examples/tools/alphaChannels/processing
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% Robot Definition - Two linked robot arm</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% Robot Definition - Two linked robot arm</span>
 
 <span class="c">% Initialize parameter</span>
 <span class="n">L1</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -2031,14 +2041,14 @@ require(["http://cs.brynmawr.edu/gxk2013/examples/tools/alphaChannels/processing
 
 <span class="c">%% Visualization</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="n">hold</span> <span class="n">on</span><span class="p">;</span> <span class="n">box</span> <span class="n">on</span>
-<span class="n">line</span><span class="p">([</span><span class="n">origin_x</span> <span class="n">joint_x</span><span class="p">],[</span><span class="n">origin_y</span> <span class="n">joint_y</span><span class="p">],</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
-<span class="n">h1</span> <span class="p">=</span> <span class="n">line</span><span class="p">([</span><span class="n">joint_x</span> <span class="n">effector_x</span><span class="p">],[</span><span class="n">joint_y</span> <span class="n">effector_y</span><span class="p">],</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="nb">hold</span> <span class="n">on</span><span class="p">;</span> <span class="nb">box</span> <span class="n">on</span>
+<span class="nb">line</span><span class="p">([</span><span class="n">origin_x</span> <span class="n">joint_x</span><span class="p">],[</span><span class="n">origin_y</span> <span class="n">joint_y</span><span class="p">],</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">h1</span> <span class="p">=</span> <span class="nb">line</span><span class="p">([</span><span class="n">joint_x</span> <span class="n">effector_x</span><span class="p">],[</span><span class="n">joint_y</span> <span class="n">effector_y</span><span class="p">],</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
 <span class="c">% h2 = plot(x,y,&#39;.r&#39;);</span>
-<span class="n">h2</span> <span class="p">=</span> <span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1800</span><span class="p">,</span><span class="s">&#39;filled&#39;</span><span class="p">,</span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span>
-<span class="n">legend</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">],</span><span class="s">&#39;Robot Arm&#39;</span><span class="p">,</span><span class="s">&#39;Obstacle&#39;</span><span class="p">);</span>
-<span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">axis</span> <span class="n">equal</span>
+<span class="n">h2</span> <span class="p">=</span> <span class="nb">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1800</span><span class="p">,</span><span class="s">&#39;filled&#39;</span><span class="p">,</span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span>
+<span class="nb">legend</span><span class="p">([</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">],</span><span class="s">&#39;Robot Arm&#39;</span><span class="p">,</span><span class="s">&#39;Obstacle&#39;</span><span class="p">);</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">axis</span> <span class="n">equal</span>
 </pre></div>
 
 </div>
@@ -2327,7 +2337,7 @@ gUACACgCgQQAUAQCCQCgCAQSAEARCCQAgCIQSAAARSCQAACKQCABABSBQAIAKAKBBABQBAIJAKAI
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% Robot parameters</span>
+<div class=" highlight hl-octave"><pre><span class="c">% Robot parameters</span>
 <span class="n">L1</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">L2</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">r</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
@@ -2351,31 +2361,31 @@ gUACACgCgQQAUAQCCQCgCAQSAEARCCQAgCIQSAAARSCQAACKQCABABSBQAIAKAKBBABQBAIJAKAI
 <span class="n">S</span> <span class="p">=</span> <span class="p">[];</span>
 <span class="n">U</span> <span class="p">=</span> <span class="p">[];</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span>
-    <span class="n">g1</span> <span class="p">=</span> <span class="n">joint_y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">/</span><span class="n">joint_x</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
-    <span class="n">g2</span> <span class="p">=</span> <span class="p">(</span><span class="n">effector_y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">joint_y</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">effector_x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">joint_x</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
-    <span class="n">v2</span> <span class="p">=</span> <span class="p">(</span><span class="n">joint_y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">effector_x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">effector_y</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">joint_x</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">effector_x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">joint_x</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span>
+    <span class="n">g1</span> <span class="p">=</span> <span class="n">joint_y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">joint_x</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">g2</span> <span class="p">=</span> <span class="p">(</span><span class="n">effector_y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">joint_y</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">effector_x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">joint_x</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+    <span class="n">v2</span> <span class="p">=</span> <span class="p">(</span><span class="n">joint_y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">effector_x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">effector_y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">joint_x</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">effector_x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">joint_x</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
     
-    <span class="n">tempx1</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">joint_x</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="mi">5</span><span class="p">);</span>
-    <span class="n">tempx2</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">joint_x</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">effector_x</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">tempx1</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">joint_x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">tempx2</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">joint_x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">effector_x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="mi">5</span><span class="p">);</span>
 
-    <span class="n">S</span> <span class="p">=</span> <span class="p">[</span><span class="n">S</span><span class="p">;</span> <span class="p">[</span><span class="n">theta1</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">theta2</span><span class="p">(</span><span class="nb">i</span><span class="p">)]];</span>
+    <span class="n">S</span> <span class="p">=</span> <span class="p">[</span><span class="n">S</span><span class="p">;</span> <span class="p">[</span><span class="n">theta1</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">theta2</span><span class="p">(</span><span class="n">i</span><span class="p">)]];</span>
     
-    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span> 
-        <span class="k">if</span> <span class="p">(</span><span class="n">tempx1</span><span class="p">(</span><span class="nb">j</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">g1</span><span class="o">*</span><span class="n">tempx1</span><span class="p">(</span><span class="nb">j</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">r</span>^<span class="mi">2</span> <span class="o">||</span><span class="c">...</span>
-                <span class="p">(</span><span class="n">tempx2</span><span class="p">(</span><span class="nb">j</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">g2</span><span class="o">*</span><span class="n">tempx2</span><span class="p">(</span><span class="nb">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">v2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">r</span>^<span class="mi">2</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">tempx1</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">g1</span><span class="o">*</span><span class="n">tempx1</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">r</span>^<span class="mi">2</span> <span class="o">||</span><span class="p">...</span>
+                <span class="p">(</span><span class="n">tempx2</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">g2</span><span class="o">*</span><span class="n">tempx2</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">v2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">r</span>^<span class="mi">2</span>
                 
-            <span class="n">U</span> <span class="p">=</span> <span class="p">[</span><span class="n">U</span><span class="p">;</span> <span class="p">[</span><span class="n">theta1</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">theta2</span><span class="p">(</span><span class="nb">i</span><span class="p">)]];</span>
+            <span class="n">U</span> <span class="p">=</span> <span class="p">[</span><span class="n">U</span><span class="p">;</span> <span class="p">[</span><span class="n">theta1</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">theta2</span><span class="p">(</span><span class="n">i</span><span class="p">)]];</span>
             <span class="k">break</span><span class="p">;</span>        
         <span class="k">end</span>
     <span class="k">end</span>
     
 <span class="k">end</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="n">clf</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">S</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;bx&#39;</span><span class="p">),</span>   <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">U</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;rx&#39;</span><span class="p">),</span>   <span class="n">hold</span> <span class="n">off</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;\theta_1&#39;</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;\theta_2&#39;</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>  <span class="nb">clf</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">S</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">S</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;bx&#39;</span><span class="p">),</span>   <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">U</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;rx&#39;</span><span class="p">),</span>   <span class="nb">hold</span> <span class="n">off</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;\theta_1&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;\theta_2&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -3189,40 +3199,14 @@ AAAAAElFTkSuQmCC
 </li>
 </ul>
 <ul>
-<li>reference: <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=508439&tag=1">Probabilistic roadmaps for path planning in high-dimensional configuration spaces</a></li>
+<li><p>reference: <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=508439&tag=1">Probabilistic roadmaps for path planning in high-dimensional configuration spaces</a></p>
+</li>
+<li><p>Read <a href="./reference_files/PRMs_robotics.pdf" target="_blank">PRMs robotics.pdf</a></p>
+</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%html</span>
-<span class="o">&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span>&quot;<span class="o">./</span><span class="n">image_files</span><span class="o">/</span><span class="n">PRMs_robotics</span><span class="p">.</span><span class="n">pdf</span>#<span class="n">view</span><span class="p">=</span><span class="n">FitH</span>&quot;<span class="p">,</span> <span class="n">width</span><span class="p">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">height</span> <span class="p">=</span> <span class="mi">400</span>&quot; <span class="n">frameborder</span><span class="p">=</span>&quot;<span class="mi">0</span>&quot;<span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-<iframe src="./image_files/PRMs_robotics.pdf#view=FitH", width=700, height = 400" frameborder="0"></iframe>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3283,12 +3267,12 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%processing</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%processing</span>
 
-<span class="o">//</span> <span class="n">run</span> <span class="n">it</span> <span class="n">in</span> <span class="n">processing</span>
+<span class="o">//</span> <span class="nb">run</span> <span class="n">it</span> <span class="n">in</span> <span class="n">processing</span>
 
 <span class="n">int</span> <span class="n">m</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span> <span class="o">//</span> <span class="n">mass</span>
 <span class="n">int</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span> <span class="o">//</span> <span class="n">number</span> <span class="n">of</span> <span class="n">balls</span>
@@ -3306,19 +3290,19 @@ AAAAAElFTkSuQmCC
   <span class="k">while</span> <span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">f</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">i</span> <span class="o">&lt;</span> <span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="nb">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">balls</span><span class="p">[</span><span class="nb">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">new</span> <span class="n">Ball</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">new</span> <span class="n">Ball</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">i</span> <span class="o">&lt;</span> <span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="nb">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">j</span> <span class="o">&lt;</span><span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="nb">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">i</span> !<span class="p">=</span> <span class="nb">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span><span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
 
-          <span class="n">PVector</span> <span class="n">bVect</span> <span class="p">=</span> <span class="n">PVector</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="nb">i</span><span class="p">].</span><span class="n">position</span><span class="p">,</span> <span class="n">balls</span><span class="p">[</span><span class="nb">j</span><span class="p">].</span><span class="n">position</span><span class="p">);</span>
+          <span class="n">PVector</span> <span class="n">bVect</span> <span class="p">=</span> <span class="n">PVector</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">,</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">position</span><span class="p">);</span>
 
           <span class="n">float</span> <span class="n">bVectMag</span> <span class="p">=</span> <span class="n">bVect</span><span class="p">.</span><span class="n">mag</span><span class="p">();</span>
 
-          <span class="k">if</span> <span class="p">(</span><span class="n">bVectMag</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="nb">i</span><span class="p">].</span><span class="n">r</span> <span class="o">+</span> <span class="n">balls</span><span class="p">[</span><span class="nb">j</span><span class="p">].</span><span class="n">r</span> <span class="o">+</span> <span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">bVectMag</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">r</span> <span class="o">+</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">r</span> <span class="o">+</span> <span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="p">}</span>
@@ -3332,25 +3316,25 @@ AAAAAElFTkSuQmCC
 
   <span class="k">for</span> <span class="p">(</span><span class="n">Ball</span> <span class="n">b</span> <span class="p">:</span> <span class="n">balls</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">b</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
-    <span class="n">b</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">b</span><span class="p">.</span><span class="nb">display</span><span class="p">();</span>
     <span class="n">b</span><span class="p">.</span><span class="n">checkBoundaryCollision</span><span class="p">();</span>
   <span class="p">}</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">i</span> <span class="o">&lt;</span> <span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="nb">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">j</span> <span class="o">&lt;</span><span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="nb">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nb">i</span> !<span class="p">=</span> <span class="nb">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">balls</span><span class="p">[</span><span class="nb">i</span><span class="p">].</span><span class="n">checkCollision</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="nb">j</span><span class="p">],</span> <span class="nb">i</span><span class="p">,</span> <span class="nb">j</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span><span class="n">balls</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">checkCollision</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
 
-<span class="n">class</span> <span class="n">Ball</span> <span class="p">{</span>
+<span class="nb">class</span> <span class="n">Ball</span> <span class="p">{</span>
   <span class="n">PVector</span> <span class="n">position</span><span class="p">;</span>
   <span class="n">PVector</span> <span class="n">velocity</span><span class="p">;</span>
   <span class="n">float</span> <span class="n">r</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-  <span class="n">int</span><span class="p">[]</span> <span class="n">flag</span> <span class="p">=</span> <span class="n">new</span> <span class="n">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+  <span class="n">int</span><span class="p">[]</span> <span class="nb">flag</span> <span class="p">=</span> <span class="n">new</span> <span class="n">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
 
   <span class="n">Ball</span><span class="p">(</span><span class="n">float</span> <span class="n">r_</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">position</span> <span class="p">=</span> <span class="n">new</span> <span class="n">PVector</span><span class="p">(</span><span class="n">random</span><span class="p">(</span><span class="n">width</span><span class="p">),</span> <span class="n">random</span><span class="p">(</span><span class="n">height</span><span class="p">));</span>
@@ -3358,8 +3342,8 @@ AAAAAElFTkSuQmCC
 
     <span class="n">r</span> <span class="p">=</span> <span class="n">r_</span><span class="p">;</span>
     <span class="n">m</span> <span class="p">=</span> <span class="n">r</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="nb">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">flag</span><span class="p">[</span><span class="nb">i</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
@@ -3370,38 +3354,38 @@ AAAAAElFTkSuQmCC
   <span class="n">void</span> <span class="n">checkBoundaryCollision</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">width</span><span class="o">-</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="n">width</span><span class="o">-</span><span class="n">r</span><span class="p">;</span>
-      <span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span><span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="n">r</span><span class="p">;</span>
-      <span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span><span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">height</span><span class="o">-</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">height</span><span class="o">-</span><span class="n">r</span><span class="p">;</span>
-      <span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span><span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">r</span><span class="p">;</span>
-      <span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span><span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
   <span class="n">void</span> <span class="n">checkCollision</span><span class="p">(</span><span class="n">Ball</span> <span class="n">other</span><span class="p">,</span> <span class="n">int</span> <span class="n">k1</span><span class="p">,</span> <span class="n">int</span> <span class="n">k2</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="o">//</span> <span class="n">get</span> <span class="n">distances</span> <span class="n">between</span> <span class="n">the</span> <span class="n">balls</span> <span class="n">components</span>
+    <span class="o">//</span> <span class="k">get</span> <span class="n">distances</span> <span class="n">between</span> <span class="n">the</span> <span class="n">balls</span> <span class="n">components</span>
     <span class="n">PVector</span> <span class="n">bVect</span> <span class="p">=</span> <span class="n">PVector</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">position</span><span class="p">);</span>
 
     <span class="o">//</span> <span class="n">calculate</span> <span class="n">magnitude</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">separating</span> <span class="n">the</span> <span class="n">balls</span>
     <span class="n">float</span> <span class="n">bVectMag</span> <span class="p">=</span> <span class="n">bVect</span><span class="p">.</span><span class="n">mag</span><span class="p">();</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">bVectMag</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">r</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">[</span><span class="n">k2</span><span class="p">]</span> !<span class="p">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">flag</span><span class="p">[</span><span class="n">k2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="n">other</span><span class="p">.</span><span class="n">flag</span><span class="p">[</span><span class="n">k1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">bVectMag</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">r</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">flag</span><span class="p">[</span><span class="n">k2</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">flag</span><span class="p">[</span><span class="n">k2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">other</span><span class="p">.</span><span class="nb">flag</span><span class="p">[</span><span class="n">k1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 
-      <span class="o">//</span> <span class="n">get</span> <span class="nb">angle</span> <span class="n">of</span> <span class="n">bVect</span>
+      <span class="o">//</span> <span class="k">get</span> <span class="nb">angle</span> <span class="n">of</span> <span class="n">bVect</span>
       <span class="n">float</span> <span class="n">theta</span>  <span class="p">=</span> <span class="n">bVect</span><span class="p">.</span><span class="n">heading</span><span class="p">();</span>
       <span class="o">//</span> <span class="n">precalculate</span> <span class="n">trig</span> <span class="n">values</span>
       <span class="n">float</span> <span class="n">sine</span> <span class="p">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
       <span class="n">float</span> <span class="n">cosine</span> <span class="p">=</span> <span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
 
-      <span class="o">/*</span> <span class="n">bTemp</span> <span class="n">will</span> <span class="n">hold</span> <span class="n">rotated</span> <span class="n">ball</span> <span class="n">positions</span><span class="p">.</span> <span class="n">You</span> 
+      <span class="o">/*</span> <span class="n">bTemp</span> <span class="n">will</span> <span class="nb">hold</span> <span class="n">rotated</span> <span class="n">ball</span> <span class="n">positions</span><span class="p">.</span> <span class="n">You</span> 
        <span class="n">just</span> <span class="n">need</span> <span class="n">to</span> <span class="n">worry</span> <span class="n">about</span> <span class="n">bTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">position</span><span class="o">*/</span>
       <span class="n">PVector</span><span class="p">[]</span> <span class="n">bTemp</span> <span class="p">=</span> <span class="p">{</span>
         <span class="n">new</span> <span class="n">PVector</span><span class="p">(),</span> <span class="n">new</span> <span class="n">PVector</span><span class="p">()</span>
@@ -3410,8 +3394,8 @@ AAAAAElFTkSuQmCC
         <span class="o">/*</span> <span class="n">this</span> <span class="n">ball</span><span class="o">&#39;</span><span class="n">s</span> <span class="n">position</span> <span class="n">is</span> <span class="n">relative</span> <span class="n">to</span> <span class="n">the</span> <span class="n">other</span>
          <span class="n">so</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">between</span> <span class="n">them</span> <span class="p">(</span><span class="n">bVect</span><span class="p">)</span> <span class="n">as</span> <span class="n">the</span> 
          <span class="n">reference</span> <span class="n">point</span> <span class="n">in</span> <span class="n">the</span> <span class="n">rotation</span> <span class="n">expressions</span><span class="p">.</span>
-         <span class="n">bTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="n">and</span> <span class="n">bTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="n">will</span> <span class="n">initialize</span>
-         <span class="n">automatically</span> <span class="n">to</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">which</span> <span class="n">is</span> <span class="n">what</span> <span class="n">you</span> <span class="n">want</span>
+         <span class="n">bTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="nb">and</span> <span class="n">bTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="n">will</span> <span class="n">initialize</span>
+         <span class="n">automatically</span> <span class="n">to</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">which</span> <span class="n">is</span> <span class="nb">what</span> <span class="n">you</span> <span class="n">want</span>
          <span class="n">since</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">will</span> <span class="n">rotate</span> <span class="n">around</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*/</span>
       <span class="n">bTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span>  <span class="p">=</span> <span class="n">cosine</span> <span class="o">*</span> <span class="n">bVect</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">sine</span> <span class="o">*</span> <span class="n">bVect</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
       <span class="n">bTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span>  <span class="p">=</span> <span class="n">cosine</span> <span class="o">*</span> <span class="n">bVect</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">sine</span> <span class="o">*</span> <span class="n">bVect</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
@@ -3428,7 +3412,7 @@ AAAAAElFTkSuQmCC
 
       <span class="o">/*</span> <span class="n">Now</span> <span class="n">that</span> <span class="n">velocities</span> <span class="n">are</span> <span class="n">rotated</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="mi">1</span><span class="n">D</span>
        <span class="n">conservation</span> <span class="n">of</span> <span class="n">momentum</span> <span class="n">equations</span> <span class="n">to</span> <span class="n">calculate</span> 
-       <span class="n">the</span> <span class="n">final</span> <span class="n">velocity</span> <span class="n">along</span> <span class="n">the</span> <span class="n">x</span><span class="o">-</span><span class="n">axis</span><span class="p">.</span> <span class="o">*/</span>
+       <span class="n">the</span> <span class="n">final</span> <span class="n">velocity</span> <span class="n">along</span> <span class="n">the</span> <span class="n">x</span><span class="o">-</span><span class="nb">axis</span><span class="p">.</span> <span class="o">*/</span>
       <span class="n">PVector</span><span class="p">[]</span> <span class="n">vFinal</span> <span class="p">=</span> <span class="p">{</span>  
         <span class="n">new</span> <span class="n">PVector</span><span class="p">(),</span> <span class="n">new</span> <span class="n">PVector</span><span class="p">()</span>
         <span class="p">};</span>
@@ -3442,10 +3426,10 @@ AAAAAElFTkSuQmCC
       <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span> <span class="p">=</span> <span class="n">vTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span><span class="p">;</span>
 
       <span class="o">//</span> <span class="n">hack</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">clumping</span>
-      <span class="n">bTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span> <span class="o">+</span><span class="p">=</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span><span class="p">;</span>
-      <span class="n">bTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span> <span class="o">+</span><span class="p">=</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">;</span>
+      <span class="n">bTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span> <span class="o">+=</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span><span class="p">;</span>
+      <span class="n">bTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span> <span class="o">+=</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">;</span>
 
-      <span class="o">/*</span> <span class="n">Rotate</span> <span class="n">ball</span> <span class="n">positions</span> <span class="n">and</span> <span class="n">velocities</span> <span class="n">back</span>
+      <span class="o">/*</span> <span class="n">Rotate</span> <span class="n">ball</span> <span class="n">positions</span> <span class="nb">and</span> <span class="n">velocities</span> <span class="n">back</span>
        <span class="n">Reverse</span> <span class="n">signs</span> <span class="n">in</span> <span class="n">trig</span> <span class="n">expressions</span> <span class="n">to</span> <span class="n">rotate</span> 
        <span class="n">in</span> <span class="n">the</span> <span class="n">opposite</span> <span class="n">direction</span> <span class="o">*/</span>
       <span class="o">//</span> <span class="n">rotate</span> <span class="n">balls</span>
@@ -3470,13 +3454,13 @@ AAAAAElFTkSuQmCC
       <span class="n">other</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="n">cosine</span> <span class="o">*</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span> <span class="o">-</span> <span class="n">sine</span> <span class="o">*</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span><span class="p">;</span>
       <span class="n">other</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">cosine</span> <span class="o">*</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span> <span class="o">+</span> <span class="n">sine</span> <span class="o">*</span> <span class="n">vFinal</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="n">flag</span><span class="p">[</span><span class="n">k2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="nb">flag</span><span class="p">[</span><span class="n">k2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
-  <span class="n">void</span> <span class="n">display</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">void</span> <span class="nb">display</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">noStroke</span><span class="p">();</span>
-    <span class="n">fill</span><span class="p">(</span><span class="mi">204</span><span class="p">);</span>
+    <span class="nb">fill</span><span class="p">(</span><span class="mi">204</span><span class="p">);</span>
     <span class="n">ellipse</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">r</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -3494,12 +3478,12 @@ AAAAAElFTkSuQmCC
 
 <div class="output_html rendered_html output_subarea ">
 
-<canvas id="canvas_4"></canvas>
+<canvas id="canvas_2"></canvas>
 <script>
 require(["http://cs.brynmawr.edu/gxk2013/examples/tools/alphaChannels/processing.js"], function () {
     var processingCode = "\n// run it in processing\n\nint m = 20; // mass\nint n = 4; // number of balls\nint v = 10; // maximum velocity\n\n//---------------------------------\n\nBall[] balls = new Ball[n];\n\nvoid setup() {\n  size(640, 360);\n\n  int f = 1;\n\n  while (f == 1) {\n    f = 0;\n\n    for (int i = 0; i < balls.length; i++) {\n      balls[i] = new Ball(m);\n    }\n\n    for (int i = 0; i < balls.length; i++) {\n      for (int j = 0; j <balls.length; j++) {\n        if (i != j) {\n\n          PVector bVect = PVector.sub(balls[i].position, balls[j].position);\n\n          float bVectMag = bVect.mag();\n\n          if (bVectMag < (balls[i].r + balls[j].r + 5)) {\n            f = 1;\n          }\n        }\n      }\n    }\n  }\n}\n\nvoid draw() {\n  background(51);\n\n  for (Ball b : balls) {\n    b.update();\n    b.display();\n    b.checkBoundaryCollision();\n  }\n\n  for (int i = 0; i < balls.length; i++) {\n    for (int j = 0; j <balls.length; j++) {\n      if (i != j) {\n        balls[i].checkCollision(balls[j], i, j);\n      }\n    }\n  }\n}\n\n\nclass Ball {\n  PVector position;\n  PVector velocity;\n  float r, m;\n  int[] flag = new int[n];\n\n  Ball(float r_) {\n    position = new PVector(random(width), random(height));\n    velocity = new PVector(random(-v, v), random(-v, v));\n\n    r = r_;\n    m = r;\n    for (int i = 0; i < n; i++) {\n      flag[i] = 0;\n    }\n  }\n\n  void update() {\n    position.add(velocity);\n  }\n\n  void checkBoundaryCollision() {\n    if (position.x > width-r) {\n      position.x = width-r;\n      velocity.x *= -1;\n    } else if (position.x < r) {\n      position.x = r;\n      velocity.x *= -1;\n    } else if (position.y > height-r) {\n      position.y = height-r;\n      velocity.y *= -1;\n    } else if (position.y < r) {\n      position.y = r;\n      velocity.y *= -1;\n    }\n  }\n\n  void checkCollision(Ball other, int k1, int k2) {\n\n    // get distances between the balls components\n    PVector bVect = PVector.sub(other.position, position);\n\n    // calculate magnitude of the vector separating the balls\n    float bVectMag = bVect.mag();\n\n    if (bVectMag < (r + other.r) && flag[k2] != 1) {\n      flag[k2] = 1;\n      other.flag[k1] = 1;\n\n      // get angle of bVect\n      float theta  = bVect.heading();\n      // precalculate trig values\n      float sine = sin(theta);\n      float cosine = cos(theta);\n\n      /* bTemp will hold rotated ball positions. You \n       just need to worry about bTemp[1] position*/\n      PVector[] bTemp = {\n        new PVector(), new PVector()\n        };\n\n        /* this ball's position is relative to the other\n         so you can use the vector between them (bVect) as the \n         reference point in the rotation expressions.\n         bTemp[0].position.x and bTemp[0].position.y will initialize\n         automatically to 0.0, which is what you want\n         since b[1] will rotate around b[0] */\n      bTemp[1].x  = cosine * bVect.x + sine * bVect.y;\n      bTemp[1].y  = cosine * bVect.y - sine * bVect.x;\n\n      // rotate Temporary velocities\n      PVector[] vTemp = {\n        new PVector(), new PVector()\n        };\n\n      vTemp[0].x  = cosine * velocity.x + sine * velocity.y;\n      vTemp[0].y  = cosine * velocity.y - sine * velocity.x;\n      vTemp[1].x  = cosine * other.velocity.x + sine * other.velocity.y;\n      vTemp[1].y  = cosine * other.velocity.y - sine * other.velocity.x;\n\n      /* Now that velocities are rotated, you can use 1D\n       conservation of momentum equations to calculate \n       the final velocity along the x-axis. */\n      PVector[] vFinal = {  \n        new PVector(), new PVector()\n        };\n\n        // final rotated velocity for b[0]\n      vFinal[0].x = ((m - other.m) * vTemp[0].x + 2 * other.m * vTemp[1].x) / (m + other.m);\n      vFinal[0].y = vTemp[0].y;\n\n      // final rotated velocity for b[0]\n      vFinal[1].x = ((other.m - m) * vTemp[1].x + 2 * m * vTemp[0].x) / (m + other.m);\n      vFinal[1].y = vTemp[1].y;\n\n      // hack to avoid clumping\n      bTemp[0].x += vFinal[0].x;\n      bTemp[1].x += vFinal[1].x;\n\n      /* Rotate ball positions and velocities back\n       Reverse signs in trig expressions to rotate \n       in the opposite direction */\n      // rotate balls\n      PVector[] bFinal = { \n        new PVector(), new PVector()\n        };\n\n      bFinal[0].x = cosine * bTemp[0].x - sine * bTemp[0].y;\n      bFinal[0].y = cosine * bTemp[0].y + sine * bTemp[0].x;\n      bFinal[1].x = cosine * bTemp[1].x - sine * bTemp[1].y;\n      bFinal[1].y = cosine * bTemp[1].y + sine * bTemp[1].x;\n\n      // update balls to screen position\n      other.position.x = position.x + bFinal[1].x;\n      other.position.y = position.y + bFinal[1].y;\n\n      position.add(bFinal[0]);\n\n      // update velocities\n      velocity.x = cosine * vFinal[0].x - sine * vFinal[0].y;\n      velocity.y = cosine * vFinal[0].y + sine * vFinal[0].x;\n      other.velocity.x = cosine * vFinal[1].x - sine * vFinal[1].y;\n      other.velocity.y = cosine * vFinal[1].y + sine * vFinal[1].x;\n    } else {\n      flag[k2] = 0;\n    }\n  }\n\n  void display() {\n    noStroke();\n    fill(204);\n    ellipse(position.x, position.y, r*2, r*2);\n  }\n}";
     var cc = Processing.compile(processingCode);
-    var processingInstance = new Processing("canvas_4", cc);
+    var processingInstance = new Processing("canvas_2", cc);
 });
 </script>
 
@@ -3516,7 +3500,7 @@ require(["http://cs.brynmawr.edu/gxk2013/examples/tools/alphaChannels/processing
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%javascript</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
 $<span class="p">.</span><span class="n">getScript</span><span class="p">(</span><span class="s">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
 </pre></div>
 

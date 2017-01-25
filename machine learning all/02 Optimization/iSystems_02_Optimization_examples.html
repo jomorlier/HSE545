@@ -174,8 +174,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font size="6"><b>Optimization Examples</b></font></p>
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>Optimization Examples</b></font><br><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -253,7 +263,6 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
 <h1 id="1.-Mixed-Integer-Linear-Programming-(MILP)">1. Mixed Integer Linear Programming (MILP)<a class="anchor-link" href="#1.-Mixed-Integer-Linear-Programming-(MILP)">&#182;</a></h1><ul>
 <li>Matlab command: <code>intlinprog</code> (available from MATLAB R2014b)</li>
 </ul>
@@ -330,21 +339,21 @@ $$<p>$\Rightarrow$ <code>intlinprog</code> in Matlab to solve</p>
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span> <span class="n">given</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>  <span class="o">%</span> <span class="c"># of items</span>
-<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">9</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">20</span><span class="p">];</span>
-<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">175</span> <span class="mi">90</span> <span class="mi">20</span> <span class="mi">50</span> <span class="mi">10</span> <span class="mi">200</span><span class="p">];</span>
-<span class="n">maxWeight</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="c">% given</span>
+<span class="n">n</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>  <span class="c">% # of items</span>
+<span class="n">weights</span> <span class="p">=</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">9</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">20</span><span class="p">];</span>
+<span class="n">values</span> <span class="p">=</span> <span class="p">[</span><span class="mi">175</span> <span class="mi">90</span> <span class="mi">20</span> <span class="mi">50</span> <span class="mi">10</span> <span class="mi">200</span><span class="p">];</span>
+<span class="n">maxWeight</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
 
-<span class="o">%</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">form</span> <span class="n">of</span> <span class="n">MILP</span>
-<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="n">values</span><span class="p">;</span>        <span class="o">%</span> <span class="nb">max</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">weights</span><span class="p">;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">maxWeight</span><span class="p">;</span>
-<span class="n">intcon</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">;</span>
-<span class="n">lb</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">ub</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="c">% in a form of MILP</span>
+<span class="n">f</span> <span class="p">=</span> <span class="o">-</span><span class="n">values</span><span class="p">;</span>        <span class="c">% max</span>
+<span class="n">A</span> <span class="p">=</span> <span class="n">weights</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">maxWeight</span><span class="p">;</span>
+<span class="n">intcon</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">;</span>
+<span class="n">lb</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ub</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">intlinprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">intcon</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,[],[],</span><span class="n">lb</span><span class="p">,</span><span class="n">ub</span><span class="p">)</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">intlinprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">intcon</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,[],[],</span><span class="n">lb</span><span class="p">,</span><span class="n">ub</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -452,23 +461,23 @@ x =
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="p">[</span><span class="mi">7</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">4</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">intcon</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
-<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">f</span> <span class="p">=</span> <span class="o">-</span><span class="p">[</span><span class="mi">7</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">4</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">intcon</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
+<span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">;</span>
     <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
     <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
     <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">];</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">;</span>
     <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="mi">0</span><span class="p">;</span>
     <span class="mi">0</span><span class="p">];</span>
 
-<span class="n">Aeq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
-<span class="n">beq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">Aeq</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">beq</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 
-<span class="n">lb</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">ub</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="p">[</span><span class="n">x</span> <span class="n">fval</span><span class="p">]</span> <span class="o">=</span> <span class="n">intlinprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">intcon</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="n">beq</span><span class="p">,</span><span class="n">lb</span><span class="p">,</span><span class="n">ub</span><span class="p">)</span>
+<span class="n">lb</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">ub</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">x</span> <span class="n">fval</span><span class="p">]</span> <span class="p">=</span> <span class="n">intlinprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">intcon</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="n">beq</span><span class="p">,</span><span class="n">lb</span><span class="p">,</span><span class="n">ub</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -532,19 +541,19 @@ fval =
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">11</span> <span class="mi">3</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">Aeq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<div class=" highlight hl-octave"><pre><span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">11</span> <span class="mi">3</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">Aeq</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
     <span class="mi">1</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span>
     <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>
     <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span>
     <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
-<span class="n">beq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">]</span><span class="s">&#39;;</span>
+<span class="n">beq</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
 
-<span class="n">intcon</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">;</span>
-<span class="n">lb</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">ub</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">intcon</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">;</span>
+<span class="n">lb</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ub</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">intlinprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">intcon</span><span class="p">,[],[],</span><span class="n">Aeq</span><span class="p">,</span><span class="n">beq</span><span class="p">,</span><span class="n">lb</span><span class="p">,</span><span class="n">ub</span><span class="p">)</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">intlinprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">intcon</span><span class="p">,[],[],</span><span class="n">Aeq</span><span class="p">,</span><span class="n">beq</span><span class="p">,</span><span class="n">lb</span><span class="p">,</span><span class="n">ub</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -590,7 +599,6 @@ x =
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
 <h1 id="2.-Quadratic-Programming-(QP)">2. Quadratic Programming (QP)<a class="anchor-link" href="#2.-Quadratic-Programming-(QP)">&#182;</a></h1>
 </div>
 </div>
@@ -646,14 +654,14 @@ $$</p>
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">H</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">H</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span>
     <span class="mi">0</span> <span class="mi">2</span><span class="p">];</span>
-<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="p">[</span><span class="mi">6</span> <span class="mi">6</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n">lb</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;;</span>
+<span class="n">f</span> <span class="p">=</span> <span class="o">-</span><span class="p">[</span><span class="mi">6</span> <span class="mi">6</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">lb</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">quadprog</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,[],[],</span><span class="n">lb</span><span class="p">,[])</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">quadprog</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,[],[],</span><span class="n">lb</span><span class="p">,[])</span>
 </pre></div>
 
 </div>
@@ -730,15 +738,15 @@ $$\implies \min d_1 + \mu d_2$$<ul>
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">clear</span> <span class="nb">all</span><span class="p">,</span>  <span class="n">clc</span>
+<div class=" highlight hl-octave"><pre><span class="n">clear</span> <span class="nb">all</span><span class="p">,</span>  <span class="nb">clc</span>
 
-<span class="n">pt1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">pt2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">1</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>         <span class="o">%</span> <span class="n">can</span> <span class="n">give</span> <span class="n">different</span> <span class="n">weight</span>
+<span class="n">pt1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">pt2</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">1</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">mu</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>         <span class="c">% can give different weight</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">x</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">([</span><span class="n">x</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;-pt1,2) + mu*norm([x 0]&#39;</span><span class="o">-</span><span class="n">pt2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">([</span><span class="n">x</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;-</span><span class="n">pt1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu</span><span class="o">*</span><span class="nb">norm</span><span class="p">([</span><span class="n">x</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;-</span><span class="n">pt2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cvx_end</span>
 
 <span class="n">x</span>
@@ -791,16 +799,16 @@ cvx_optval =
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">clear</span> <span class="nb">all</span>
-<span class="n">clc</span>
+<div class=" highlight hl-octave"><pre><span class="n">clear</span> <span class="nb">all</span>
+<span class="nb">clc</span>
 
-<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="s">&#39;;</span>
+<span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">B</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">C</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">C</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">C</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cvx_end</span>
 <span class="n">x</span>
 <span class="n">cvx_optval</span>
@@ -840,11 +848,11 @@ cvx_optval =
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">pts</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span> <span class="n">B</span> <span class="n">C</span><span class="p">];</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">off</span>
-<span class="n">axis</span> <span class="n">equal</span>
-<span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<div class=" highlight hl-octave"><pre><span class="n">pts</span> <span class="p">=</span> <span class="p">[</span><span class="n">A</span> <span class="n">B</span> <span class="n">C</span><span class="p">];</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">off</span>
+<span class="nb">axis</span> <span class="n">equal</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -997,12 +1005,12 @@ K+rJIczmAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">;</span><span class="n">B</span><span class="p">;</span><span class="n">C</span><span class="p">];</span>
-<span class="n">Phi</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
+<div class=" highlight hl-octave"><pre><span class="n">P</span> <span class="p">=</span> <span class="p">[</span><span class="n">A</span><span class="p">;</span><span class="n">B</span><span class="p">;</span><span class="n">C</span><span class="p">];</span>
+<span class="n">Phi</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">Phi</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cvx_end</span>
 <span class="n">x</span>
 <span class="n">cvx_optval</span>
@@ -1103,23 +1111,23 @@ $$<ul>
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="s">&#39;;</span>
-<span class="n">p3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="s">&#39;;</span>
+<div class=" highlight hl-octave"><pre><span class="n">p1</span> <span class="p">=</span> <span class="p">[</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">p2</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">p3</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variable</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="o">%</span> <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c">% minimize norm(x-p1,2) + norm(x-p2,2) + norm(x-p3,2)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">p3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cvx_end</span>
 <span class="n">x</span>
 <span class="n">cvx_optval</span>
 
-<span class="n">pts</span> <span class="o">=</span> <span class="p">[</span><span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">];</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">off</span>
-<span class="n">axis</span> <span class="n">equal</span>
-<span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">pts</span> <span class="p">=</span> <span class="p">[</span><span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">];</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">off</span>
+<span class="nb">axis</span> <span class="n">equal</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -1285,22 +1293,22 @@ cvx_optval =
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span> <span class="n">weber</span> <span class="n">problem</span> <span class="ow">in</span> <span class="mi">2</span><span class="o">-</span><span class="n">norm</span>
+<div class=" highlight hl-octave"><pre><span class="c">% weber problem in 2-norm</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span> <span class="mi">11</span><span class="p">]),</span> <span class="n">hold</span> <span class="n">on</span>
+<span class="n">m</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">pts</span> <span class="p">=</span> <span class="mi">10</span><span class="o">*</span><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span> <span class="mi">11</span><span class="p">]),</span> <span class="nb">hold</span> <span class="n">on</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">b</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">A</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
 
-<span class="o">%</span><span class="k">w</span> = inv(A&#39;*A)*A&#39;*b
+<span class="c">%w = inv(A&#39;*A)*A&#39;*b</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variables</span> <span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cvx_end</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">off</span>
 </pre></div>
 
 </div>
@@ -1507,11 +1515,11 @@ gBQIJACAFAgkAIAUCCQAgBQIJACAFAgkAIAUCCQAgBQIJACAFAgkAIAUCCQAgBQIJACAFP4PFhyb
 <div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span> <span class="n">weber</span> <span class="n">problem</span> <span class="ow">in</span> <span class="mi">2</span><span class="o">-</span><span class="n">norm</span>
+<div class=" highlight hl-octave"><pre><span class="c">% weber problem in 2-norm</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="p">[</span><span class="n">pts</span> <span class="p">[</span><span class="mi">20</span> <span class="mi">20</span><span class="p">]</span><span class="s">&#39; [19 19]&#39;</span><span class="p">]</span>
+<span class="n">m</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">pts</span> <span class="p">=</span> <span class="mi">10</span><span class="o">*</span><span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">pts</span> <span class="p">=</span> <span class="p">[</span><span class="n">pts</span> <span class="p">[</span><span class="mi">20</span> <span class="mi">20</span><span class="p">]</span><span class="o">&#39;</span> <span class="p">[</span><span class="mi">19</span> <span class="mi">19</span><span class="p">]</span><span class="o">&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -1543,20 +1551,20 @@ gBQIJACAFAgkAIAUCCQAgBQIJACAFAgkAIAUCCQAgBQIJACAFAgkAIAUCCQAgBQIJACAFP4PFhyb
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> 
-<span class="o">%</span><span class="k">axis</span> equal, xlim([-1 22]), 
-<span class="n">hold</span> <span class="n">on</span>
+<div class=" highlight hl-octave"><pre><span class="nb">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> 
+<span class="c">%axis equal, xlim([-1 22]), </span>
+<span class="nb">hold</span> <span class="n">on</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">]);</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">b</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">A</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
 
-<span class="o">%</span><span class="k">w</span> = inv(A&#39;*A)*A&#39;*b
+<span class="c">%w = inv(A&#39;*A)*A&#39;*b</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variables</span> <span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cvx_end</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">off</span>
 </pre></div>
 
 </div>
@@ -1757,20 +1765,20 @@ lEAgAQCUQCABAJTw/wD9cANAzuhi5gAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> 
-<span class="o">%</span><span class="k">axis</span> equal, xlim([-1 22]), 
-<span class="n">hold</span> <span class="n">on</span>
+<div class=" highlight hl-octave"><pre><span class="nb">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pts</span><span class="p">(</span><span class="mi">2</span><span class="p">,:),</span><span class="s">&#39;o&#39;</span><span class="p">),</span> 
+<span class="c">%axis equal, xlim([-1 22]), </span>
+<span class="nb">hold</span> <span class="n">on</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">]);</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">b</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">A</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),[</span><span class="n">m</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
 
-<span class="o">%</span><span class="k">w</span> = inv(A&#39;*A)*A&#39;*b
+<span class="c">%w = inv(A&#39;*A)*A&#39;*b</span>
 
 <span class="n">cvx_begin</span> <span class="n">quiet</span>
     <span class="n">variables</span> <span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">minimize</span> <span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">minimize</span> <span class="nb">norm</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">w</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cvx_end</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="n">hold</span> <span class="n">off</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;s&#39;</span><span class="p">),</span> <span class="nb">hold</span> <span class="n">off</span>
 </pre></div>
 
 </div>
@@ -1969,50 +1977,11 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="nx">javascript</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
+$<span class="p">.</span><span class="n">getScript</span><span class="p">(</span><span class="s">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>

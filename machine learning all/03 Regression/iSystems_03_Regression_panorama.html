@@ -174,8 +174,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font size="6"><b>Image Panorama with Regression</b></font></p>
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>Image Panorama with Regression</b></font><br><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -186,7 +196,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Load-images">Load images<a class="anchor-link" href="#Load-images">&#182;</a></h2>
+<p><strong>Load images</strong></p>
+
 </div>
 </div>
 </div>
@@ -195,9 +206,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave"><pre><span class="n">img01</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\c1.jpg&#39;</span><span class="p">]);</span>
-<span class="n">img02</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\c2.jpg&#39;</span><span class="p">]);</span>
-<span class="n">img03</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\c3.jpg&#39;</span><span class="p">]);</span>
+<div class=" highlight hl-octave"><pre><span class="n">img01</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\c1.jpg&#39;</span><span class="p">]);</span>
+<span class="n">img02</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\c2.jpg&#39;</span><span class="p">]);</span>
+<span class="n">img03</span> <span class="p">=</span> <span class="nb">imread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\c3.jpg&#39;</span><span class="p">]);</span>
 
 <span class="nb">imshow</span><span class="p">(</span><span class="n">img01</span><span class="p">)</span>
 </pre></div>
@@ -14518,13 +14529,12 @@ x\\y\\1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-octave"><pre><span class="c">%%html</span>
-<span class="o">&lt;</span><span class="n">iframe</span> 
-<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/pU4NorC7lb0&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/pU4NorC7lb0&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
 </pre></div>
 
 </div>
@@ -14538,9 +14548,8 @@ x\\y\\1
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/pU4NorC7lb0" frameborder="0" allowfullscreen>
-</iframe>
+<center><iframe src="https://www.youtube.com/embed/pU4NorC7lb0" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
 </div>
@@ -14570,7 +14579,6 @@ width="560" height="315" src="https://www.youtube.com/embed/pU4NorC7lb0" framebo
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Estimation-of-homography-H">Estimation of homography H<a class="anchor-link" href="#Estimation-of-homography-H">&#182;</a></h2>$$ X' = HX $$<p>where $ X $ and $X'$ are position vectors of key points, and $ H $ is a Perspective Transformation</p>
 <p><strong>Goal: we need to estimate homography $H$ via matching potins between two images</strong></p>
-<hr>
 $$\begin{bmatrix}
     x' \\
     y' \\
@@ -14635,8 +14643,7 @@ $$ b = \begin{bmatrix}
             y'_{2}  \\
             \vdots \\
             x'_{m} \\
-            y'_{m} \end{bmatrix} $$<hr>
-<ul>
+            y'_{m} \end{bmatrix} $$<ul>
 <li>It ends up becoming a linear regression problem</li>
 </ul>
 $$ \min\limits_{\theta} \lVert \Phi\theta - b \rVert _2^2 $$$$ \theta^* = (\Phi^T\Phi)^{-1}\Phi^T b $$
@@ -14667,7 +14674,7 @@ $$ \min\limits_{\theta} \lVert \Phi\theta - b \rVert _2^2 $$$$ \theta^* = (\Phi^
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave"><pre><span class="nb">load</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\keypoints.mat&#39;</span><span class="p">]);</span>
+<div class=" highlight hl-octave"><pre><span class="nb">load</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\keypoints.mat&#39;</span><span class="p">]);</span>
 <span class="nb">whos</span>
 </pre></div>
 
@@ -22636,7 +22643,6 @@ perspective_theta =
 <div class=" highlight hl-octave"><pre><span class="c">%plot -s 900,600</span>
 
 <span class="c">% Image Stich</span>
-
 <span class="nb">imshow</span><span class="p">(</span><span class="nb">double</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">warpedImage</span><span class="p">,</span><span class="n">baseimage</span><span class="p">),</span> <span class="n">warpedImage2</span><span class="p">))</span><span class="o">/</span><span class="mi">255</span><span class="p">);</span>
 </pre></div>
 
@@ -27340,7 +27346,7 @@ YDcIowAAAACwG4RRAAAAANgNwigAAAAA7Ob/AU347YINGrg1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
