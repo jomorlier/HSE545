@@ -174,10 +174,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font size = "6">
-<b>PCA</b>
-</font></p>
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>PCA</b></font><br><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -438,7 +446,7 @@ $$<ul>
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% data generation</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% data generation</span>
 <span class="c">% two dim Gaussian random variables</span>
 <span class="c">% generate simulated input x and output y</span>
 
@@ -475,20 +483,20 @@ $$<ul>
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% Assume we do not know mu and SIGMA. Only X is given.</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% Assume we do not know mu and SIGMA. Only X is given.</span>
 
 <span class="n">S</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="o">&#39;*</span><span class="n">X</span><span class="p">;</span>
 
-<span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+<span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
 
-<span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;descend&#39;</span><span class="p">);</span>
-<span class="n">U</span> <span class="p">=</span> <span class="n">U</span><span class="p">(:,</span><span class="n">I</span><span class="p">);</span>
+<span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="no">I</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;descend&#39;</span><span class="p">);</span>
+<span class="n">U</span> <span class="p">=</span> <span class="n">U</span><span class="p">(:,</span><span class="no">I</span><span class="p">);</span>
 
 <span class="n">xp</span> <span class="p">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">:.</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">;</span>
 <span class="n">h</span> <span class="p">=</span> <span class="n">U</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">U</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">X</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">h</span><span class="o">*</span><span class="n">xp</span><span class="p">)</span>
-<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">axis</span> <span class="n">equal</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">X</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">X</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">h</span><span class="o">*</span><span class="n">xp</span><span class="p">)</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span> <span class="mi">6</span><span class="p">]),</span> <span class="nb">axis</span> <span class="n">equal</span>
 </pre></div>
 
 </div>
@@ -933,12 +941,12 @@ CAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%</span>
 <span class="c">% Z = U(:,1)&#39;*X&#39;;</span>
 <span class="c">% or </span>
 
 <span class="n">Z</span> <span class="p">=</span> <span class="n">X</span><span class="o">*</span><span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">hist</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="nb">hist</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1159,7 +1167,7 @@ AABK+H+TKqNmy+e4rAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% principal components and scatterhist command</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% principal components and scatterhist command</span>
 <span class="n">theta</span> <span class="p">=</span> <span class="nb">atan</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
 <span class="n">R</span> <span class="p">=</span> <span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">);</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span> <span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)];</span>
 
@@ -1170,8 +1178,8 @@ AABK+H+TKqNmy+e4rAAAAABJRU5ErkJggg==
 <span class="n">Y</span> <span class="p">=</span> <span class="n">X</span><span class="o">*</span><span class="n">R</span><span class="o">&#39;</span><span class="p">;</span>
 
 <span class="n">scatterhist</span><span class="p">(</span><span class="n">Y</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">Y</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;Direction&#39;</span><span class="p">,</span><span class="s">&#39;out&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;u_1&#39;</span><span class="p">),</span>   <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;u_2&#39;</span><span class="p">);</span>
-<span class="n">axis</span> <span class="n">equal</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;u_1&#39;</span><span class="p">),</span>   <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;u_2&#39;</span><span class="p">);</span>
+<span class="nb">axis</span> <span class="n">equal</span>
 </pre></div>
 
 </div>
@@ -1484,7 +1492,7 @@ QmCC
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% pca - matlab embedded function</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% pca - matlab embedded function</span>
 
 <span class="p">[</span><span class="n">COEFF1</span><span class="p">,</span><span class="n">score</span><span class="p">,</span><span class="n">latent</span><span class="p">]</span> <span class="p">=</span> <span class="n">pca</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]);</span>     <span class="c">% compare with d</span>
 <span class="n">latent</span>                                  <span class="c">% eigenvalues of the covariance matrix</span>
@@ -1535,79 +1543,12 @@ QmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%html</span>
-<span class="o">&lt;</span><span class="n">iframe</span> 
-<span class="n">width</span><span class="p">=</span>&quot;<span class="mi">560</span>&quot; <span class="n">height</span><span class="p">=</span>&quot;<span class="mi">315</span>&quot; <span class="n">src</span><span class="p">=</span>&quot;<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">youtube</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">embed</span><span class="o">/</span><span class="n">Pkit</span><span class="o">-</span><span class="mi">64</span><span class="n">g0eU</span>&quot; <span class="n">frameborder</span><span class="p">=</span>&quot;<span class="mi">0</span>&quot; <span class="n">allowfullscreen</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/Pkit-64g0eU" frameborder="0" allowfullscreen>
-</iframe>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%html</span>
-<span class="o">&lt;</span><span class="n">iframe</span> 
-<span class="n">width</span><span class="p">=</span>&quot;<span class="mi">560</span>&quot; <span class="n">height</span><span class="p">=</span>&quot;<span class="mi">315</span>&quot; <span class="n">src</span><span class="p">=</span>&quot;<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">youtube</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">embed</span><span class="o">/</span><span class="n">x4lvjVjUUqg</span>&quot; <span class="n">frameborder</span><span class="p">=</span>&quot;<span class="mi">0</span>&quot; <span class="n">allowfullscreen</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/x4lvjVjUUqg" frameborder="0" allowfullscreen>
-</iframe>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%html</span>
-<span class="o">&lt;</span><span class="n">iframe</span> 
-<span class="n">width</span><span class="p">=</span>&quot;<span class="mi">560</span>&quot; <span class="n">height</span><span class="p">=</span>&quot;<span class="mi">315</span>&quot; <span class="n">src</span><span class="p">=</span>&quot;<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">youtube</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">embed</span><span class="o">/</span><span class="mi">2</span><span class="n">t62WkNIqxY</span>&quot; <span class="n">frameborder</span><span class="p">=</span>&quot;<span class="mi">0</span>&quot; <span class="n">allowfullscreen</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/Pkit-64g0eU&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
 </pre></div>
 
 </div>
@@ -1621,9 +1562,70 @@ width="560" height="315" src="https://www.youtube.com/embed/x4lvjVjUUqg" framebo
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/2t62WkNIqxY" frameborder="0" allowfullscreen>
-</iframe>
+<center><iframe src="https://www.youtube.com/embed/Pkit-64g0eU" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/x4lvjVjUUqg&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/x4lvjVjUUqg" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/2t62WkNIqxY&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/2t62WkNIqxY" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
 </div>
@@ -1637,10 +1639,27 @@ width="560" height="315" src="https://www.youtube.com/embed/2t62WkNIqxY" framebo
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$ x^{(i)} = \begin{bmatrix} x \text{ in camera 1} \\ y \text{ in camera 1} \\x \text{ in camera 2}\\y \text{ in camera 2}\\x \text{ in camera 3}\\y \text{ in camera 3} \end{bmatrix},\qquad X = \begin{bmatrix} \vdots & \vdots & & \vdots\\
+$$ 
+x^{(i)} = \begin{bmatrix} x \text{ in camera 1} \\ y \text{ in camera 1} \\x \text{ in camera 2}\\y \text{ in camera 2}\\x \text{ in camera 3}\\y \text{ in camera 3} \end{bmatrix},\qquad X = \begin{bmatrix} \vdots & \vdots & & \vdots\\
 (x^{(1)}) & (x^{(2)}) & \cdots & (x^{(m)})\\
 \vdots & \vdots & & \vdots\\
-\end{bmatrix}$$
+\end{bmatrix}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Download</p>
+<ul>
+<li>3-cut.mp4</li>
+<li>4-cut.mp4</li>
+<li>5-cut.mp4</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -1649,17 +1668,17 @@ $$ x^{(i)} = \begin{bmatrix} x \text{ in camera 1} \\ y \text{ in camera 1} \\x 
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% read video files</span>
-<span class="n">obj1</span> <span class="p">=</span> <span class="n">VideoReader</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\3-cut.mp4&#39;</span><span class="p">]);</span>
-<span class="n">obj2</span> <span class="p">=</span> <span class="n">VideoReader</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\4-cut.mp4&#39;</span><span class="p">]);</span>
-<span class="n">obj3</span> <span class="p">=</span> <span class="n">VideoReader</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\5-cut.mp4&#39;</span><span class="p">]);</span>
+<div class=" highlight hl-octave"><pre><span class="c">% read video files</span>
+<span class="n">obj1</span> <span class="p">=</span> <span class="n">VideoReader</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\3-cut.mp4&#39;</span><span class="p">]);</span>
+<span class="n">obj2</span> <span class="p">=</span> <span class="n">VideoReader</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\4-cut.mp4&#39;</span><span class="p">]);</span>
+<span class="n">obj3</span> <span class="p">=</span> <span class="n">VideoReader</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\5-cut.mp4&#39;</span><span class="p">]);</span>
 
 <span class="c">% Unifiy video frames number to the smallest</span>
 
 <span class="n">vidFrames1</span> <span class="p">=</span> <span class="n">read</span><span class="p">(</span><span class="n">obj1</span><span class="p">);</span>
 <span class="n">vidFrames2</span> <span class="p">=</span> <span class="n">read</span><span class="p">(</span><span class="n">obj2</span><span class="p">);</span>
 <span class="n">vidFrames3</span> <span class="p">=</span> <span class="n">read</span><span class="p">(</span><span class="n">obj3</span><span class="p">);</span>
-<span class="n">val</span> <span class="p">=</span> <span class="n">min</span><span class="p">([</span><span class="nb">size</span><span class="p">(</span><span class="n">vidFrames1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="nb">size</span><span class="p">(</span><span class="n">vidFrames2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="nb">size</span><span class="p">(</span><span class="n">vidFrames3</span><span class="p">,</span><span class="mi">4</span><span class="p">)]);</span>
+<span class="n">val</span> <span class="p">=</span> <span class="nb">min</span><span class="p">([</span><span class="nb">size</span><span class="p">(</span><span class="n">vidFrames1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="nb">size</span><span class="p">(</span><span class="n">vidFrames2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="nb">size</span><span class="p">(</span><span class="n">vidFrames3</span><span class="p">,</span><span class="mi">4</span><span class="p">)]);</span>
 </pre></div>
 
 </div>
@@ -1672,7 +1691,7 @@ $$ x^{(i)} = \begin{bmatrix} x \text{ in camera 1} \\ y \text{ in camera 1} \\x 
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% tracking the object</span>
+<div class=" highlight hl-octave"><pre><span class="c">% tracking the object</span>
 <span class="c">% tracking red color </span>
 <span class="c">% you do not need to understand how to track the object in this class</span>
 
@@ -1707,7 +1726,7 @@ $$ x^{(i)} = \begin{bmatrix} x \text{ in camera 1} \\ y \text{ in camera 1} \\x 
 
 <span class="c">% save camera_recording pos_data</span>
 
-<span class="n">load</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\camera_recording.mat&#39;</span><span class="p">]);</span>
+<span class="nb">load</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\data_files\camera_recording.mat&#39;</span><span class="p">]);</span>
 </pre></div>
 
 </div>
@@ -1720,22 +1739,22 @@ $$ x^{(i)} = \begin{bmatrix} x \text{ in camera 1} \\ y \text{ in camera 1} \\x 
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%plot -s 700,250</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,250</span>
 <span class="c">% trajectory</span>
 
 <span class="n">X</span> <span class="p">=</span> <span class="n">pos_data</span><span class="p">;</span>
 
 <span class="n">pos</span> <span class="p">=</span> <span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:);</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>   <span class="n">plot</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:),</span><span class="o">-</span><span class="n">pos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">:),</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">axis</span> <span class="n">square</span><span class="p">,</span>    <span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[]),</span>    <span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;ytick&#39;</span><span class="p">,[])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:),</span><span class="o">-</span><span class="n">pos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">:),</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">axis</span> <span class="n">square</span><span class="p">,</span>    <span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[]),</span>    <span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;ytick&#39;</span><span class="p">,[])</span>
 
 <span class="n">pos</span> <span class="p">=</span> <span class="n">X</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="p">:);</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>   <span class="n">plot</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:),</span><span class="o">-</span><span class="n">pos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">:),</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">axis</span> <span class="n">square</span><span class="p">,</span>    <span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[]),</span>    <span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;ytick&#39;</span><span class="p">,[])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:),</span><span class="o">-</span><span class="n">pos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">:),</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">axis</span> <span class="n">square</span><span class="p">,</span>    <span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[]),</span>    <span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;ytick&#39;</span><span class="p">,[])</span>
 
 <span class="n">pos</span> <span class="p">=</span> <span class="n">X</span><span class="p">(</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="p">:);</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>   <span class="n">plot</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:),</span><span class="o">-</span><span class="n">pos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">:),</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">axis</span> <span class="n">square</span><span class="p">,</span>    <span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[]),</span>    <span class="n">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s">&#39;ytick&#39;</span><span class="p">,[])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>   <span class="nb">plot</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:),</span><span class="o">-</span><span class="n">pos</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">:),</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">axis</span> <span class="n">square</span><span class="p">,</span>    <span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[]),</span>    <span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;ytick&#39;</span><span class="p">,[])</span>
 </pre></div>
 
 </div>
@@ -1851,20 +1870,20 @@ QmCC
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% PCA</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% PCA</span>
 <span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
-<span class="n">Xbar</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>           <span class="c">% compute mean for each row</span>
+<span class="n">Xbar</span> <span class="p">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>           <span class="c">% compute mean for each row</span>
 <span class="n">X</span> <span class="p">=</span> <span class="n">X</span> <span class="o">-</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">Xbar</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>   <span class="c">% subtract mean</span>
 
 <span class="n">S</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="o">*</span><span class="n">X</span><span class="o">&#39;</span><span class="p">;</span>           <span class="c">% covariance matrix</span>
 
-<span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>             <span class="c">% eigenvectors and eigenvalues</span>
-<span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;descend&#39;</span><span class="p">);</span>
-<span class="n">U</span> <span class="p">=</span> <span class="n">U</span><span class="p">(:,</span><span class="n">I</span><span class="p">);</span>
+<span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>             <span class="c">% eigenvectors and eigenvalues</span>
+<span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="no">I</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;descend&#39;</span><span class="p">);</span>
+<span class="n">U</span> <span class="p">=</span> <span class="n">U</span><span class="p">(:,</span><span class="no">I</span><span class="p">);</span>
 
 
-<span class="n">stem</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
-<span class="n">xlim</span><span class="p">([</span><span class="mf">0.5</span> <span class="mf">6.5</span><span class="p">])</span>
+<span class="nb">stem</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mf">0.5</span> <span class="mf">6.5</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -2045,11 +2064,11 @@ JRAkAIASCBIAQAn/H7w6MeYqjv0GAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% produce the principal components projection (coordinate changes in U)</span>
+<div class=" highlight hl-octave"><pre><span class="c">% produce the principal components projection (coordinate changes in U)</span>
 <span class="n">Z</span> <span class="p">=</span> <span class="n">U</span><span class="o">&#39;*</span><span class="n">X</span><span class="p">;</span> 
 
 <span class="n">xpt</span> <span class="p">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="p">;</span> 
-<span class="n">plot</span><span class="p">(</span><span class="n">xpt</span><span class="p">,</span><span class="n">Z</span><span class="p">),</span> <span class="n">axis</span> <span class="n">tight</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xpt</span><span class="p">,</span><span class="n">Z</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">tight</span>
 </pre></div>
 
 </div>
@@ -2781,10 +2800,10 @@ FhYWJPj/kM+quNBMlg0AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%% projected onto the first principal component</span>
+<div class=" highlight hl-octave"><pre><span class="c">%% projected onto the first principal component</span>
 <span class="c">% 6 dim -&gt; 1 dim (dim reduction)</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">xpt</span><span class="p">,</span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)),</span> <span class="n">axis</span> <span class="n">tight</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xpt</span><span class="p">,</span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)),</span> <span class="nb">axis</span> <span class="n">tight</span>
 </pre></div>
 
 </div>
@@ -3187,7 +3206,7 @@ gg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Reference: John P Cunningham &amp; Byron M Yu, Dimensionality reduction for large-scale neural recordings, Nature Neuroscience 17, 1500–1509 (2014)</p>
+<p>Reference: John P Cunningham &amp; Byron M Yu, <a href="./reference_files/nn.3776.pdf" target="_blank">Dimensionality reduction for large-scale neural recordings</a>, Nature Neuroscience 17, 1500–1509 (2014)</p>
 <p><img src="./image_files/pca_timeseries.png", width = 750></p>
 
 </div>
@@ -3271,7 +3290,7 @@ $$x \sim N(0,WW^T+\sigma^2I_n)$$
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="n">m</span> <span class="p">=</span> <span class="mi">500</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">m</span> <span class="p">=</span> <span class="mi">500</span><span class="p">;</span>
 <span class="n">x</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">W</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span>
      <span class="mi">1</span><span class="p">];</span>
@@ -3281,8 +3300,8 @@ $$x \sim N(0,WW^T+\sigma^2I_n)$$
 
 <span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="o">*</span><span class="n">W</span><span class="o">&#39;</span> <span class="o">+</span> <span class="n">noise</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">y</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">axis</span> <span class="n">equal</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">y</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">y</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+<span class="nb">axis</span> <span class="n">equal</span>
 </pre></div>
 
 </div>
@@ -3703,7 +3722,7 @@ ALEAggQAACAW/P84FHIssQDu6wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">% compare U(:,1) and W = [1 1]&#39;</span>
+<div class=" highlight hl-octave"><pre><span class="c">% compare U(:,1) and W = [1 1]&#39;</span>
 <span class="n">pca</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
@@ -3736,7 +3755,7 @@ ALEAggQAACAW/P84FHIssQDu6wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-matlab"><pre><span class="c">%%javascript</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
 $<span class="p">.</span><span class="n">getScript</span><span class="p">(</span><span class="s">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
 </pre></div>
 

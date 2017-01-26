@@ -174,7 +174,37 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Table of Contents</p>
+<p><br><br>
+<font size='6'><b>Networks</b></font><br><br></p>
+<ul>
+<li>Structural Analysis and Visualization of Networks<ul>
+<li>by Prof. Leonid Zhukov </li>
+<li><a href="http://www.leonidzhukov.net/hse/2015/networks/">http://www.leonidzhukov.net/hse/2015/networks/</a></li>
+<li>Slides</li>
+<li>Videos</li>
+<li>ipython notebook</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Data Mining<ul>
+<li>by Prof. Jeff Phillips</li>
+<li><a href="http://www.cs.utah.edu/~jeffp/teaching/cs5140.html">http://www.cs.utah.edu/~jeffp/teaching/cs5140.html</a></li>
+<li><a href="http://www.cs.utah.edu/~jeffp/teaching/cs5140-S15/cs5140.html">http://www.cs.utah.edu/~jeffp/teaching/cs5140-S15/cs5140.html</a></li>
+<li><a href="https://www.youtube.com/channel/UCcrlwW88yMcXujhGjSP2WBg">https://www.youtube.com/channel/UCcrlwW88yMcXujhGjSP2WBg</a></li>
+</ul>
+</li>
+</ul>
+<table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 60% style="border-style: hidden; border-collapse: collapse;">
+
+        </td>
+        <td width = 20%>
+        by Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        </td>
+    </tr>
+</table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -265,7 +295,7 @@ $$ \lambda \, r = r\,A $$<ul>
 <li>Source<ul>
 <li>Networks: Friends, Money, and Bytes </li>
 <li>by Prof. Mung Chiang at Princeton University</li>
-<li><a href="https://www.youtube.com/user/Network20Q/playlists">youtube</a></li>
+<li><a href="https://www.youtube.com/user/Network20Q/playlists">youtube</a> playlist</li>
 </ul>
 </li>
 </ul>
@@ -279,7 +309,7 @@ $$ \lambda \, r = r\,A $$<ul>
 </ul>
 <p><img src="./image_files/internet_graph.jpg" width = 450></p>
 <ul>
-<li><p><a href="https://en.wikipedia.org/wiki/PageRank">Wikipedia</a></p>
+<li><p>Read <a href="https://en.wikipedia.org/wiki/PageRank">Wikipedia</a></p>
 </li>
 <li><p>The <a href="http://infolab.stanford.edu/~backrub/google.html">original PageRank paper</a> by Google’s founders Sergey Brin and Lawrence Page</p>
 </li>
@@ -411,18 +441,18 @@ $$</li>
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span>
      <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">3</span><span class="p">];</span>
+<span class="n">d</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">3</span><span class="p">];</span>
 
-<span class="n">H</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">diag</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">*</span><span class="n">A</span><span class="p">;</span>
+<span class="n">H</span> <span class="p">=</span> <span class="nb">inv</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">*</span><span class="n">A</span><span class="p">;</span>
 
-<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">H</span><span class="s">&#39;);</span>
-<span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="n">V</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="s">&#39;/sum(V(:,1),1)</span>
+<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">H</span><span class="o">&#39;</span><span class="p">);</span>
+<span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">V</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;/</span><span class="nb">sum</span><span class="p">(</span><span class="n">V</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -461,16 +491,16 @@ ans =
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span> <span class="n">iterative</span> 
+<div class=" highlight hl-octave"><pre><span class="c">% iterative </span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">);</span> <span class="o">%</span> <span class="n">random</span> <span class="n">guess</span>
-<span class="n">pre_r</span> <span class="o">=</span> <span class="n">inf</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="n">N</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">r</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">);</span> <span class="c">% random guess</span>
+<span class="n">pre_r</span> <span class="p">=</span> <span class="nb">inf</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
 
-<span class="k">while</span> <span class="n">norm</span><span class="p">(</span><span class="n">pre_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">eps</span>    
-    <span class="n">pre_r</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">H</span><span class="p">;</span>    
-<span class="n">end</span>
+<span class="k">while</span> <span class="nb">norm</span><span class="p">(</span><span class="n">pre_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">eps</span>    
+    <span class="n">pre_r</span> <span class="p">=</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="n">r</span><span class="o">*</span><span class="n">H</span><span class="p">;</span>    
+<span class="k">end</span>
 
 <span class="n">r</span>
 </pre></div>
@@ -552,22 +582,22 @@ $$ H' =
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span>
      <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">;</span>
      <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
 
-<span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">s</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 
-<span class="n">H2</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">));</span>
+<span class="n">H2</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">));</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N</span>
     <span class="k">if</span> <span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">~=</span><span class="mi">0</span>
-        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="o">/</span><span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="o">/</span><span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="k">else</span>
-        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">end</span>
-<span class="n">end</span>
+        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 
 <span class="n">H2</span>
 </pre></div>
@@ -603,15 +633,15 @@ $$ H' =
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span> <span class="n">iterative</span>
+<div class=" highlight hl-octave"><pre><span class="c">% iterative</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
-<span class="n">pre_r</span> <span class="o">=</span> <span class="n">inf</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="n">r</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+<span class="n">pre_r</span> <span class="p">=</span> <span class="nb">inf</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
 
-<span class="k">while</span> <span class="n">norm</span><span class="p">(</span><span class="n">pre_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">eps</span>    
-    <span class="n">pre_r</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">H2</span><span class="p">;</span>    
-<span class="n">end</span>
+<span class="k">while</span> <span class="nb">norm</span><span class="p">(</span><span class="n">pre_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">eps</span>    
+    <span class="n">pre_r</span> <span class="p">=</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="n">r</span><span class="o">*</span><span class="n">H2</span><span class="p">;</span>    
+<span class="k">end</span>
 
 <span class="n">r</span>
 </pre></div>
@@ -696,26 +726,26 @@ $$G = \alpha H' + (1-\alpha)\frac{1}{N}\mathbf{1}\mathbf{1}^T$$
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
 
-<span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">s</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 
-<span class="n">H2</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">));</span>
+<span class="n">H2</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">));</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">~=</span><span class="mi">0</span>
-        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="o">/</span><span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="o">/</span><span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="k">else</span>
-        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">end</span>
-<span class="n">end</span>
+        <span class="n">H2</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 
 <span class="n">H2</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.85</span><span class="p">;</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">H2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="p">=</span> <span class="mf">0.85</span><span class="p">;</span>
+<span class="n">G</span> <span class="p">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">H2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -757,15 +787,15 @@ G =
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span> <span class="n">iterative</span>
+<div class=" highlight hl-octave"><pre><span class="c">% iterative</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
-<span class="n">pre_r</span> <span class="o">=</span> <span class="n">inf</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="n">r</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+<span class="n">pre_r</span> <span class="p">=</span> <span class="nb">inf</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
 
-<span class="k">while</span> <span class="n">norm</span><span class="p">(</span><span class="n">pre_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">eps</span>    
-    <span class="n">pre_r</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">G</span><span class="p">;</span>    
-<span class="n">end</span>
+<span class="k">while</span> <span class="nb">norm</span><span class="p">(</span><span class="n">pre_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">eps</span>    
+    <span class="n">pre_r</span> <span class="p">=</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="n">r</span><span class="o">*</span><span class="n">G</span><span class="p">;</span>    
+<span class="k">end</span>
 
 <span class="n">r</span>
 </pre></div>
@@ -887,10 +917,9 @@ $$ Q=\frac{\text{cut}\left(V_1,V_2 \right)}{\parallel V_1 \parallel} + \frac{\te
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;iframe 
-width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fPaOkWzJySQ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
-&lt;/iframe&gt;
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/fPaOkWzJySQ&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
 </pre></div>
 
 </div>
@@ -904,9 +933,8 @@ width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/e
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/fPaOkWzJySQ" frameborder="0" allowfullscreen>
-</iframe>
+<center><iframe src="https://www.youtube.com/embed/fPaOkWzJySQ" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
 </div>
@@ -920,10 +948,9 @@ width="560" height="315" src="https://www.youtube.com/embed/fPaOkWzJySQ" framebo
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;iframe 
-width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/BgCukCFZr9A&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
-&lt;/iframe&gt;
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/BgCukCFZr9A&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
 </pre></div>
 
 </div>
@@ -937,9 +964,8 @@ width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/e
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/BgCukCFZr9A" frameborder="0" allowfullscreen>
-</iframe>
+<center><iframe src="https://www.youtube.com/embed/BgCukCFZr9A" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
 </div>
@@ -1144,7 +1170,7 @@ $$ x_2 \perp x_1 = \mathbb{1}$$
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
@@ -1153,12 +1179,12 @@ $$ x_2 \perp x_1 = \mathbb{1}$$
      <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
 
-<span class="n">L</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">A</span><span class="p">;</span>
-<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
-<span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="p">[</span><span class="n">ds</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
-<span class="n">u2</span> <span class="o">=</span> <span class="n">V</span><span class="p">(:,</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="p">[</span><span class="n">v2</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
+<span class="n">L</span> <span class="p">=</span> <span class="nb">diag</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">A</span><span class="p">;</span>
+<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="p">[</span><span class="n">ds</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
+<span class="n">u2</span> <span class="p">=</span> <span class="n">V</span><span class="p">(:,</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">[</span><span class="n">v2</span><span class="p">,</span><span class="no">I</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -1208,9 +1234,9 @@ u2 =
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">9</span><span class="p">])</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">9</span><span class="p">])</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">9</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">9</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -1374,10 +1400,10 @@ ACX/D94EsTRJ3zIWAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">A</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="n">A</span>
+<span class="n">B</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="no">I</span><span class="p">)</span>
 
-<span class="n">I</span>
+<span class="no">I</span>
 </pre></div>
 
 </div>
@@ -1457,9 +1483,9 @@ I =
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">spy</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">spy</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1657,8 +1683,8 @@ TkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
@@ -1676,14 +1702,14 @@ TkSuQmCC
      <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">];</span>    
 
-<span class="n">L</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">A</span><span class="p">;</span>
-<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="n">L</span> <span class="p">=</span> <span class="nb">diag</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">A</span><span class="p">;</span>
+<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 
-<span class="n">u2</span> <span class="o">=</span> <span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
-<span class="p">[</span><span class="n">v2</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
+<span class="n">u2</span> <span class="p">=</span> <span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">[</span><span class="n">v2</span><span class="p">,</span><span class="no">I</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">17</span><span class="p">])</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">17</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">17</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">17</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -1899,9 +1925,9 @@ Ezc7zaZF7wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">))</span>
+<div class=" highlight hl-octave"><pre><span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="no">I</span><span class="p">))</span>
 
-<span class="n">S</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">;</span>
+<span class="n">S</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">;</span>
 <span class="n">S</span><span class="p">(</span><span class="n">u2</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -2133,9 +2159,9 @@ AAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 560,420
-<span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="o">~</span><span class="p">]</span> <span class="o">=</span> <span class="n">xlsread</span><span class="p">([</span><span class="n">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\matrix_noheader.csv&#39;</span><span class="p">]);</span>
-<span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,420</span>
+<span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="o">~</span><span class="p">]</span> <span class="p">=</span> <span class="n">xlsread</span><span class="p">([</span><span class="nb">pwd</span><span class="p">,</span><span class="s">&#39;\image_files\matrix_noheader.csv&#39;</span><span class="p">]);</span>
+<span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2399,9 +2425,9 @@ p/Ppp58eMmSIyp6fffbZ1atXo6Ojk5KSDKse4DsCEgBACrzUAACQAgEJACAFAhIAQAoEJACAFP4X
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">L</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">A</span><span class="p">;</span>
-<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;eigenvalues&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="n">L</span> <span class="p">=</span> <span class="nb">diag</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">A</span><span class="p">;</span>
+<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">title</span><span class="p">(</span><span class="s">&#39;eigenvalues&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2634,12 +2660,12 @@ AElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">u2</span> <span class="o">=</span> <span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
-<span class="p">[</span><span class="n">v2</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="n">u2</span> <span class="p">=</span> <span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">[</span><span class="n">v2</span><span class="p">,</span><span class="no">I</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;2nd smallest eigenvector&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;sorted&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">title</span><span class="p">(</span><span class="s">&#39;2nd smallest eigenvector&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">title</span><span class="p">(</span><span class="s">&#39;sorted&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -2930,11 +2956,11 @@ AF5wISQAAADwgqQBAAAAeEHSAAAAALz8f0RV/1vfG1R2AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">))</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="no">I</span><span class="p">))</span>
 
-<span class="n">S</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">;</span>
+<span class="n">S</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">;</span>
 <span class="n">S</span><span class="p">(</span><span class="n">u2</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -3219,25 +3245,25 @@ CwsfeeSRDRs2WLVeAwcOXLFiBd9jEGikJ3z3vyrkUtAtnYSKAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 560,420
-<span class="n">n</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
-<span class="n">deg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">);</span> <span class="o">%</span> <span class="k">for</span> <span class="n">other</span> <span class="n">than</span> <span class="n">simple</span> <span class="n">graphs</span><span class="p">,</span> <span class="n">use</span> <span class="p">[</span><span class="n">deg</span><span class="p">,</span><span class="o">~</span><span class="p">,</span><span class="o">~</span><span class="p">]</span><span class="o">=</span><span class="n">degrees</span><span class="p">(</span><span class="n">adj</span><span class="p">);</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 560,420</span>
+<span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+<span class="n">deg</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">);</span> <span class="c">% for other than simple graphs, use [deg,~,~]=degrees(adj);</span>
 
-<span class="n">L</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">A</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">L</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="n">edges</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">A</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">);</span>
 
-<span class="k">for</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
-    <span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind2sub</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">],</span><span class="n">edges</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+<span class="k">for</span> <span class="nb">e</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="p">=</span> <span class="n">ind2sub</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">],</span><span class="n">edges</span><span class="p">(</span><span class="nb">e</span><span class="p">));</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span>
-        <span class="n">L</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+        <span class="n">L</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> 
         <span class="k">continue</span> 
-    <span class="n">end</span>
-    <span class="n">L</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">deg</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">deg</span><span class="p">(</span><span class="n">j</span><span class="p">));</span>
-<span class="n">end</span>
+    <span class="k">end</span>
+    <span class="n">L</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">deg</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">deg</span><span class="p">(</span><span class="n">j</span><span class="p">));</span>
+<span class="k">end</span>
 
-<span class="o">%%</span>
-<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;eigenvalues&#39;</span><span class="p">)</span>
+<span class="c">%%</span>
+<span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">title</span><span class="p">(</span><span class="s">&#39;eigenvalues&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -3465,12 +3491,12 @@ rkJggg==
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">u2</span> <span class="o">=</span> <span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
-<span class="p">[</span><span class="n">v2</span><span class="p">,</span> <span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="n">u2</span> <span class="p">=</span> <span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">[</span><span class="n">v2</span><span class="p">,</span> <span class="no">I</span><span class="p">]</span> <span class="p">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;2nd smallest eigenvector&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;sorted&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">u2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">title</span><span class="p">(</span><span class="s">&#39;2nd smallest eigenvector&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="s">&#39;.&#39;</span><span class="p">),</span> <span class="nb">title</span><span class="p">(</span><span class="s">&#39;sorted&#39;</span><span class="p">,</span><span class="s">&#39;fontsize&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="mi">35</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -3761,11 +3787,11 @@ AQAAgBcUDQAAAMALigYAAADg5f8Dq+t6hsAykvYAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">plot</span> -s 700,300
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">))</span>
+<div class=" highlight hl-octave"><pre><span class="c">%plot -s 700,300</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">spy</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="no">I</span><span class="p">))</span>
 
-<span class="n">S</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">;</span>
+<span class="n">S</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">34</span><span class="p">;</span>
 <span class="n">S</span><span class="p">(</span><span class="n">u2</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -4041,7 +4067,7 @@ yDUfeuihrKys559/fs+ePVqt19ChQzds2IDfMSA1pCc47v8AX3e7AY8/OF4AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">imagesc</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)),</span> <span class="n">colormap</span><span class="p">(</span><span class="s">&#39;hot&#39;</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="n">axis</span> <span class="n">off</span>
+<div class=" highlight hl-octave"><pre><span class="nb">imagesc</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="no">I</span><span class="p">)),</span> <span class="nb">colormap</span><span class="p">(</span><span class="s">&#39;hot&#39;</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span><span class="p">,</span> <span class="nb">axis</span> <span class="n">off</span>
 </pre></div>
 
 </div>
@@ -4117,13 +4143,12 @@ NAAAyV/uKArS1akQQgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;iframe 
-width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/t3Gp4vob_t8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
-&lt;/iframe&gt;
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/t3Gp4vob_t8&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
 </pre></div>
 
 </div>
@@ -4137,9 +4162,8 @@ width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/e
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/t3Gp4vob_t8" frameborder="0" allowfullscreen>
-</iframe>
+<center><iframe src="https://www.youtube.com/embed/t3Gp4vob_t8" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
 </div>
@@ -4158,42 +4182,13 @@ width="560" height="315" src="https://www.youtube.com/embed/t3Gp4vob_t8" framebo
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Sources</strong></p>
-<ul>
-<li><p>Structural Analysis and Visualization of Networks</p>
-<ul>
-<li>by Prof. Leonid Zhukov </li>
-<li><a href="http://www.leonidzhukov.net/hse/2015/networks/">http://www.leonidzhukov.net/hse/2015/networks/</a></li>
-<li>Slides</li>
-<li>Videos</li>
-<li>ipython notebook</li>
-</ul>
-</li>
-<li><p>Data Mining</p>
-<ul>
-<li>by Prof. Jeff Phillips</li>
-<li><a href="http://www.cs.utah.edu/~jeffp/teaching/cs5140.html">http://www.cs.utah.edu/~jeffp/teaching/cs5140.html</a></li>
-<li><a href="http://www.cs.utah.edu/~jeffp/teaching/cs5140-S15/cs5140.html">http://www.cs.utah.edu/~jeffp/teaching/cs5140-S15/cs5140.html</a></li>
-<li><a href="https://www.youtube.com/channel/UCcrlwW88yMcXujhGjSP2WBg">https://www.youtube.com/channel/UCcrlwW88yMcXujhGjSP2WBg</a></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="nx">javascript</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
+<div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
+$<span class="p">.</span><span class="n">getScript</span><span class="p">(</span><span class="s">&#39;https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
