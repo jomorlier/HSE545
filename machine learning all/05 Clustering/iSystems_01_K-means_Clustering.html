@@ -301,7 +301,7 @@ div#notebook {
 <li>$k$: the number of clusters</li>
 <li>Training set $\{x^{(1)},x^{(2)},\cdots,x^{(m)}\}$</li>
 </ul>
-<p>Randomly initialized anywhere in $\mathbb{R}^n$
+<p>$\mu_k$: randomly initialized anywhere in $\mathbb{R}^n$
 <br>
 <img src="./image_files/003.png", width = 600>
 <br></p>
@@ -381,15 +381,26 @@ $</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.-K-means-Optimization-Point-of-View">2.4. K-means Optimization Point of View<a class="anchor-link" href="#2.4.-K-means-Optimization-Point-of-View">&#182;</a></h2><ul>
-<li>$c_i$= index of cluster $(1,2,\cdots,k)$ to which example $x^{(i)}$ is currently assigned</li>
-<li>$\mu_k$= cluster centroid $k$ ($\mu_k \in \mathbb{R}^n$)</li>
-<li>$\mu_{c_i}$= cluster centroid of cluster to which example $x^{(i)}$ has been assigned</li>
-</ul>
-<ul>
-<li>Optimization objective:</li>
-</ul>
-$$ J(c_1,\cdots,c_m,\mu_1,\cdots,\mu_k) = \frac{1}{m}\sum\limits_{i=1}^m \lVert x^{(i)}-\mu_{c_i}\rVert^2$$$$ \min\limits_{c_1,\cdots,c_m, \; \mu_1,\cdots,\mu_k} J(c_1,\cdots,c_m,\mu_1,\cdots,\mu_k)$$
+<h2 id="2.4.-K-means-Optimization-Point-of-View">2.4. K-means Optimization Point of View<a class="anchor-link" href="#2.4.-K-means-Optimization-Point-of-View">&#182;</a></h2><p>For each $x^{(i)}$, use a <em>one-hot encoding</em> to designate membership:</p>
+$$r_{nk} \in (0,1)$$<p>Let</p>
+$$r_{nk} =
+\begin{cases} 
+1, & \text{if } x^{(n)} \text{ assigned to cluster }k  \\
+0, & \text{otherwise}
+\end{cases}
+$$<p>Find cluster centers and cluster assignments minimizing (not a convex)</p>
+$$J = \sum_{n=1}^{m}\sum\limits_{k=1}^K r_{nk}\lVert x^{(n)}-\mu_{k}\rVert^2$$<p><strong>k-means algorithm</strong></p>
+<p>1) minimize $J$ with respect to $r_{nk}$, keeping $\mu_k$ fixed</p>
+<p>Now $J$ is a linear function of $r_{nk}$. We can choose $r_{nk}$ to be $1$ for whichever value of $k$ gives the minimum value of $\lVert x^{(n)}-\mu_{k}\rVert^2$. In other words, we simply assign $x^{(n)}$ to the closest cluster center.</p>
+$$r_{nk} =
+\begin{cases} 
+1, & \text{if } k = \arg \min_i \, \lVert x^{(n)}-\mu_{i}\rVert^2 \\
+0, & \text{otherwise}
+\end{cases}
+$$<p>2) minimize $J$ with respect to $\mu_k$, keeping $r_{nk}$ fixed</p>
+<p>Now $J$ is a quadratic function of $\mu_k$, and it can be minimized (via derivative)</p>
+$$2\sum_{n=1}^m r_{nk}\left( x^{(n)}-\mu_{k} \right) = 0$$<p>which we can easily solve for $\mu_k$ to give</p>
+$$\mu_k = \frac{\sum_n r_{nk}x^{(n)}}{\sum_n r_{nk}} = \text{mean}\left(\left\{ x^{(n)} \mid \text{belongs to cluster } k \right\}\right)$$
 </div>
 </div>
 </div>
@@ -1120,6 +1131,7 @@ zAAAAABJRU5ErkJggg==
 <li>Safeguarding measures:<ul>
 <li>Choose first center as one of the examples, second which is the farthest from the first, third which is the farthest from both, and so on.</li>
 <li>Try multiple initialization and choose the best result</li>
+<li>Repeat k-means several times, with different starting points</li>
 </ul>
 </li>
 </ul>
