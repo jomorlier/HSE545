@@ -285,7 +285,7 @@ $$ h_t = f \left( W x_t + U h_{t-1}\right) $$<p>$\quad \;$where $U$ is like a tr
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="3.-Recurrent-Neural-Network-in-TensorFlow">3. Recurrent Neural Network in TensorFlow<a class="anchor-link" href="#3.-Recurrent-Neural-Network-in-TensorFlow">&#182;</a></h1><ul>
-<li>RNN 구조를 이용하여 숫자를 분류하는 네트워크를 구성하는 Example</li>
+<li>RNN 구조를 이용하여 숫자를 분류하는 네트워크를 구성하는 예제</li>
 </ul>
 
 </div>
@@ -322,7 +322,10 @@ $$ h_t = f \left( W x_t + U h_{t-1}\right) $$<p>$\quad \;$where $U$ is like a tr
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="3.2.-Load-MNIST-Example">3.2. Load MNIST Example<a class="anchor-link" href="#3.2.-Load-MNIST-Example">&#182;</a></h2><ul>
-<li>MNIST 예제 데이터는 아래 링크를 통해 받을 수 있습니다.<ul>
+<li><p>RNN의 좋은 예는 아니지만 예제의 통일성을 위해서 MNIST를 사용했습니다. 이미지 데이터에서 시계열 데이터를 추출하는 방법에 주의</p>
+</li>
+<li><p>MNIST 예제 데이터는 아래 링크를 통해 받을 수 있습니다.</p>
+<ul>
 <li><a href="data_files/mnist.zip">mnist.zip</a> </li>
 </ul>
 </li>
@@ -552,11 +555,22 @@ $$ h_t = f \left( W x_t + U h_{t-1}\right) $$<p>$\quad \;$where $U$ is like a tr
 <span class="sd">    x : 대상</span>
 <span class="sd">    결과 : x가 n_steps개수로 split됨</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     
-    <span class="n">lstm_cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn_cell</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">forget_bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">state_is_tuple</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-    <span class="n">outputs</span><span class="p">,</span> <span class="n">states</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">lstm_cell</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">&#39;rnn&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">scope</span><span class="p">:</span>
+        <span class="n">lstm_cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">forget_bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">state_is_tuple</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">lstm_cell</span><span class="o">.</span><span class="n">zero_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">states</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">input_</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">step</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">scope</span><span class="o">.</span><span class="n">reuse_variables</span><span class="p">()</span>
+            <span class="n">output</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">lstm_cell</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
+   
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">weights</span><span class="p">[</span><span class="s">&#39;out&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">biases</span><span class="p">[</span><span class="s">&#39;out&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -628,7 +642,7 @@ $$ h_t = f \left( W x_t + U h_{t-1}\right) $$<p>$\quad \;$where $U$ is like a tr
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Optimize </span>
-<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 
 <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
