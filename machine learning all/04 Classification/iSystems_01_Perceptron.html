@@ -175,7 +175,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br>
-<font size='6'><b>Linear Classification</b></font><br><br></p>
+<font size='6'><b>Classification</b></font><br><br></p>
 <table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
         <td width = 60% style="border-style: hidden; border-collapse: collapse;">
@@ -196,7 +196,84 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Distance-from-a-Line">1. Distance from a Line<a class="anchor-link" href="#1.-Distance-from-a-Line">&#182;</a></h1>$$\omega = \begin{bmatrix}\omega_1 \\ \omega_2\end{bmatrix}, \, x = \begin{bmatrix}x_1\\x_2\end{bmatrix} \; \implies g(x) = \omega^Tx + \omega_0 = \omega_1x_1 + \omega_2x_2 + \omega_0$$<p><br>
+<h1 id="0.-Classification">0. Classification<a class="anchor-link" href="#0.-Classification">&#182;</a></h1><ul>
+<li>where $y$ is a discrete value<ul>
+<li>develop the classification algorithm to determine which class a new input should fall into</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>start with binary class problems<ul>
+<li>Later look at multiclass classification problem, although this is just an extension of binary classification</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>We could use linear regression<ul>
+<li>Then, threshold the classifier output (i.e. anything over some value is yes, else no)</li>
+<li>linear regression with thresholding seems to work   </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>We will learn<ul>
+<li>K-nearest neighbors</li>
+<li>perceptron</li>
+<li>support vector machine</li>
+<li>logistic regression</li>
+</ul>
+</li>
+</ul>
+<h1 id="1.-K-nearest-neighbors">1. K-nearest neighbors<a class="anchor-link" href="#1.-K-nearest-neighbors">&#182;</a></h1><ul>
+<li>Build a classifier $C(X)$ that assigns a class label from $C$ to a future unlabeled observation $X$</li>
+</ul>
+<p>Is there an ideal $C(X)$ ? Suppose there are 2 elements in $C \in \{0,1 \}$
+<img src = "./image_files/neighborhood_classifier.png" width=500></p>
+<p>Nearest-neighbor averaging can be used (k-nearest neighbors, KNN)</p>
+<p><img src = "./image_files/neighborhood_classifier_2.png" width=500></p>
+<p>KNN</p>
+<p><img src = "./image_files/KNN 1_100.png" width=500></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/4ObVzTuFivY&quot;</span>
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/4ObVzTuFivY"
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.-Distance-from-a-Line">2. Distance from a Line<a class="anchor-link" href="#2.-Distance-from-a-Line">&#182;</a></h1>$$\omega = \begin{bmatrix}\omega_1 \\ \omega_2\end{bmatrix}, \, x = \begin{bmatrix}x_1\\x_2\end{bmatrix} \; \implies g(x) = \omega^Tx + \omega_0 = \omega_1x_1 + \omega_2x_2 + \omega_0$$<p><br>
 <img src="./image_files/line_dist01.jpg", width = 500>
 <br></p>
 
@@ -265,45 +342,9 @@ $$s = \left\langle\frac{\omega}{\lVert \omega \rVert}, x_2 - x_1 \right\rangle =
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Supervised-Learning">2. Supervised Learning<a class="anchor-link" href="#2.-Supervised-Learning">&#182;</a></h1><p><br>
+<h1 id="3.-Supervised-Learning">3. Supervised Learning<a class="anchor-link" href="#3.-Supervised-Learning">&#182;</a></h1><p><br>
 <img src="./image_files/perceptron01.png", width=600>
 <br></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-Classification">3. Classification<a class="anchor-link" href="#3.-Classification">&#182;</a></h1><ul>
-<li>where $y$ is a discrete value<ul>
-<li>develop the classification algorithm to determine which class a new input should fall into</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>start with binary class problems<ul>
-<li>Later look at multiclass classification problem, although this is just an extension of binary classification</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>We could use linear regression<ul>
-<li>Then, threshold the classifier output (i.e. anything over some value is yes, else no)</li>
-<li>linear regression with thresholding seems to work   </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>We will learn<ul>
-<li>perceptron</li>
-<li>support vector machine</li>
-<li>logistic regression</li>
-</ul>
-</li>
-</ul>
 
 </div>
 </div>
@@ -1772,9 +1813,111 @@ AABJRU5ErkJggg==
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.-Decision-Tree-and-Random-Forest-(Optional)">5. Decision Tree and Random Forest (Optional)<a class="anchor-link" href="#5.-Decision-Tree-and-Random-Forest-(Optional)">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/eKD5gxPPeY0?list=PLBv09BD7ez_4temBw7vLA19p3tdQH6FYO&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/eKD5gxPPeY0?list=PLBv09BD7ez_4temBw7vLA19p3tdQH6FYO" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/SXBG3RGr_Rc&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/SXBG3RGr_Rc" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/L7R4HUQ-eQ0?start=7437&amp;end=9313&quot;</span> 
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/L7R4HUQ-eQ0?start=7437&end=9313" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
