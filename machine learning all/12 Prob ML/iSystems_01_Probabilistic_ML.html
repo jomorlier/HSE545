@@ -483,9 +483,201 @@ $$\hat{\omega}_{MAP} = arg\min_{\omega}\sum\limits^m_{n=1}\log[1 + \exp(-y\omega
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's consider a generative model for the data</p>
+<p>Suppose</p>
+<ul>
+<li>there are $k$ clusters</li>
+<li>we have a probability density for each cluster</li>
+</ul>
+<p>Generate a point as follows</p>
+<p>$\;\;$1) Choose a random cluster $z \in \{1,2,\cdots,k\}$</p>
+$$
+\begin{align*}
+&Z \sim \left( \pi_1, \cdots, \pi_k\right) \\
+&p(z_i = 1) = \pi_i \;, \quad
+\sum_{i=1}^{k} \pi_i =1
+\end{align*}
+$$<p>$\;\;$2) Choose a point from the distribution for cluster $Z$</p>
+$$\left(X \mid Z = z \right) \sim p(x \mid z)$$<h2 id="3.1.-Gaussian-Mixture-Model">3.1. Gaussian Mixture Model<a class="anchor-link" href="#3.1.-Gaussian-Mixture-Model">&#182;</a></h2><p>For example, $k = 3$</p>
+<p>$\;\;$1) Select $Z \in \{1,2,3\} \sim \left(\frac{1}{3},\frac{1}{3},\frac{1}{3} \right)$</p>
+<p>$\;\;$2) Sample from $\left(X \mid Z = z \right) \sim N(x \mid \mu_k, \Sigma_k)$</p>
+<p><img src = "./image_files/GMM.png" width=500></p>
+<p>Example: generating data from two Gaussians</p>
+$$
+\begin{align*}
+\mu_1 &= \begin{bmatrix} 3\\3 \end{bmatrix}, & \Sigma_1 &= \begin{bmatrix}1 & 0 \\ 0 & 2 \end{bmatrix} \\
+\mu_2 &= \begin{bmatrix} 1\\-3 \end{bmatrix}, & \Sigma_2 &= \begin{bmatrix}2 & 0 \\ 0 & 1 \end{bmatrix}
+\end{align*}
+$$$$\begin{bmatrix} \pi_1 &\pi_2 \end{bmatrix} = \begin{bmatrix} 0.7 & 0.3\end{bmatrix}$$<p><img src = "./image_files/twoGMM.jpg" width=500></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1.1.-Latent-Variable-Model">3.1.1. Latent Variable Model<a class="anchor-link" href="#3.1.1.-Latent-Variable-Model">&#182;</a></h3><ul>
+<li><p>Back in reality, we observe $X$, not $(X,Z)$</p>
+</li>
+<li><p>Cluster assignemnt $Z$ is called a hidden variable</p>
+</li>
+<li><p>A latent variable model is a probability model for which certain variables are never observed.</p>
+</li>
+</ul>
+<p>Model-based clustering</p>
+<ul>
+<li><p>we observe $X = x$</p>
+</li>
+<li><p>The conditional distribution is a soft assignment to clusters</p>
+</li>
+</ul>
+$$p(z \mid X = x) = \frac{p(x,z)}{p(x)}$$<ul>
+<li>A hard assignment is </li>
+</ul>
+$$z^* = \arg \min_{z \in (1,\cdots,k)} \mathbb{P}(Z = z \mid X = x)$$<p>Estimating/Learning the Gaussian Mixture Model (GMM)</p>
+<ul>
+<li>What does it mean to "have" or "know" the GMM? It means we know the following parameters:</li>
+</ul>
+$$
+\begin{align*}
+\text{Cluster probabilities} && \pi &= (\pi_1,\cdots,\pi_k) \\
+\text{Cluster means} && \mu &= (\mu_1,\cdots,\mu_k)\\
+\text{Cluster covariance matrices} && \Sigma &= (\Sigma_1,\cdots,\Sigma_k)
+\end{align*}
+$$<ul>
+<li>We have a probability model: let's find the MLE<ul>
+<li>Suppose we have data $D = \{x_1,\cdots,x_m\}$</li>
+<li>We need the model likelihood for $D$</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Since we only observe $X$, we need the marginal distribution:</li>
+</ul>
+$$p(x) = \sum_{z=1}^{k}p(x,z)=\sum_{z=1}^{k}\pi_z \,N(x \mid \mu_z, \Sigma_z)$$<ul>
+<li>The model likelihood for $D = \{x_1,\cdots,x_m\}$ is </li>
+</ul>
+$$L(\pi,\mu,\Sigma) = \prod_{i=1}^{m} p(x_i) = \prod_{i=1}^{m} \sum_{z=1}^{k}\pi_z \,N(x \mid \mu_z, \Sigma_z)$$<ul>
+<li>As usual, we will take our objective function to be the log of this:</li>
+</ul>
+$$J(\pi,\mu,\Sigma) = \sum_{i=1}^{m} \log \left\{ \sum_{z=1}^{k}\pi_z \,N(x \mid \mu_z, \Sigma_z) \right\}$$<ul>
+<li>The log-likelihood for a single Gaussian:</li>
+</ul>
+$$\sum_{i=1}^{m} \log  \,N(x \mid \mu, \Sigma) = -\frac{md}{2} \log(2\pi) - \frac{m}{2} \log \lvert \Sigma\rvert -\frac{1}{2} \sum_{i=1}^{m} (x_i-\mu)^{T}\Sigma^{-1}(x_i-\mu)$$<ul>
+<li>For a single Gaussian, the log cancels the $\exp$ in the Gaussian density $\implies$ things simplify a lot.</li>
+</ul>
+<ul>
+<li>For the GMM, the sum inside the log prevents this cancellation $\implies$ No closed form expression for MLE</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1.2.-MLE-for-a-Single-Gaussian-Model">3.1.2. MLE for a Single Gaussian Model<a class="anchor-link" href="#3.1.2.-MLE-for-a-Single-Gaussian-Model">&#182;</a></h3><ul>
+<li><p>Let's start by considering MLE for the <em>single</em> Gaussian model</p>
+</li>
+<li><p>For data $D = \{x_1,\cdots,x_m\}$, the log likelihood is given by</p>
+</li>
+</ul>
+$$\sum_{i=1}^{m} \log  \,N(x \mid \mu, \Sigma) = -\frac{md}{2} \log(2\pi) - \frac{m}{2} \log \lvert \Sigma\rvert -\frac{1}{2} \sum_{i=1}^{m} (x_i-\mu)^{T}\Sigma^{-1}(x_i-\mu)$$<ul>
+<li>With some calculus, we find that the MLE parameters are</li>
+</ul>
+$$
+\begin{align*}
+\mu_{\text{MLE}} &= \frac{1}{m} \sum_{i=1}^{m} x_i\\ 
+\Sigma_{\text{MLE}} &= \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu_{\text{MLE}})(x_i - \mu_{\text{MLE}})^T\\
+\end{align*}
+$$<ul>
+<li>For GMM, if we know the cluster assignment $z_i$ for each $x_i$, we could compute the MLEs for each cluster</li>
+</ul>
+<h3 id="3.1.3.-Cluster-Responsibilities">3.1.3. Cluster Responsibilities<a class="anchor-link" href="#3.1.3.-Cluster-Responsibilities">&#182;</a></h3><ul>
+<li>Denote the probability that observed value $x_i$ comes from cluster $j$ by</li>
+</ul>
+$$\gamma_{i}^{j} = \mathbb{P}(Z = j \mid X = x_i)$$<ul>
+<li><p>The responsibility that cluster $j$ takes for obervation $x_i$</p>
+</li>
+<li><p>Computationally</p>
+</li>
+</ul>
+$$
+\begin{align*}
+\gamma_{i}^{j} &= \mathbb{P}(Z = j \mid X = x_i)\\ \\
+& = \frac{p(Z=j, X=x_i)}{p(x)}\\ \\
+& = \frac{\pi_j N(x_i \mid \mu_j, \Sigma_j)}{\sum_{c=1}^{k} \pi_c N(x_i \mid \mu_c, \Sigma_c)}
+\end{align*}
+$$<ul>
+<li>The vector $\left(\gamma_{i}^{1},\cdots,\gamma_{i}^{k}\right)$ is exactly the soft assignment for $x_i$</li>
+</ul>
+<h2 id="3.2.-EM-Algorithm-for-GMM">3.2. EM Algorithm for GMM<a class="anchor-link" href="#3.2.-EM-Algorithm-for-GMM">&#182;</a></h2><p>1) Initialize parameters $\mu, \Sigma, \pi$</p>
+<p>2) "E step": Evaluate the responsibilities using current parameters</p>
+$$\gamma_{i}^{j} = \frac{\pi_j N(x_i \mid \mu_j, \Sigma_j)}{\sum_{c=1}^{k} \pi_c N(x_i \mid \mu_c, \Sigma_c)}$$<p>$\;\;\,$for $i=1,\cdots,m$ and $j=1,\cdots,k$</p>
+<p>3) "M step": Re-estimate the parameters using responsibilites:</p>
+$$
+\begin{align*}
+\mu_{\text{c}}^{\text{new}} &= \frac{1}{m_c} \sum_{i=1}^{m} \gamma_{i}^{c}x_i\\ 
+\Sigma_{\text{c}}^{\text{new}} &= \frac{1}{m_c} \sum_{i=1}^{m} \gamma_{i}^{c}\,(x_i - \mu_{\text{MLE}})(x_i - \mu_{\text{MLE}})^T\\
+\pi_{c}^{\text{new}} &= \frac{m_c}{m} = \frac{\sum_{i=1}^{m}\gamma_{i}^{c}}{m}
+\end{align*}
+$$<p>4) Repeat from Step 2, until log-likelihood converges</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span class="c">%%html</span>
+<span class="o">&lt;</span><span class="nb">center</span><span class="o">&gt;&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="p">=</span><span class="s">&quot;https://www.youtube.com/embed/PejHsxneli8&quot;</span>
+<span class="n">width</span><span class="p">=</span><span class="s">&quot;560&quot;</span> <span class="n">height</span><span class="p">=</span><span class="s">&quot;315&quot;</span> <span class="n">frameborder</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;&lt;/</span><span class="nb">center</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/PejHsxneli8"
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="4.-Probabilistic-Dimension-Reduction">4. <em>Probabilistic</em> Dimension Reduction<a class="anchor-link" href="#4.-Probabilistic-Dimension-Reduction">&#182;</a></h1><h2 id="4.1.-Probabilistic-PCA">4.1. <em>Probabilistic</em> PCA<a class="anchor-link" href="#4.1.-Probabilistic-PCA">&#182;</a></h2><h2 id="4.2.-Gaussian-Process-Latent-Variable-Models-(GPLVM)">4.2. Gaussian Process Latent Variable Models (GPLVM)<a class="anchor-link" href="#4.2.-Gaussian-Process-Latent-Variable-Models-(GPLVM)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-octave"><pre><span class="c">%%javascript</span>
