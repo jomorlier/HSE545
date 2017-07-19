@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>01 PHMAP - ANN</title>
+<title>01 phmap - ann</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -175,7 +175,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br>
-<font size='6'><b>Artificial Neural Networks
+<font size='6'><b>Artificial Neural Networks (ANN)
 </b></font><br><br></p>
 <table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
@@ -229,12 +229,12 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Muchine-Learning-and-Deep-Learning">1. Muchine Learning and Deep Learning<a class="anchor-link" href="#1.-Muchine-Learning-and-Deep-Learning">&#182;</a></h1><p><strong>Machine Learning</strong></p>
+<h1 id="1.-Machine-Learning-and-Deep-Learning">1. Machine Learning and Deep Learning<a class="anchor-link" href="#1.-Machine-Learning-and-Deep-Learning">&#182;</a></h1><p><strong>Machine Learning</strong></p>
 <ul>
 <li>Hand-crafted features</li>
 <li>Depends on expertise</li>
 </ul>
-<p><strong>Deep learning</strong></p>
+<p><strong>Deep Learning</strong></p>
 <ul>
 <li>Automatic feature extraction</li>
 <li>Depends on network structure</li>
@@ -249,7 +249,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Artificial-Neural-Networks">2. Artificial Neural Networks<a class="anchor-link" href="#2.-Artificial-Neural-Networks">&#182;</a></h1><p><strong>Multi Layer Perceptrons (MLPs)</strong></p>
+<h1 id="2.-Artificial-Neural-Networks">2. Artificial Neural Networks<a class="anchor-link" href="#2.-Artificial-Neural-Networks">&#182;</a></h1><p><strong>= Multi Layer Perceptrons (MLPs)</strong></p>
 <p><strong>Transformation</strong></p>
 <ul>
 <li>Affine (or linear) transformation and nonlinear activation (layer)</li>
@@ -275,6 +275,7 @@ $$ f(x) = g\left(\theta^{T}x + b\right) $$<ul>
         </td>
     </tr>
 </table>
+<br>
 <strong>Deep Network</strong></p>
 <ul>
 <li>Apply multiple layers 
@@ -303,17 +304,17 @@ $$  f(x) = f^{(3)}(f^{(2)}(f^{(1)}(x))) $$</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Cost Function</strong></p>
+<p><strong>Loss Function</strong></p>
 <ul>
 <li>Measures error between target values and predictions</li>
 <li>More or less the same as those for other parametric models, such as linear models</li>
 </ul>
 $$ \min_{\theta} \sum_{i=1}^{m}\ell\left( h_{\theta}\left(x^{(i)}\right),y^{(i)}\right)$$<ul>
 <li>Example<ul>
-<li>Cross entropy :
-$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^{(i)})\log(1-h_{\theta}\left(x^{(i)}\right))$</li>
-<li>Squared loss :
-$  \frac{1}{N} \sum_{i=1}^{N} (h_{\theta}\left(x^{(i)}\right) - y^{(i)})^2 $</li>
+<li>Cross entropy:
+$$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^{(i)})\log(1-h_{\theta}\left(x^{(i)}\right))$$</li>
+<li>Squared loss:
+$$  \frac{1}{N} \sum_{i=1}^{N} (h_{\theta}\left(x^{(i)}\right) - y^{(i)})^2 $$</li>
 </ul>
 </li>
 </ul>
@@ -332,7 +333,7 @@ $  \frac{1}{N} \sum_{i=1}^{N} (h_{\theta}\left(x^{(i)}\right) - y^{(i)})^2 $</li
 <p><strong>(Stochastic) Gradient Descent</strong></p>
 <ul>
 <li>Negative gradients points directly downhill of cost function</li>
-<li>We can decrease cost by moving in the direction of the negative gradient ($\alpha$ is learning rate)</li>
+<li>We can decrease cost by moving in the direction of the negative gradient ($\alpha$ is a learning rate)</li>
 </ul>
 $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\right),y^{(i)}\right)$$<table style="border-style: hidden; border-collapse: collapse;" width = "96%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
@@ -353,8 +354,15 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="4.-ANN-with-TensorFlow">4. ANN with TensorFlow<a class="anchor-link" href="#4.-ANN-with-TensorFlow">&#182;</a></h1><ul>
-<li>with MNIST data</li>
+<li>MNIST (Mixed National Institute of Standards and Technology database) database<ul>
+<li>Handwritten digit database</li>
+<li>$28 \times 28$ gray scaled image</li>
+<li>Flattened array into a vector of $28 \times 28 = 784$</li>
 </ul>
+</li>
+</ul>
+<p><img src="./image_files/mnist_digits.png" width = 450></p>
+<p><img src="./image_files/MNIST-Matrix.png" width = 450></p>
 
 </div>
 </div>
@@ -365,7 +373,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br>
-<img src="./image_files/MNIST_neuralnet_image.png" width = 450>
+<img src="./image_files/MNIST_neuralnet_image.png" width = 500>
 <br></p>
 
 </div>
@@ -401,25 +409,6 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>MNIST (Mixed National Institute of Standards and Technology database) database<ul>
-<li>Handwritten digit database</li>
-<li>$28 \times 28$ gray scaled image</li>
-<li>Flattened array into a vector of 28x28 = 784</li>
-</ul>
-</li>
-</ul>
-<p><img src="./image_files/mnist_digits.png" width = 450></p>
-<p><img src="./image_files/MNIST-Matrix.png" width = 450></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -479,8 +468,8 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 <span class="n">trainlabels</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span>
 <span class="n">testimgs</span>    <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span>
 <span class="n">testlabels</span>  <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span>
-<span class="n">n_train</span>      <span class="o">=</span> <span class="n">trainimgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">n_test</span>       <span class="o">=</span> <span class="n">testimgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_train</span>     <span class="o">=</span> <span class="n">trainimgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_test</span>      <span class="o">=</span> <span class="n">testimgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;Packages loaded&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;The number of trainimgs : {}, shape : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_train</span><span class="p">,</span> <span class="n">trainimgs</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;The number of testimgs : {}, shape : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_test</span><span class="p">,</span> <span class="n">testimgs</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -513,7 +502,7 @@ The number of testimgs : 10000, shape : (10000, 784)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">trainimgs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="s">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">trainimgs</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="s">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -532,35 +521,37 @@ The number of testimgs : 10000, shape : (10000, 784)
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
-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
+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
+AcK6kJGx81nXAAAAAElFTkSuQmCC
 "
 >
 </div>
@@ -576,7 +567,7 @@ kEbBIY2CQxoFh7S/AcorZMLa1R7+AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="p">(</span><span class="s">&#39;Train labels : {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trainlabels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]))</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="p">(</span><span class="s">&#39;Train labels : {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trainlabels</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]))</span>
 </pre></div>
 
 </div>
@@ -589,7 +580,7 @@ kEbBIY2CQxoFh7S/AcorZMLa1R7+AAAAAElFTkSuQmCC
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Train labels : [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+<pre>Train labels : [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
 </pre>
 </div>
 </div>
@@ -603,7 +594,7 @@ kEbBIY2CQxoFh7S/AcorZMLa1R7+AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.3.-Build-Model">4.3. Build Model<a class="anchor-link" href="#4.3.-Build-Model">&#182;</a></h2>
+<h2 id="4.3.-Build-a-Model">4.3. Build a Model<a class="anchor-link" href="#4.3.-Build-a-Model">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -643,7 +634,7 @@ $$y_j = \left(\sum\limits_i \omega_{ij}x_i\right) + b_j$$$$\mathcal{y} = \mathca
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Second, each linear activation is run through a nonlinear activation function </strong></p>
+<p><strong> Second, each linear activation is running through a nonlinear activation function </strong></p>
 <p><img src="./image_files/ReLU.png" width = 500></p>
 
 </div>
@@ -687,12 +678,12 @@ $$y_j = \left(\sum\limits_i \omega_{ij}x_i\right) + b_j$$$$\mathcal{y} = \mathca
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.4.-Define-ANN-Shape">4.4. Define ANN Shape<a class="anchor-link" href="#4.4.-Define-ANN-Shape">&#182;</a></h2><ul>
+<h2 id="4.4.-Define-an-ANN-Shape">4.4. Define an ANN Shape<a class="anchor-link" href="#4.4.-Define-an-ANN-Shape">&#182;</a></h2><ul>
 <li>Input size</li>
 <li>Hidden layer size</li>
 <li>The number of classes</li>
 </ul>
-<p><img src="./image_files/MNIST_neuralnet_image.png" width = 450>
+<p><img src="./image_files/MNIST_neuralnet_image.png" width = 500>
 <br></p>
 
 </div>
@@ -866,7 +857,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.9.-Optimize">4.9. Optimize<a class="anchor-link" href="#4.9.-Optimize">&#182;</a></h2>
+<h2 id="4.9.-Optimization">4.9. Optimization<a class="anchor-link" href="#4.9.-Optimization">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -882,9 +873,10 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 <span class="c"># Training cycle</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
     <span class="n">batch_x</span><span class="p">,</span> <span class="n">batch_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span> 
+    
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;Iter : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">))</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;Cost : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 </pre></div>
@@ -900,25 +892,25 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Iter : 0
-Cost : 2.4353132247924805
+Cost : 2.4451746940612793
 Iter : 250
-Cost : 1.3721442222595215
+Cost : 1.2966125011444092
 Iter : 500
-Cost : 0.8811710476875305
+Cost : 0.8489342331886292
 Iter : 750
-Cost : 0.6731748580932617
+Cost : 0.6071790456771851
 Iter : 1000
-Cost : 0.3319075405597687
+Cost : 0.4588173031806946
 Iter : 1250
-Cost : 0.4754377007484436
+Cost : 0.3541680574417114
 Iter : 1500
-Cost : 0.30339592695236206
+Cost : 0.5749586224555969
 Iter : 1750
-Cost : 0.4988851249217987
+Cost : 0.4190523624420166
 Iter : 2000
-Cost : 0.43206578493118286
+Cost : 0.2946029305458069
 Iter : 2250
-Cost : 0.4071003794670105
+Cost : 0.2077590823173523
 </pre>
 </div>
 </div>
@@ -938,7 +930,7 @@ Cost : 0.4071003794670105
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -968,38 +960,33 @@ Cost : 0.4071003794670105
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO4AAADuCAYAAAA+7jsiAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-AAALEgAACxIB0t1+/AAABuJJREFUeJzt3c+LzX0fx/HvkZKrFCs/wr2RlYWxobCRhYyF3fwBGFkg
-K8mPDSuFHYUppSxNjSilsaLZUBbyayVi4bahLEjnXt0L5by/M3Nm7pnX3I/H9nW+43uNntf3qs91
-zul0u90GyLJorm8AmDrhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQqDFU3lxp9Pxv1nBLOt2u52213ji
-QiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDhQiDh
-QiDhQqApfcoj07NkyZJyf/LkSc9tYGCgvPbevXvlvn///nInkycuBBIuBBIuBBIuBBIuBBIuBBIu
-BHKOOwPazmmvXLlS7ps3b+65dbv1FyQ+e/as3FmYPHEhkHAhkHAhkHAhkHAhkHAhkHAhkHPcGXDs
-2LFyHx4eLvfx8fGe27lz58prJyYmyp2FyRMXAgkXAgkXAgkXAgkXAgkXAgkXAjnHnQGrVq3q6/pH
-jx713JzT8jeeuBBIuBBIuBBIuBBIuBBIuBDIcdAMWLZsWbn/+vWr3KvjIPgbT1wIJFwIJFwIJFwI
-JFwIJFwIJFwI1Gn7Gsc/XtzpTP7FC8iaNWvK/cOHD+X+9OnTct+5c+eU74mFq9vtdtpe44kLgYQL
-gYQLgYQLgYQLgYQLgYQLgbwfdxLOnDkz17cQadu2beW+bt26af/sFy9elPvbt2+n/bMTeOJCIOFC
-IOFCIOFCIOFCIOFCIOFCIOe4kzA4ONjX9SMjIzN0J/97165d67m1/V5WrFhR7kuXLp3WPTVN03z7
-9q3cr1y5Uu7nz5+f9p89H3jiQiDhQiDhQiDhQiDhQiDhQiDhQiCfq9w0zT///FPu7969K/ffv3+X
-+/r166d8T5O1eHF9FL9ly5ZyHx0dLfdVq1b13BYtqv+9/+XLl3J/8uRJuVf33vY7/fjxY7nv2LGj
-3N+/f1/us8nnKsMCJVwIJFwIJFwIJFwIJFwI5G19TdMcPHiw3FeuXFnu169fn8nb+UPbV3wODw+X
-e78fLfvp06ee2+3bt8trr169Wu5tRzaVsbGxct+7d2+5r169utzn8jhoMjxxIZBwIZBwIZBwIZBw
-IZBwIZBwIZBz3KZpBgYG+rq+7W1//Wg7hz18+HC5t71tc3x8vNxPnDjRc3v58mV57Wyazd95Ak9c
-CCRcCCRcCCRcCCRcCCRcCCRcCOQct2l/z+ts27hxY89taGior59948aNcj9+/Hi5//z5s68/f648
-f/68r32+88SFQMKFQMKFQMKFQMKFQMKFQMKFQM5xm6ZZtmxZuXc6rd962JejR4/23JYvX15ee+fO
-nXI/cuTItO5pvmv7O/v161e5p55P/5cnLgQSLgQSLgQSLgQSLgQSLgQSLgRyjtu0f/Zw296v6rta
-2/7stu95TVa9T/rAgQPltXfv3p3p25lXPHEhkHAhkHAhkHAhkHAhkHAhkOOgeaD6qszt27eX17bt
-p06dKvfr16+X+9evX8t9NlVHOj9+/CivvXTp0kzfzrziiQuBhAuBhAuBhAuBhAuBhAuBhAuB/m/O
-cau3iM31W+Oqs9ItW7aU146NjZX7+fPny33Pnj3lvm/fvp7b9+/fp31t0zTNmTNnyn1gYKDnduHC
-hfLaiYmJck/niQuBhAuBhAuBhAuBhAuBhAuBhAuBOlP56NFOpzO7n1M6Rx4+fFjuu3fvLvcHDx6U
-+9DQULm3vbe0H21nqa9evSr36usoz549W17b9hGqbf/cFy9e7Lm1nU8n63a7rd/r6okLgYQLgYQL
-gYQLgYQLgYQLgYQLgZzjNk2zdu3acr9//365b9q0qdyfPn1a7pcvX+65ff78uby2zeDgYLnv2rWr
-3Ldu3dpz63Tq48Y3b96U++nTp8t9dHS03Bcq57iwQAkXAgkXAgkXAgkXAgkXAjkOmoS2j299/Phx
-uW/YsGEmb+cPbUcyU/n7napbt26V+8mTJ8t9Lr/Ccz5zHAQLlHAhkHAhkHAhkHAhkHAhkHAhkHPc
-GbB8+fJyb/t41uqc99ChQ+W1N2/eLPd+z3FHRkZ6bq9fv+7rZ/N3znFhgRIuBBIuBBIuBBIuBBIu
-BBIuBHKOC/OMc1xYoIQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQL
-gYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQL
-gYQLgYQLgYQLgRZP8fX/bprm/WzcCNA0TdP8azIv6nS73dm+EWCG+U9lCCRcCCRcCCRcCCRcCCRc
-CCRcCCRcCCRcCPQfq1w8jcQrEwcAAAAASUVORK5CYII=
+AAALEgAACxIB0t1+/AAABcFJREFUeJzt3c+rTH8cx/GZLxbKBlEWXGVlIz9SCnVlI5buv8BGNuqu
+7S1t/AU2SllIUhQLLFgIiVBfJOXbtUAJdb7/gPOeO3Pduec183hsX3PmezbPzrc+zp1+0zQ9IMs/
+K30DwPCEC4GEC4GEC4GEC4GEC4GEC4GEC4GEC4FWD/Phfr/vn1nBMmuapj/oM564EEi4EEi4EEi4
+EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4
+EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4
+EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EEi4EGj1St/AuMzNzbVup06dKq/9+PFjuf/48aPc
+L1++XO6fPn1q3V6/fl1ey3TyxIVAwoVAwoVAwoVAwoVAwoVAwoVA/aZpFv/hfn/xH+6Yt2/ftm7b
+t28f3438wdevX1u358+fj/FOuuXDhw+t24ULF8prHz169LdvZ2yapukP+ownLgQSLgQSLgQSLgQS
+LgQSLgQSLgSamvdxq3dud+3aVV774sWLct+5c2e57927t9xnZ2dbtwMHDpTXvn//vty3bt1a7kvx
++/fvcv/8+XO5b9myZeT/9rt378o9+Rx3MTxxIZBwIZBwIZBwIZBwIZBwIZBwIdDUvI/bZevXr2/d
+du/eXV77+PHjct+/f/9I97QYg/6e9KtXr8p90Pn4hg0bWrczZ86U1166dKncu8z7uDChhAuBhAuB
+hAuBhAuBhAuBhAuBnOOybE6ePFnuV65cKfdnz561bkeOHCmvXVhYKPcuc44LE0q4EEi4EEi4EEi4
+EEi4EMhxECPbvHlzuT99+nRJ18/NzbVuV69eLa9N5jgIJpRwIZBwIZBwIZBwIZBwIZBwIdDU/Mwm
+f9+gP5G6adOmcv/y5Uu5v3z5cuh7mhaeuBBIuBBIuBBIuBBIuBBIuBBIuBDI+7iUDh482LrduXOn
+vHbNmjXlPjs7W+737t0r90nlfVyYUMKFQMKFQMKFQMKFQMKFQMKFQN7HpXT8+PHWbdA57e3bt8v9
+wYMHI90TnrgQSbgQSLgQSLgQSLgQSLgQSLgQyDnulFu7dm25Hzt2rHX7+fNnee358+fL/devX+VO
+O09cCCRcCCRcCCRcCCRcCCRcCOQ4aMrNz8+X+549e1q3mzdvltfev39/pHtiME9cCCRcCCRcCCRc
+CCRcCCRcCCRcCORnNifciRMnyv3atWvl/v3799ateuWv1+v1Hj58WO78mZ/ZhAklXAgkXAgkXAgk
+XAgkXAgkXAjkfdxwGzduLPeLFy+W+6pVq8r9xo0brZtz2pXjiQuBhAuBhAuBhAuBhAuBhAuBhAuB
+vI/bcYPOWQedpe7bt6/c37x5U+7VO7eDrmU03seFCSVcCCRcCCRcCCRcCCRcCOS1vo7bsWNHuQ86
+7hnk3Llz5e7Ip5s8cSGQcCGQcCGQcCGQcCGQcCGQcCGQc9wOmJmZad1u3bq1pO+en58v9+vXry/p
++1kZnrgQSLgQSLgQSLgQSLgQSLgQSLgQyDluB5w+fbp127Zt25K+++7du+U+zJ/npTs8cSGQcCGQ
+cCGQcCGQcCGQcCGQcCGQc9wxOHToULmfPXt2THfCpPDEhUDChUDChUDChUDChUDChUDChUDOccfg
+8OHD5b5u3bqRv3vQ79d++/Zt5O+muzxxIZBwIZBwIZBwIZBwIZBwIZDjoI578uRJuR89erTcFxYW
+/ubt0BGeuBBIuBBIuBBIuBBIuBBIuBBIuBCoP8zPLPb7fb/JCMusaZr+oM944kIg4UIg4UIg4UIg
+4UIg4UIg4UKgYd/H/a/X6/27HDcC9Hq9Xm9mMR8a6h9gAN3gf5UhkHAhkHAhkHAhkHAhkHAhkHAh
+kHAhkHAh0P+3hvAOqLIqvgAAAABJRU5ErkJggg==
 "
 >
 </div>
@@ -1008,8 +995,8 @@ CCRcCCRcCCRcCPQfq1w8jcQrEwcAAAAASUVORK5CYII=
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Prediction : 6
-Probability : [ 0.02  0.    0.07  0.01  0.01  0.01  0.79  0.    0.09  0.  ]
+<pre>Prediction : 7
+Probability : [ 0.    0.    0.    0.    0.    0.    0.    0.99  0.    0.  ]
 </pre>
 </div>
 </div>
@@ -1020,7 +1007,7 @@ Probability : [ 0.02  0.    0.07  0.01  0.01  0.01  0.79  0.    0.09  0.  ]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="nx">javascript</span>

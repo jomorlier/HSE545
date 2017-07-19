@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>02 PHMAP - CNN</title>
+<title>02 phmap - cnn</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -175,7 +175,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br>
-<font size='6'><b>Convolutional Neural Network
+<font size='6'><b>Convolutional Neural Networks (CNN)
 </b></font><br><br></p>
 <table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
@@ -211,7 +211,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import libraries</span>
@@ -229,7 +229,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import image</span>
@@ -251,7 +251,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Plot</span>
@@ -1550,7 +1550,7 @@ sRAkhRZaaKGFFlpood3HQpAUWmihhRZaaKGFdh/7/wA18DaIvjlkKQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-CNN-with-Tensorflow">2. CNN with Tensorflow<a class="anchor-link" href="#2.-CNN-with-Tensorflow">&#182;</a></h1><ul>
+<h1 id="2.-CNN-with-TensorFlow">2. CNN with TensorFlow<a class="anchor-link" href="#2.-CNN-with-TensorFlow">&#182;</a></h1><ul>
 <li>MNIST example </li>
 <li>Classifying hand written digits</li>
 </ul>
@@ -1603,7 +1603,7 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import Library</span>
@@ -1640,7 +1640,7 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">six.moves</span> <span class="k">import</span> <span class="n">cPickle</span>
@@ -1680,11 +1680,11 @@ The number of testimgs : 10000, shape : (10000, 784)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Check data</span>
-<span class="n">sample</span> <span class="o">=</span> <span class="n">trainimgs</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">trainimgs</span><span class="p">[</span><span class="mi">9</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="s">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
@@ -1705,35 +1705,31 @@ The number of testimgs : 10000, shape : (10000, 784)
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALgAAAC4CAYAAABQMybHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-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
+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
+EaDqz2/fABAkAoc0Aoc0Aoc0Aoc0Aoc0Aoc0Aoc0Aoe0Ej8XRyIR/rcn8objOJHvruEJDmkEDmkE
+DmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkE
+DmkEDmkEDmkEDmkEDmkEDmm+PpsQwZqamjL3ZDJp7vf390HejgSe4JBG4JBG4JBG4JBG4JDGKUqA
+/vyxnx+JRMLcJyYmzL2xsdHch4eHf3ZjIcITHNIIHNIIHNIIHNIIHNI4RQnQ5OSkuc/Ozvp6neXl
+5VzcjikWi5l7a2trYH/m1tZWYK/9N57gkEbgkEbgkEbgkEbgkBZxHCf7iyOR7C8OkY6ODnPf29sz
+95qaGl+vPzY2Zu4vLy+uzevkpqGhwdxLS0vNvaKiIrub+8/5+bm5f319uTavf19+OY4T+e4anuCQ
+RuCQRuCQRuCQRuCQximKD21tbea+v79v7nV1dUHeji+ZTMbc19bWzP319dXcj4+PzX1zc9PcrVOU
+XOEUBaFH4JBG4JBG4JBG4JDGO3o8NDU1ubaVlRXz2qBPS7zeAfP5+enavD6J1ut3RdLp9M9vrADw
+BIc0Aoc0Aoc0Aoe00P+Q6fWL/aOjo67N7y/qHx0dmfv09LSv17m6ujJ3vsLkezzBIY3AIY3AIY3A
+IY3AIS30b3jw+pDJVCrl2qLRaNC3Y3p+fjb3p6cn1zYwMGBee3JyktN7yge84QGhR+CQRuCQRuCQ
+RuCQFvpTFC/r6+uura+vz7x2bm7O3O/u7sy9vb3d3CMR+1CgsrLS3Ht7e12b14lLV1eXuZ+enpp7
+IeAUBaFH4JBG4JBG4JBG4JAW+nf0eOnv7//tW/iW9Y6hzs5O89p4PG7uhXyKkg2e4JBG4JBG4JBG
+4JBG4JDGKUoBe39/z/ra7u5uc5+ZmTH3IL965P/EExzSCBzSCBzSCBzSCBzSOEUpYGdnZ67N6507
+XkpK7AQ4RQEKAIFDGoFDGoFDGoFDGqcoBaCqqsrce3p6sn6NnZ0dc89kMj+6p0LBExzSCBzSCBzS
+CBzS8v6HTK+PQbi8vDT3t7e3IG/nV6ysrJh7fX191q/h9UOmOp7gkEbgkEbgkEbgkEbgkJb3pyjb
+29vmPj8/b+6rq6vmfnNzY+5B/mJ/eXm5uZeVlZn7wcGBube0tJi79WaFxcVF89rDw0NzV8cTHNII
+HNIIHNIIHNIIHNLy/otgl5aWzH1oaMjX66RSKXN/eHjI+jVub2/N/eLiwtzHx8fNvbm52dy9vgjW
+67/R7u6uaxscHDSv9fPPWSj4IliEHoFDGoFDGoFDGoFDWt6fohQXF5v7yMiIuScSCXOPxWI5u6eg
+XF9fm/vCwoK5J5NJ1/b4+JjTe8pnnKIg9Agc0ggc0ggc0ggc0vL+FMWv6upqc6+trTX3eDxu7tFo
+NGf39Ld0Om3uGxsb5v7x8RHYvRQyTlEQegQOaQQOaQQOaQQOaXKnKAgPTlEQegQOaQQOaQQOaQQO
+aQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQO
+aQQOaQQOaQQOaQQOaSU+r38uKir6J4gbAXyqz+YiX58uCxQa/ooCaQQOaQQOaQQOaQQOaQQOaQQO
+aQQOaQQOaf8CQ8sSwG3msMgAAAAASUVORK5CYII=
 "
 >
 </div>
@@ -1927,13 +1923,13 @@ kEbBIY2CQxoFh7S/AcorZMLa1R7+AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.-Define-CNN-Shape">2.4. Define CNN Shape<a class="anchor-link" href="#2.4.-Define-CNN-Shape">&#182;</a></h2>
+<h2 id="2.4.-Define-a-CNN-Shape">2.4. Define a CNN Shape<a class="anchor-link" href="#2.4.-Define-a-CNN-Shape">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">input_height</span> <span class="o">=</span> <span class="mi">28</span>
@@ -1987,7 +1983,7 @@ kEbBIY2CQxoFh7S/AcorZMLa1R7+AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
@@ -2013,7 +2009,7 @@ kEbBIY2CQxoFh7S/AcorZMLa1R7+AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Define Network</span>
@@ -2082,7 +2078,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.0001</span>
@@ -2134,7 +2130,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">50</span>
@@ -2152,13 +2148,14 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.8.-Optimization">2.8. Optimization<a class="anchor-link" href="#2.8.-Optimization">&#182;</a></h2>
+<h2 id="2.8.-Optimization">2.8. Optimization<a class="anchor-link" href="#2.8.-Optimization">&#182;</a></h2><p>Do not run during the tutorial.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Run initialize</span>
@@ -2170,8 +2167,9 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
     <span class="n">batch_x</span><span class="p">,</span> <span class="n">batch_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
     <span class="n">batch_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_width</span><span class="p">,</span> <span class="n">input_height</span><span class="p">,</span> <span class="n">input_channel</span><span class="p">])</span>
     <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span>
+    
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span>  <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">})</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;Iter : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">))</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s">&quot;Cost : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 </pre></div>
@@ -2187,25 +2185,25 @@ $$ -\frac{1}{N}\sum_{i=1}^{N = 50}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Iter : 0
-Cost : 2.6221864223480225
+Cost : 3.8983991146087646
 Iter : 250
-Cost : 0.414619505405426
+Cost : 0.40213343501091003
 Iter : 500
-Cost : 0.2651120722293854
+Cost : 0.28808751702308655
 Iter : 750
-Cost : 0.18921497464179993
+Cost : 0.21926389634609222
 Iter : 1000
-Cost : 0.05329455807805061
+Cost : 0.19931137561798096
 Iter : 1250
-Cost : 0.14373697340488434
+Cost : 0.12699322402477264
 Iter : 1500
-Cost : 0.10038349032402039
+Cost : 0.04077277332544327
 Iter : 1750
-Cost : 0.019243597984313965
+Cost : 0.05370693281292915
 Iter : 2000
-Cost : 0.21103905141353607
+Cost : 0.07363461703062057
 Iter : 2250
-Cost : 0.04288564994931221
+Cost : 0.14218874275684357
 </pre>
 </div>
 </div>
@@ -2225,7 +2223,7 @@ Cost : 0.04288564994931221
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
