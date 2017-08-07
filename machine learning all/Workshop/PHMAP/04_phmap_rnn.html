@@ -299,7 +299,7 @@ $$ f\left(h^{(t-1)}, x^{(t)}\right) = g\left(Wx_{t} + Uh_{t-1}\right) $$</li>
 <img src="./image_files/RNN_Structure.png" width = 450>
 <br></p>
 <p><br>
-<img src="./image_files/rnn_predict.png" width = 450>
+<img src="./image_files/rnn_predict_edit.png" width = 450>
 <br></p>
 
 </div>
@@ -311,7 +311,7 @@ $$ f\left(h^{(t-1)}, x^{(t)}\right) = g\left(Wx_{t} + Uh_{t-1}\right) $$</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="2.-RNN-with-Tensorflow">2. RNN with Tensorflow<a class="anchor-link" href="#2.-RNN-with-Tensorflow">&#182;</a></h1><ul>
-<li>Will predict future time signal</li>
+<li>Will predict a future time signal</li>
 <li>Regression problem</li>
 </ul>
 
@@ -983,7 +983,7 @@ rkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br>
-<img src="./image_files/RNN_ac.png" width = 650>
+<img src="./image_files/RNN_ac_edit.png" width = 650>
 <br></p>
 
 </div>
@@ -1038,10 +1038,14 @@ rkJggg==
     <span class="s">&#39;lstm1&#39;</span> <span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_hidden2</span><span class="p">,</span> <span class="n">n_hidden3</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)),</span>
     <span class="s">&#39;lstm2&#39;</span> <span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_hidden3</span><span class="p">,</span> <span class="n">n_output</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
 <span class="p">}</span>
+
 <span class="n">biases</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;lstm1&#39;</span> <span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_hidden3</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)),</span>
     <span class="s">&#39;lstm2&#39;</span> <span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_output</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
 <span class="p">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="k">None</span><span class="p">,</span> <span class="n">n_step</span><span class="p">,</span> <span class="n">n_input</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="k">None</span><span class="p">,</span> <span class="n">n_output</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -1104,7 +1108,7 @@ rkJggg==
 <h2 id="2.6.-Define-Cost,-Initializer-and-Optimizer">2.6. Define Cost, Initializer and Optimizer<a class="anchor-link" href="#2.6.-Define-Cost,-Initializer-and-Optimizer">&#182;</a></h2><p><strong>Loss</strong></p>
 <ul>
 <li>Regression : Squared loss
-$$  \sum_{i=1}^{N=25}  (h_{\theta}\left(x^{(i)}\right) - y^{(i)})^2$$</li>
+$$ \frac{1}{N} \sum_{i=1}^{N=100}  (\hat{y}^{(i)} - y^{(i)})^2$$</li>
 </ul>
 <p><strong>Initializer</strong></p>
 <ul>
@@ -1124,8 +1128,6 @@ $$  \sum_{i=1}^{N=25}  (h_{\theta}\left(x^{(i)}\right) - y^{(i)})^2$$</li>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">LR</span> <span class="o">=</span> <span class="mf">0.0001</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="k">None</span><span class="p">,</span> <span class="n">n_step</span><span class="p">,</span> <span class="n">n_input</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="k">None</span><span class="p">,</span> <span class="n">n_output</span><span class="p">])</span>
 
 <span class="n">pred</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">biases</span><span class="p">)</span>
 <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">pred</span><span class="p">)</span>
