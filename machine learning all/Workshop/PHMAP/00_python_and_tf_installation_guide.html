@@ -175,7 +175,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br>
-<font size='6'><b>S/W 설치 메뉴얼</b></font><br><br></p>
+<font size='6'><b>S/W 설치 메뉴얼 (CPU)</b></font><br><br></p>
 <table style="border-style: hidden; border-collapse: collapse;" width = "80%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
         <td width = 50% style="border-style: hidden; border-collapse: collapse;">
@@ -214,6 +214,15 @@ div#notebook {
 <li>GPU<ul>
 <li>TensorFlow는 CUDA를 이용해 GPU의 병렬연산 활용 가능 <sup class="footnote-ref" id="fnref-2"><a href="#fn-2" rel="footnote">2</a></sup></li>
 <li>본 매뉴얼에서는 편의를 위해 CPU 버전 설치만 다룸</li>
+<li>GPU 버전 설치 메뉴얼 (참고용, 본 강습회에서는 다루지 않습니다):
+<span style="text-decoration: underline;color: #000080"><a style="color: #000080;text-decoration: underline" href="http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/PHMAP/python_and_tf_installation_guide_GPU.html" target="_blank">link</a></span>
+<br></li>
+</ul>
+</li>
+<li>Anaconda<ul>
+<li>본 메뉴얼에서는 패키지들 사이의 충돌을 방지하기 위해 Anaconda를 사용하지 않음</li>
+<li>Anaconda 버전 설치 메뉴얼 (참고용, 본 강습회에서는 다루지 않습니다):
+<span style="text-decoration: underline;color: #000080"><a style="color: #000080;text-decoration: underline" href="http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/PHMAP/python_and_tf_installation_guide_anaconda.html" target="_blank">link</a></span></li>
 </ul>
 </li>
 </ul>
@@ -265,12 +274,16 @@ div#notebook {
 [5] anaconda 또는 python이 들어간 환경 변수 선택<br><br>
 [6] 삭제 클릭
 <img src = "./image_files/python_path_02.png" style="border:1px solid black" width = 700></p>
-<h1 id="4.-Environment-Setup">4. Environment Setup<a class="anchor-link" href="#4.-Environment-Setup">&#182;</a></h1><p>[1] 첨부한 파일 (<a href="https://www.dropbox.com/s/lm3xn73w2mdnkid/AIM_tensorflow.zip?dl=1">download</a>) 을 반드시 <strong>바탕화면</strong>에 붙여 넣고 압축풀기 <sup class="footnote-ref" id="fnref-8"><a href="#fn-8" rel="footnote">8</a></sup><br></p>
+<h1 id="4.-Environment-Setup">4. Environment Setup<a class="anchor-link" href="#4.-Environment-Setup">&#182;</a></h1><ul>
+<li>첨부한 파일 (<a href="https://www.dropbox.com/s/lm3xn73w2mdnkid/AIM_tensorflow.zip?dl=1">download</a>) 을 반드시 <strong>바탕화면</strong>에 붙여 넣고 압축풀기 <sup class="footnote-ref" id="fnref-8"><a href="#fn-8" rel="footnote">8</a></sup><br></li>
+</ul>
 <p><img src = "./image_files/env_setup_01.png" style="border:1px solid black" width = 700></p>
-<p>[2] Visual C++ 2015 Redistributable <sup class="footnote-ref" id="fnref-9"><a href="#fn-9" rel="footnote">9</a></sup></p>
 <ul>
+<li>Visual C++ 2015 Redistributable <sup class="footnote-ref" id="fnref-9"><a href="#fn-9" rel="footnote">9</a></sup> <ul>
 <li>첨부된 vc_redist.x64.exe 설치</li>
 <li>우측 그림과 같은 창이 나올 경우 설치하지 않아도 됨</li>
+</ul>
+</li>
 </ul>
 <p><img src = "./image_files/env_setup_02.png" style="border:1px solid black" width = 700></p>
 <h1 id="5.-Python-and-its-Packages-Installation">5. Python and its Packages Installation<a class="anchor-link" href="#5.-Python-and-its-Packages-Installation">&#182;</a></h1><ul>
@@ -322,6 +335,7 @@ div#notebook {
 <br></p>
 <h1 id="7.-&#44053;&#51032;-&#51088;&#47308;">7. &#44053;&#51032; &#51088;&#47308;<a class="anchor-link" href="#7.-&#44053;&#51032;-&#51088;&#47308;">&#182;</a></h1><ul>
 <li>강의자료<ul>
+<li>Basic Python</li>
 <li>기계학습: </li>
 <li>딥러닝: <a href="http://isystems.unist.ac.kr/teaching/machine-learning/">http://isystems.unist.ac.kr/teaching/machine-learning/</a></li>
 </ul>
@@ -333,6 +347,7 @@ div#notebook {
 <ul>
 <li>설치에 어려움이 있으신 분들은 (반드시) 연락 바랍니다<ul>
 <li>이호진 연구원 (hojin12312@unist.ac.kr)</li>
+<li>정원호 연구원 (wonho4050@gist.ac.kr)</li>
 </ul>
 </li>
 </ul>
