@@ -182,17 +182,24 @@ div#notebook {
 
         </td>
         <td width = 30%>
-        <br>CAE 및 응용역학 하계 강습회<br>08/25/2017<br>한양대학교 정몽구미래자동차연구센터
+        <br>인공지능머신 연구회 2017년도 여름학교<br>08/21/2017 $\sim$ 08/23/2017<br>한국과학기술회관 소회의실 2
         </td>
     </tr>
 </table><p>Table of Contents</p>
 <p><div id="toc"></div></p>
 <h1 id="1.-Overview">1. Overview<a class="anchor-link" href="#1.-Overview">&#182;</a></h1><ul>
+<li>프로그램
+<img src = "./image_files/program.png" style="border:1px solid white", width = 750></li>
+</ul>
+<p><br></p>
+<ul>
+<li>강의내용소개
+<img src = "./image_files/toc.png" style="border:1px solid white", width = 750></li>
+</ul>
+<ul>
 <li>내용<ul>
 <li>본 매뉴얼은 <strong>기계학습</strong> 및 <strong>딥러닝</strong>을 위한 패키지 설치를 다룸</li>
-<li>실습은 패키지가 이미 설치되어 있는 전산실에서 진행되므로 개인적으로 설치하지 않아도 됩니다.</li>
-<li>개인 노트북에 관련 패키지 설치를 희망하는 분들을 위한 매뉴얼입니다.</li>
-<li>따라서 설치 오류에 대한 질문을 현장에서는 받지 않겠습니다. (단, 강습회 행사 전날까지는 질문을 받도록 하겠습니다.)</li>
+<li><strong>강화학습</strong>에 관한 설치는 다른 매뉴얼 참고</li>
 </ul>
 </li>
 </ul>
@@ -207,12 +214,15 @@ div#notebook {
 <li>GPU<ul>
 <li>TensorFlow는 CUDA를 이용해 GPU의 병렬연산 활용 가능 <sup class="footnote-ref" id="fnref-2"><a href="#fn-2" rel="footnote">2</a></sup></li>
 <li>본 매뉴얼에서는 편의를 위해 CPU 버전 설치만 다룸</li>
+<li>GPU 버전 설치 <span style="text-decoration: underline;color: #000080"><a style="color: #000080;text-decoration: underline" href="http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/PHMAP/python_and_tf_installation_guide_GPU.html" target="_blank">메뉴얼</a></span> (참고용, 본 강습회에서는 다루지 않습니다):</li>
 </ul>
 </li>
 </ul>
+<p><br></p>
 <ul>
 <li>Anaconda<ul>
 <li>본 메뉴얼에서는 패키지들 사이의 충돌을 방지하기 위해 Anaconda를 사용하지 않음</li>
+<li>Anaconda 버전 설치 <span style="text-decoration: underline;color: #000080"><a style="color: #000080;text-decoration: underline" href="http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/PHMAP/python_and_tf_installation_guide_anaconda.html" target="_blank">메뉴얼</a></span> (참고용, 본 강습회에서는 다루지 않습니다):</li>
 </ul>
 </li>
 </ul>
@@ -227,7 +237,7 @@ div#notebook {
 </ul>
 <ul>
 <li>From pip<ul>
-<li>tensorflow, matplotlib, jupyter, scipy, sklearn, pillow, pandas</li>
+<li>tensorflow, matplotlib, jupyter, scipy, sklearn, pillow, pandas, seaborn</li>
 <li>scipy, numpy+mkl (using wheel)</li>
 </ul>
 </li>
@@ -291,7 +301,7 @@ div#notebook {
 </ul>
 <p><img src = "./image_files/python_install_02.png" style="border:1px solid black" width = 700></p>
 <ul>
-<li><p>matplotlib, sklearn, jupyter, pillow, pandas</p>
+<li><p>matplotlib, sklearn, jupyter, pillow, pandas, seaborn</p>
 <p>[3] <code>pip install matplotlib sklearn jupyter pillow pandas seaborn</code> 입력 <sup class="footnote-ref" id="fnref-10"><a href="#fn-10" rel="footnote">10</a></sup></p>
 </li>
 </ul>
@@ -326,7 +336,8 @@ div#notebook {
 <h1 id="7.-&#44053;&#51032;-&#51088;&#47308;">7. &#44053;&#51032; &#51088;&#47308;<a class="anchor-link" href="#7.-&#44053;&#51032;-&#51088;&#47308;">&#182;</a></h1><ul>
 <li>강의자료<ul>
 <li><a href="http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/PHMAP/00_basic_python.html">Basic Python</a></li>
-<li><a href="http://isystems.unist.ac.kr/teaching/machine-learning/">머신러닝에서 딥러닝까지</a></li>
+<li>기계학습</li>
+<li><a href="http://isystems.unist.ac.kr/teaching/machine-learning/">딥러닝</a></li>
 </ul>
 </li>
 </ul>
@@ -334,8 +345,9 @@ div#notebook {
 <li>강습 당일 설치시 예상치 못한 에러가 발생할 수 있으므로 실습을 원하시는 분은 미리 설치 요망</li>
 </ul>
 <ul>
-<li>설치에 어려움이 있으신 분들은 사전에 연락 바랍니다. 강습회 당일은 설치에 관한 질문은 받지 않겠습니다.<ul>
+<li>설치에 어려움이 있으신 분들은 (반드시) 연락 바랍니다<ul>
 <li>이호진 연구원 (hojin12312@unist.ac.kr)</li>
+<li>정원호 연구원 (wonho4050@gist.ac.kr)</li>
 </ul>
 </li>
 </ul>
@@ -350,7 +362,7 @@ div#notebook {
 <li id="fn-7"><p>이 경우 경로에 한글이 들어가 에러가 발생하기 때문에, 영문으로 된 사용자를 새로 생성. 다른 방법으로는 설치경로를     바꾸는 방법이 있으나 권장하지 않음.<a href="#fnref-7" rev="footnote">&#8617;</a></p></li>
 <li id="fn-8"><p>TensorFlow를 사용하는 데 필요한 Python Installer, Python Packages, DLL 파일 포함<a href="#fnref-8" rev="footnote">&#8617;</a></p></li>
 <li id="fn-9"><p>Windows 버전의 TensorFlow는 Visual C++ 2015에 포함된 DLL 파일을 필요로 함<a href="#fnref-9" rev="footnote">&#8617;</a></p></li>
-<li id="fn-10"><p>matplotlib, sklearn, jupyter, pillow, pandas의 경우 pip을 통해 온라인으로 .whl을 받아도 문제가 없으나,<a href="#fnref-10" rev="footnote">&#8617;</a></p></li>
+<li id="fn-10"><p>matplotlib, sklearn, jupyter, pillow, pandas, seaborn의 경우 pip을 통해 온라인으로 .whl을 받아도 문제가 없으나,<a href="#fnref-10" rev="footnote">&#8617;</a></p></li>
 <li id="fn-11"><p>numpy+mkl, scipy은 pip .whl을 다운받아 설치 시 에러가 있어 Python Extension Packages for Windows의 .whl 파일 사용<a href="#fnref-11" rev="footnote">&#8617;</a></p></li>
 <li id="fn-12"><p>현재 셀 실행<a href="#fnref-12" rev="footnote">&#8617;</a></p></li>
 </ol>
