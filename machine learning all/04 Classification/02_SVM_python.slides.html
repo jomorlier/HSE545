@@ -267,7 +267,7 @@ div.output_prompt {
 <ul>
 <li><p>Binary: 2 different classes</p>
 </li>
-<li><p>Multiclass : more than 2 classes</p>
+<li><p>Multiclass: more than 2 classes</p>
 </li>
 </ul>
 </li>
@@ -318,10 +318,12 @@ $$\begin{align*} g\left(\vec p\right) = g\left(\vec q\right) = 0
 <ul>
 <li>If $x$ is on the line and $x = d\frac{\omega}{\lVert \omega \rVert}$ (where $d$ is a normal distance from the origin to the line)</li>
 </ul>
+<p><br>
 $$ \begin{align*}  g(x)& = \omega^Tx + \omega_0 = 0 \;  \\
 & \implies \omega^Td\frac{\omega}{\lVert \omega \rVert} + \omega_0 = d\frac{\omega^T\omega}{\lVert \omega \rVert} + \omega_0 = d\lVert \omega \rVert + \omega_0 = 0 \\
 & \therefore d \, = - \frac{\omega_0}{\lVert \omega \rVert}
-\end{align*}$$
+\end{align*}$$</p>
+
 </div>
 </div>
 </div></section><section>
@@ -390,7 +392,9 @@ $$s = \left\langle\frac{\omega}{\lVert \omega \rVert}, x_2 - x_1 \right\rangle =
 </ul>
 </li>
 </ul>
-$$x = \begin{bmatrix}x_1 \\ x_2 \end{bmatrix}$$<p><br></p>
+<p><br>
+$$x = \begin{bmatrix}x_1 \\ x_2 \end{bmatrix}$$</p>
+<p><br></p>
 <p><center><img src="./image_files/SVM001.jpg", width = 350></center>
 <br></p>
 <ul>
@@ -399,7 +403,9 @@ $$x = \begin{bmatrix}x_1 \\ x_2 \end{bmatrix}$$<p><br></p>
 <ul>
 <li>We need to find a separating hyperplane (or a line in 2D)</li>
 </ul>
-$$ \omega_1x_1 + \omega_2x_2 + \omega_0 = 0 $$$$ \begin{bmatrix}\omega_1 & \omega_2 \end{bmatrix}
+<p><br>
+$$ \omega_1x_1 + \omega_2x_2 + \omega_0 = 0 $$</p>
+$$ \begin{bmatrix}\omega_1 & \omega_2 \end{bmatrix}
 \begin{bmatrix}x_1 \\ x_2 \end{bmatrix} + \omega_0 = 0$$$$ \omega^Tx + \omega_0 = 0$$
 </div>
 </div>
@@ -867,12 +873,14 @@ $$ \omega^Tx + \omega_0 >0 \implies x \; \text{belongs to} \; C_1$$$$ \omega^Tx 
 <ul>
 <li>Find $\omega$ and $\omega_0$ such that $x\in C_1$ given $\omega^Tx + \omega_0 >1$ and $x\in C_2$ given $\omega^Tx + \omega_0 < -1$</li>
 </ul>
+<p><br>
 $$ 
 \begin{align*}
 \;&\omega^Tx + \omega_0 > b \\ 
 \Longleftrightarrow \;&\frac{\omega^T}{b}x + \frac{\omega_0}{b} > 1 \\
 \Longleftrightarrow \;&\omega'^Tx + \omega'_0 > 1
-\end{align*}$$<ul>
+\end{align*}$$</p>
+<ul>
 <li>Same problem if strictly separable</li>
 </ul>
 
@@ -1571,7 +1579,9 @@ YZMkSRqchU2SJGlwFjZJkqTB/QvUAa4fKdW8YgAAAABJRU5ErkJggg==
 <li><p>$m = N + M$ data points in training set</p>
 </li>
 </ul>
-$$ x^{(i)} = \begin{bmatrix} x^{(i)}_1 \\ x^{(i)}_2 \end{bmatrix} \;\text{with}\; \omega = \begin{bmatrix} \omega_1 \\ \omega_2 \end{bmatrix}\qquad \text{or} \qquad x^{(i)} = \begin{bmatrix} 1 \\ x^{(i)}_1 \\ x^{(i)}_2 \end{bmatrix}  \;\; \text{with}\; \omega = \begin{bmatrix} \omega_0 \\ \omega_1 \\ \omega_2 \end{bmatrix}$$<ul>
+<p><br>
+$$ x^{(i)} = \begin{bmatrix} x^{(i)}_1 \\ x^{(i)}_2 \end{bmatrix} \;\text{with}\; \omega = \begin{bmatrix} \omega_1 \\ \omega_2 \end{bmatrix}\qquad \text{or} \qquad x^{(i)} = \begin{bmatrix} 1 \\ x^{(i)}_1 \\ x^{(i)}_2 \end{bmatrix}  \;\; \text{with}\; \omega = \begin{bmatrix} \omega_0 \\ \omega_1 \\ \omega_2 \end{bmatrix}$$</p>
+<ul>
 <li><p>$N$ belongs to $C_1$ in training set</p>
 </li>
 <li><p>$M$ belongs to $C_2$ in training set
@@ -3088,6 +3098,7 @@ $$x^i = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \end{bmatrix}$$<ul>
 </li>
 </ul>
 <p><strong>The optimization problem for the non-separable case</strong></p>
+<p><br>
 $$\begin{align*} \text{minimize} \quad & \sum\limits_{i=1}^{N}u_i + \sum\limits_{i=1}^{M}\upsilon_i \\ \\
 \text{subject to} \quad
 & \begin{cases}
@@ -3106,7 +3117,8 @@ $$\begin{align*} \text{minimize} \quad & \sum\limits_{i=1}^{N}u_i + \sum\limits_
 u \geq 0\\
 v \geq 0\\
 \end{cases}
-\end{align*}$$
+\end{align*}$$</p>
+
 </div>
 </div>
 </div></section><section>
@@ -4482,6 +4494,7 @@ $$ \text{maximize {minimum distance}} $$
 </ul>
 </li>
 </ul>
+<p><br>
 $$\begin{align*} \text{minimize} \quad 
 & \lVert \omega \rVert_2 + \gamma(1^Tu + 1^T\upsilon) \\
 \text{subject to} \quad
@@ -4489,23 +4502,25 @@ $$\begin{align*} \text{minimize} \quad
 & X_2\omega + \omega_0 \leq -(1-\upsilon) \\
 & u \geq 0 \\
 & \nu \geq 0
-\end{align*}$$<ul>
-<li>In a more compact form<table style="border-style: hidden; border-collapse: collapse;" width = "50%"> 
-  <tr style="border-style: hidden; border-collapse: collapse;">
-      <td width = 20% style="border-style: hidden; border-collapse: collapse;">
-           $$\begin{align*}\omega^T x_n + \omega_0 &\geq 1 \;\text{for }\; y_n = +1\\
-              \omega^T x_n + \omega_0 &\leq -1 \;\text{for }\; y_n = -1 \end{align*}$$
-      </td>
-      <td width = 10% style="border-style: hidden; border-collapse: collapse;">
-           $$ \Longleftrightarrow $$
-      </td>
-      <td width = 20%>
-          $$y_n\left( \omega^T x_n + \omega_0 \right) \geq 1$$
-      </td>
-  </tr>
-</table></li>
+\end{align*}$$</p>
+<ul>
+<li>In a more compact form</li>
 </ul>
-<p><br>
+<p><br></p>
+<table style="border-style: hidden; border-collapse: collapse;" width = "50%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 20% style="border-style: hidden; border-collapse: collapse;">
+             $$\begin{align*}\omega^T x_n + \omega_0 &\geq 1 \;\text{for }\; y_n = +1\\
+                \omega^T x_n + \omega_0 &\leq -1 \;\text{for }\; y_n = -1 \end{align*}$$
+        </td>
+        <td width = 10% style="border-style: hidden; border-collapse: collapse;">
+             $$ \Longleftrightarrow $$
+        </td>
+        <td width = 20%>
+            $$y_n\left( \omega^T x_n + \omega_0 \right) \geq 1$$
+        </td>
+    </tr>
+</table><p><br>
 $$\begin{align*} \text{minimize} \quad 
 & \lVert \omega \rVert_2 + \gamma(1^T \xi) \\
 \text{subject to} \quad
@@ -5169,12 +5184,12 @@ iIi4nBI2EREREZdTwiYiIiLickrYRERERFxOCZuIiIiIy/1/j66fpBoTcuEAAAAASUVORK5CYII=
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;center&gt;&lt;iframe 
-width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3liCbRZPrZA&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3liCbRZPrZA?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;&lt;/center&gt;
 </pre></div>
 
@@ -5190,7 +5205,7 @@ width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/e
 
 <div class="output_html rendered_html output_subarea ">
 <center><iframe 
-width="420" height="315" src="https://www.youtube.com/embed/3liCbRZPrZA" frameborder="0" allowfullscreen>
+width="420" height="315" src="https://www.youtube.com/embed/3liCbRZPrZA?rel=0" frameborder="0" allowfullscreen>
 </iframe></center>
 </div>
 
