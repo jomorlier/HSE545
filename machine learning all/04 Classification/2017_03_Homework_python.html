@@ -181,7 +181,7 @@ div#notebook {
 
         </td>
         <td width = 20%>
-        by Seungchul Lee<br>iSystems Design Lab<br>UNIST<br>http://isystems.unist.ac.kr/
+        by Prof. Seungchul Lee<br>iSystems Design Lab<br>UNIST<br>http://isystems.unist.ac.kr/
         </td>
     </tr>
 </table>
@@ -914,9 +914,9 @@ $$\begin{align*}
 & u \geq 0\\
 & v \geq 0
 \end{align*}$$<p>Here, $X$  and $Y$  are $1000\times3$ matrix for each class. You can divide the above matrix $\Phi$ into two parts to reuse it.</p>
-<h3 id="Step-2.-CVX">Step 2. CVX<a class="anchor-link" href="#Step-2.-CVX">&#182;</a></h3><p>Run CVX to find  $\omega$.</p>
+<h3 id="Step-2.-CVXPY">Step 2. CVXPY<a class="anchor-link" href="#Step-2.-CVXPY">&#182;</a></h3><p>Run CVXPY to find  $\omega$.</p>
 <h3 id="Step-3.-Plot-the-result">Step 3. Plot the result<a class="anchor-link" href="#Step-3.-Plot-the-result">&#182;</a></h3><p>Now you have an optimal $\omega$ . Plot a decision boundary. Note that our decision boundary is defined as follows:</p>
-$$ \omega_1 x_1 + \omega_2 x_2 + \omega_3 = 0$$<p>The expected graph is:</p>
+$$ \omega_1 x_1 + \omega_2 x_2 + \omega_0 = 0$$<p>The expected graph is:</p>
 <p><img src="./image_files/classification04.png", width = 400></p>
 
 </div>
@@ -927,7 +927,7 @@ $$ \omega_1 x_1 + \omega_2 x_2 + \omega_3 = 0$$<p>The expected graph is:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>In a logistic regression, we define $$\sigma(z) = \frac{1}{1 + e^{-z}}$$ Then, show
+<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>In the logistic regression, we define $$\sigma(z) = \frac{1}{1 + e^{-z}}$$ Then, show
 $$ \frac{d\sigma(z)}{dz} = \sigma(z)(1-\sigma(z))$$</p>
 <p>Note: this property is useful in a gradient descent for a parameter learning.</p>
 
@@ -1264,7 +1264,7 @@ YII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Problem-4">Problem 4<a class="anchor-link" href="#Problem-4">&#182;</a></h2><p>Solve Problem 3 using logistic regression.</p>
+<h2 id="Problem-4">Problem 4<a class="anchor-link" href="#Problem-4">&#182;</a></h2><p>Solve Problem 3 using the logistic regression.</p>
 
 </div>
 </div>
