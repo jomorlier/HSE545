@@ -175,15 +175,15 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<center><font size='6'><b>Midterm Exam</b></font></center>
-<p>
-<center><font size='4'><b>HSE 545: Machine Learning</b></font></center><table style="border-style: hidden; border-collapse: collapse;" width = "96%"> 
+<center><font size='6'><b>Introduction to Machine Learning</b></font></center>
+<br>
+<center><font size='5'><b>Midterm Exam</b></font></center><table style="border-style: hidden; border-collapse: collapse;" width = "100%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
-        <td width = 80% style="border-style: hidden; border-collapse: collapse;">
+        <td width = 65% style="border-style: hidden; border-collapse: collapse;">
 
         </td>
-        <td width = 16%>
-            by Seungchul Lee
+        <td width = 35%>
+        by Prof. Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
         </td>
     </tr>
 </table>
@@ -255,12 +255,12 @@ Px
 <p>Plug $v = \begin{bmatrix}1\\ 1\end{bmatrix}$ into the result of <strong>(b)</strong>, then it gives</p>
 $$ M = 2\frac{\begin{bmatrix}1\\ 1 \end{bmatrix}\begin{bmatrix}1&1\end{bmatrix}}{\begin{bmatrix}1& 1 \end{bmatrix}\begin{bmatrix}1 \\ 1\end{bmatrix}} - \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} $$<p><img src="./image_files/Solution04.png", width = 250></p>
 $$\begin{align*}
-\text{if } x = \begin{bmatrix} x_1\\ x_2 \end{bmatrix} &\implies Z = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = \begin{bmatrix} x_2\\ x_1 \end{bmatrix}\\
-Mx = \lambda x &\implies \left(M - \lambda I \right)x = 0\\
+\text{if } x = \begin{bmatrix} x_1\\ x_2 \end{bmatrix} &\implies Z = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = \begin{bmatrix} x_2\\ x_1 \end{bmatrix}\\\\
+Mx = \lambda x &\implies \left(M - \lambda I \right)x = 0\\\\
 \text{det} \begin{bmatrix}-\lambda & 1 \\ 1 & -\lambda \end{bmatrix} &= \lambda^2 - 1 = 0 \implies \lambda = \pm 1
 \end{align*}$$$$\begin{align*}
-\text{For } \lambda_1 = 1, x_1 &= \begin{bmatrix}1 \\ 1 \end{bmatrix}\\
-\text{For } \lambda_2 = -1, x_2 &= \begin{bmatrix}1 \\ -1 \end{bmatrix}\\
+&\text{For } \lambda_1 = 1, x_1 = \begin{bmatrix}1 \\ 1 \end{bmatrix}\\
+&\text{For } \lambda_2 = -1, x_2 = \begin{bmatrix}1 \\ -1 \end{bmatrix}\\
 \end{align*}$$
 </div>
 </div>
@@ -328,7 +328,7 @@ $$R^{-1}(\theta) = R(-\theta)$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>(a)</strong></p>
-<p>For an arbitrary vector $\mathbf{x}$, $A_1$ transforms it as</p>
+<p>For an arbitrary vector $\mathbf{x}$, $A_1$ transforms it (here, $n=3$) as</p>
 $$
 A_1\mathbf{x} = 
 \begin{bmatrix}
