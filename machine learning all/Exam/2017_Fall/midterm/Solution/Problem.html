@@ -175,15 +175,15 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<center><font size='6'><b>Midterm Exam</b></font></center>
-<p>
-<center><font size='4'><b>HSE 545: Machine Learning</b></font></center><table style="border-style: hidden; border-collapse: collapse;" width = "96%"> 
+<center><font size='6'><b>Introduction to Machine Learning</b></font></center>
+<br>
+<center><font size='5'><b>Midterm Exam</b></font></center><table style="border-style: hidden; border-collapse: collapse;" width = "100%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
-        <td width = 80% style="border-style: hidden; border-collapse: collapse;">
+        <td width = 65% style="border-style: hidden; border-collapse: collapse;">
 
         </td>
-        <td width = 16%>
-            by Seungchul Lee
+        <td width = 35%>
+        by Prof. Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
         </td>
     </tr>
 </table>
@@ -195,12 +195,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Problem1">Problem1<a class="anchor-link" href="#Problem1">&#182;</a></h1><p>In this problem, we want to explore a reflection transformation of $X$, which produces a mirror vector $Z$ with respect to vector $V$. See Figure 1.</p>
-<p><img src="./image_files/LA01.png", width = 250></p>
-<center>Figure 1</center><p>(a) Is a reflection transformation linear?</p>
-<p>(b) If yes, find matrix $M$ such that $Z = MX$ using concept of projection.</p>
-<p>(c) If yes, find matrix $M$ such that $Z = MX$ using concept of eigen values and vectors. (you can use the results of the above problems)</p>
-<p>(d) For $V = \begin{bmatrix} 1 & 1 \end{bmatrix}^T$, compute $M$ and its eigenvalues/eigenvectors (here, vector $V$ is a vector with 45 degree angle with x-axis)</p>
+<h1 id="Problem1">Problem1<a class="anchor-link" href="#Problem1">&#182;</a></h1><p>In this problem, we want to explore a reflection transformation of $\vec X$, which produces a mirror vector $\vec Z$ with respect to vector $\vec V$. See Figure 1.</p>
+<p><br></p>
+<center><img src="./image_files/LA01.png", width = 250></center>
+<center>Figure 1</center><p>(a) Is this reflection transformation linear?</p>
+<p>(b) If yes, find matrix $M$ such that $Z = MX$ using the concept of a projection.</p>
+<p>(c) If yes, find matrix $M$ such that $Z = MX$ using the concept of eigen values and vectors.</p>
+<p>(d) For $V = \begin{bmatrix} 1 & 1 \end{bmatrix}^T$, compute $M$ and its eigenvalues/eigenvectors (here, vector $\vec V$ is a vector with 45 degree angle with x-axis)</p>
 
 </div>
 </div>
@@ -210,12 +211,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h1><p>Let $R = R(\theta)$ be a rotation matrix with a rotational angle of $\theta$ in $\mathbb{R}^n$.</p>
+<h1 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h1><p>Let $R = R(\theta)$ be a rotation matrix with rotational angle of $\theta$ in $\mathbb{R}^n$.</p>
 <p>(a) Prove that $$R^TR=I \;\text{in}\; \mathbb{R}^n$$</p>
-<ul>
-<li>Hint: Euclidian distances of vectors are preserved after a rotational operation. (<em>i.e.</em>, $\lVert Rx \rVert = \lVert x \rVert$ for any $x \in \mathbb{R}^n$ ) 
-<br><br></li>
-</ul>
+<p>Hint: Euclidian distances of vectors are preserved after a rotational operation. (<em>i.e.</em>, $\lVert Rx \rVert = \lVert x \rVert$ for any $x \in \mathbb{R}^n$ ) 
+<br><br></p>
 <p>(b) Prove that $$R^T(\theta) = R^{-1}(\theta) = R(-\theta)\;\text{in}\;\mathbb{R}^n$$</p>
 <p>(c) Show that column vectors in $R$ are orthogonal in $\mathbb{R}^n$.</p>
 
@@ -227,13 +226,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Problem3">Problem3<a class="anchor-link" href="#Problem3">&#182;</a></h1><p>Permutation matrices. A square matrix A is called a permutation matrix if it satisfies the following three properties:</p>
+<h1 id="Problem3">Problem3<a class="anchor-link" href="#Problem3">&#182;</a></h1><p>Permutation matrices. A square matrix $A$ is called a permutation matrix if it satisfies the following three properties:</p>
 <ul>
-<li>all elements of A are either zero or one</li>
-<li>each column of A contains exactly one element equal to one</li>
-<li>each row of A contains exactly one element equal to one.</li>
+<li>all elements of $A$ are either zero or one</li>
+<li>each column of $A$ contains exactly one element equal to one</li>
+<li>each row of $A$ contains exactly one element equal to one.</li>
 </ul>
-<p>The matrices</p>
+<p>The matrices,</p>
 $$A_1 = \begin{bmatrix}
 0 & 1 & 0\\
 0 & 0 & 1 \\
@@ -245,13 +244,11 @@ A_2 = \begin{bmatrix}
 0 & 0& 1 & 0 \\
 1 & 0 & 0 & 0
 \end{bmatrix}$$<p>are examples of permutation matrices. A less formal definition is the following: a permutation matrix is the identity matrix with its rows reordered.</p>
-<p>(a) Let A be an $n \times n$ permutation matrix. Give a simple description in words of the relation between a n-vector $x$ and $f(x) = Ax$.</p>
-<p>(b) Prove that columns of permutation matrix is orthogonal.</p>
+<p>(a) Let $A$ be an $n \times n$ permutation matrix. Give a simple description of the relation between a $n$-vector $x$ and $f(x) = Ax$ in words.</p>
+<p>(b) Prove that columns of a permutation matrix is orthogonal.</p>
 <p>(c) We can also define a second linear function $g(x) = A^Tx$ in terms of the same permutation matrix. What is the relation between $g$ and $f$ ?</p>
-<ul>
-<li>Hint: Use the result of (b)</li>
-</ul>
-<p>(d) Describe meaning of columns and rows of permutation matrix (i.e. describe the meaning of ones in columns and rows). Then, explain the result of (c).</p>
+<p>Hint: Use the result of (b)</p>
+<p>(d) Describe meaning of columns and rows of a permutation matrix. Then, explain the result of (c).</p>
 
 </div>
 </div>
@@ -271,17 +268,13 @@ $$ \hat{\theta} = \left( A^T A + \lambda I_n \right)^{-1} A^T y $$</p>
 <li>Do not use the method of Lagrangian multipliers
 <br><br></li>
 </ul>
-<p>(b) Write down a gradient descent algorithm for given optimization problem.</p>
-<ul>
-<li>Hint: Note that $$ \;\lVert A\theta -y\rVert_2^2 = (A\theta - y)^T(A\theta - y)$$
-Then, you can differentiate above equation to compute the gradient. 
-Likewise, you can compute the gradient of the regularizer.</li>
-</ul>
-<p>(c) Based on the result of (b), describe the role of regularizer term.</p>
-<ul>
-<li>Hint: Gradient $g$ is computed by $ g = g_{projection} + g_{regularizer} $.</li>
-</ul>
-<p>(d) Describe results of (a) and (b) have the same meaning.</p>
+<p>(b) Write down a gradient descent algorithm for the given optimization problem.</p>
+<p>Hint: Note that $$ \;\lVert A\theta -y\rVert_2^2 = (A\theta - y)^T(A\theta - y)$$</p>
+<p>Then, you can differentiate the above equation to compute the gradient. 
+Likewise, you can compute the gradient of the regularizer.</p>
+<p>(c) Based on the result of (b), describe the role of the regularizer term.</p>
+<p>Hint: Gradient $g$ is computed by $ g = g_{\text{projection}} + g_{\text{regularizer}} $</p>
+<p>(d) Describe the results of (a) and (b) have the same meaning.</p>
 <p>(e) Find and draw an approximated curve of the given data points in Python using your gradient descent algorithm.</p>
 
 </div>
@@ -420,12 +413,11 @@ GgBAMwINAKAZgQYA0IxAAwBo5v8D++xn1WOYiEoAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Problem-5">Problem 5<a class="anchor-link" href="#Problem-5">&#182;</a></h1><p>a) Let's say $x_i$'s are features. We say feature $x_j$ is useless when $$ P(y|x_1, ... x_{j-1}, x_j, x_{j+1}, ... x_N) = P(y|x_1, ... x_{j-1}, x_{j+1}, ... x_N).$$ Describe the reason.</p>
-<p>b) In our class, we learn that we can select meaningful feature using Lasso. Describe why Lasso select meaningful features using above equation.</p>
-<ul>
-<li>Hint: In our class, we assume $ P(y|x) = f(x; \omega) $ where $ f $ is an arbitrary linear regressor. Imagine the case where the $ \omega $ is sparse. </li>
-</ul>
-<p>c) Load 'data_input.pkl' and 'data_target.pkl' using the followig command. Using these, build the regressor using Lasso.</p>
+<h1 id="Problem-5">Problem 5<a class="anchor-link" href="#Problem-5">&#182;</a></h1><p>a) Suppose $x_i$'s are features. We might conclude that feature $x_j$ is not useful or redundant when</p>
+$$ P(y \mid x_1, ... x_{j-1}, x_j, x_{j+1}, ... x_N) = P(y \mid x_1, ... x_{j-1}, x_{j+1}, ... x_N).$$<p></p>
+<p>Describe the reason.</p>
+<p>b) In our class, we learn that meaningful features cna be selected using Lasso. Describe why Lasso selects meaningful features using the above equation.</p>
+<p>c) Load '<code>data_input.pkl</code>' and '<code>data_target.pkl</code>'. Using this data set, build the linear classifier using Lasso.</p>
 
 </div>
 </div>
@@ -488,9 +480,10 @@ GgBAMwINAKAZgQYA0IxAAwBo5v8D++xn1WOYiEoAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Problem-6">Problem 6<a class="anchor-link" href="#Problem-6">&#182;</a></h1><p>You will use K-means to compress an image by reducing the number of colors it contains.</p>
 <p>(a) Image Representation</p>
-<p>The data for this exercise contains a 128-pixel by 128-pixel TIFF image named "bird.tiff." It looks like the picture in Figure 1.
+<p>The data for this exercise contains a 128-pixel by 128-pixel TIFF image named "bird.tiff." It looks like the picture in Figure 2.
 <br><br>
-<img src="./image_files/clus01.bmp", width = 250>
+<img src="./image_files/clus01.bmp", width = 250></p>
+<p><center>Figure 2</center>
 <br><br>
 In a straightforward 24-bit color representation of this image, each pixel is represented as three 8-bit numbers (ranging from 0 to 255) that specify red, green and blue (RGB) intensity values. Our bird photo contains thousands of colors, but we'd like to reduce that number to 16. By making this reduction, it would be possible to represent the photo in a more efficient way by storing only the RGB values of the 16 colors present in the image.</p>
 <p>In this problem, you will use K-means to reduce the color count to $k = 16$. That is, you will compute 16 colors as the cluster centroids and replace each pixel in the image with its nearest cluster centroid color.</p>
@@ -1422,7 +1415,7 @@ $k$ means $\mu_1, \mu_2, \cdots, \mu_k$.
 <br><br></li>
 <li>Go through each pixel in the small image and calculate its nearest mean.
 <br><br>
-$$c^{(i)} = \text{arg} min_j \lVert x^{(i)}-\mu_j \rVert^2$$
+$$c^{(i)} = \arg \min_j \lVert x^{(i)}-\mu_j \rVert^2$$
 <br><br></li>
 <li>Update the values of the means based on the pixels assigned to them. 
 <br><br>
