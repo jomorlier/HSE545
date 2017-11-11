@@ -1,0 +1,2 @@
+model_checkpoint_path: "Hanwha_RNN_6000"
+all_model_checkpoint_paths: "Hanwha_RNN_6000"
