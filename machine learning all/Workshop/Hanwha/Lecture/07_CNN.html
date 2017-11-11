@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>04_KSME_CNN</title>
+<title>07_CNN</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -186,7 +186,16 @@ div#notebook {
         By Prof. Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
         </td>
     </tr>
-</table><p>Table of Contents</p>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -197,15 +206,57 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Convolution-on-Image">1. Convolution on Image<a class="anchor-link" href="#1.-Convolution-on-Image">&#182;</a></h1><p><strong>Filter (or Kernel)</strong></p>
+<h1 id="1.-Convolution-on-Image">1. Convolution on Image<a class="anchor-link" href="#1.-Convolution-on-Image">&#182;</a></h1><h2 id="1.1.-Convolution-in-1D">1.1. Convolution in 1D<a class="anchor-link" href="#1.1.-Convolution-in-1D">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
+&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/Ma0YONjMZLI?rel=0&quot; 
+width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<center><iframe src="https://www.youtube.com/embed/Ma0YONjMZLI?rel=0" 
+width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.2.-Convolution-in-2D">1.2. Convolution in 2D<a class="anchor-link" href="#1.2.-Convolution-in-2D">&#182;</a></h2><p><strong>Filter (or Kernel)</strong></p>
 <ul>
 <li>Modify or enhance an image by filtering</li>
 <li>Filter images to emphasize certain features or remove other features</li>
-<li>Filtering includes smoothing, sharpening and edge enhancement</li>
+<li><p>Filtering includes smoothing, sharpening and edge enhancement</p>
+</li>
+<li><p>Discrete convolution can be viewed as element-wise multiplication by a matrix</p>
+</li>
 </ul>
-<p><strong>Convolution in 2D</strong></p>
-<p><img src="./image_files/conv_animation.gif" width = 350></p>
-
+<p><br></p>
+<center><img src="./image_files/conv_animation.gif" width = 500></center>
 </div>
 </div>
 </div>
@@ -221,7 +272,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import libraries</span>
@@ -241,7 +292,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import image</span>
@@ -263,7 +314,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Plot</span>
@@ -1779,7 +1830,7 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import image</span>
@@ -1804,7 +1855,7 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Plot</span>
@@ -3200,10 +3251,75 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Convolutional-Neural-Networks-(CNN)">2. Convolutional Neural Networks (CNN)<a class="anchor-link" href="#2.-Convolutional-Neural-Networks-(CNN)">&#182;</a></h1><p><strong>Convolutional Networks</strong></p>
+<h1 id="2.-Convolutional-Neural-Networks-(CNN)">2. Convolutional Neural Networks (CNN)<a class="anchor-link" href="#2.-Convolutional-Neural-Networks-(CNN)">&#182;</a></h1><h2 id="2.1.-Motivation">2.1. Motivation<a class="anchor-link" href="#2.1.-Motivation">&#182;</a></h2><p><br>
+The bird occupies a local area and looks the same in different parts of an image. We should construct neural networks which exploit these properties.</p>
+<p><br></p>
+<center><img src="./image_files/cnn_motivation.png" width = 800></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Generic structure of neural network<ul>
+<li>does not seem the best</li>
+<li>did not make use of the fact that we are dealing with images</li>
+<li>no regularization</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/network_NN.png" width = 600></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<center><img src="./image_files/cnn_motivation.png" width = 800></center><p><br></p>
+<ul>
+<li><strong>Locality</strong>: objects tend to have a local spatial support<ul>
+<li>fully-connected layer $\rightarrow$ locally-connected layer</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/cnn_locality.png" width = 600></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<center><img src="./image_files/cnn_motivation.png" width = 800></center><ul>
+<li><strong>Translation invariance</strong>: object appearance is independent of location<ul>
+<li>Weight sharing: untis connected to different locations have the same weights</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/cnn_invariance.png" width = 600></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Convolutional Neural Networks</strong></p>
 <ul>
 <li>Simply neural networks that use the convolution in place of general matrix multiplication in at least one of their layers</li>
-<li>The convolution can be interpreted as a matrix multiplication</li>
+<li>The convolution can be interpreted as an element-wise matrix multiplication</li>
 </ul>
 <p><br></p>
 <table style="border-style: hidden; border-collapse: collapse;" width = "96%"> 
@@ -3224,19 +3340,28 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.1.-Convolutional-Operator">2.1. Convolutional Operator<a class="anchor-link" href="#2.1.-Convolutional-Operator">&#182;</a></h2><p><strong>Matrix multiplication</strong></p>
+<h2 id="2.2.-Convolutional-Operator">2.2. Convolutional Operator<a class="anchor-link" href="#2.2.-Convolutional-Operator">&#182;</a></h2><p><strong>Matrix multiplication</strong></p>
 <ul>
 <li>Every output unit interacts with every interacts unit</li>
 </ul>
-<p><img src="./image_files/M_multiplication.png" width = 400></p>
+<p><br></p>
+<center><img src="./image_files/M_multiplication.png" width = 400></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Convolution</strong></p>
 <ul>
 <li>Local connectivity</li>
 <li>Weight sharing</li>
 <li>Typically have sparse interactions</li>
 </ul>
-<p><img src="./image_files/conv_connect.png" width = 400></p>
-
+<p><br></p>
+<center><img src="./image_files/conv_connect_1.png" width = 400></center>
 </div>
 </div>
 </div>
@@ -3245,8 +3370,8 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2.-Nonlinear-Activation-Function">2.2. Nonlinear Activation Function<a class="anchor-link" href="#2.2.-Nonlinear-Activation-Function">&#182;</a></h2><p><img src="./image_files/ReLU.png" width = 500></p>
-
+<p><br></p>
+<center><img src="./image_files/conv_connect_2.png" width = 400></center>
 </div>
 </div>
 </div>
@@ -3255,18 +3380,27 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.3.-Pooling">2.3. Pooling<a class="anchor-link" href="#2.3.-Pooling">&#182;</a></h2><ul>
-<li>Compute a maximum value in a sliding window (max pooling)</li>
+<h2 id="2.3.-Nonlinear-Activation-Function">2.3. Nonlinear Activation Function<a class="anchor-link" href="#2.3.-Nonlinear-Activation-Function">&#182;</a></h2><p><br></p>
+<center><img src="./image_files/ReLU.png" width = 500></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.4.-Pooling">2.4. Pooling<a class="anchor-link" href="#2.4.-Pooling">&#182;</a></h2><ul>
+<li>Compute a maximum value in a sliding window (max pooling)<ul>
+<li>Reduce spatial resolution for faster computation</li>
+<li>Achieve invariance to local translation</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li>Pooling size : $2\times2$</li>
 </ul>
-<p><img src="./image_files/Max_pooling_image.png" width = 500></p>
-<ul>
-<li>Max pooling introduces invariances</li>
-</ul>
-<p><img src="./image_files/max_pool.PNG" width = 450></p>
-
+<center><img src="./image_files/Max_pooling_image.png" width = 600></center>
 </div>
 </div>
 </div>
@@ -3275,13 +3409,25 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.-Inside-the-Convolution-Layer">2.4. Inside the Convolution Layer<a class="anchor-link" href="#2.4.-Inside-the-Convolution-Layer">&#182;</a></h2><ul>
+<ul>
+<li>Max pooling introduces invariances</li>
+</ul>
+<center><img src="./image_files/max_pool.PNG" width = 450></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.5.-Inside-the-Convolution-Layer">2.5. Inside the Convolution Layer<a class="anchor-link" href="#2.5.-Inside-the-Convolution-Layer">&#182;</a></h2><ul>
 <li>First, the layer performs several convolutions to produce a set of linear activations</li>
 <li>Second, each linear activation is running through a nonlinear activation function</li>
 <li>Third, use pooling to modify the output of the layer further</li>
 </ul>
-<p><img src="./image_files/conv_layer.PNG", width = 250></p>
-
+<p><br></p>
+<center><img src="./image_files/conv_layer.PNG", width = 250></center>
 </div>
 </div>
 </div>
@@ -3290,12 +3436,12 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-CNN-with-TensorFlow">3. CNN with TensorFlow<a class="anchor-link" href="#3.-CNN-with-TensorFlow">&#182;</a></h1><ul>
+<h1 id="3.-Lab:-CNN-with-TensorFlow">3. Lab: CNN with TensorFlow<a class="anchor-link" href="#3.-Lab:-CNN-with-TensorFlow">&#182;</a></h1><ul>
 <li>MNIST example </li>
 <li>To classify handwritten digits</li>
 </ul>
-<p><br>
-<img src="./image_files/CNN_arch.png" width = 850>
+<p><br></p>
+<p><center><img src="./image_files/CNN_arch.png" width = 900></center>
 <br></p>
 
 </div>
@@ -3303,11 +3449,11 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/z6k_RMKExlQ?start=5150&amp;end=6132&quot; 
+&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/z6k_RMKExlQ?start=5150&amp;end=6132?rel=0&quot; 
 width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
 </pre></div>
 
@@ -3322,7 +3468,7 @@ width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfull
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<center><iframe src="https://www.youtube.com/embed/z6k_RMKExlQ?start=5150&end=6132" 
+<center><iframe src="https://www.youtube.com/embed/z6k_RMKExlQ?start=5150&end=6132?rel=0" 
 width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
@@ -3337,13 +3483,26 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Iterative Optimization Flow</strong></p>
+<p><br></p>
+<p><center><img src="./image_files/cnn_summary of model.png" width = 500></center>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="3.1.-Import-Library">3.1. Import Library<a class="anchor-link" href="#3.1.-Import-Library">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import Library</span>
@@ -3362,16 +3521,7 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.2.-Load-MNIST-Data">3.2. Load MNIST Data<a class="anchor-link" href="#3.2.-Load-MNIST-Data">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
+<h2 id="3.2.-Load-MNIST-Data">3.2. Load MNIST Data<a class="anchor-link" href="#3.2.-Load-MNIST-Data">&#182;</a></h2><ul>
 <li>Download MNIST data from the tensorflow tutorial example</li>
 </ul>
 
@@ -3380,7 +3530,7 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="k">import</span> <span class="n">input_data</span>
@@ -3411,7 +3561,7 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Check data</span>
@@ -3505,17 +3655,8 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 <ul>
 <li>Simple multi-layer perceptrons</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><br>
-<img src="./image_files/CNN_arch.png" width = 850>
+<p><br></p>
+<p><center><img src="./image_files/CNN_arch.png" width = 900></center>
 <br></p>
 
 </div>
@@ -3527,26 +3668,7 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>First, the layer performs several convolutions to produce a set of linear activations</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="./image_files/conv_animation.gif" width = 350></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
+<center><img src="./image_files/conv_animation.gif" width = 350></center><ul>
 <li>Filter size : $3\times3$</li>
 <li>Stride : The stride of the sliding window for each dimension of input</li>
 <li>Padding : Allow us to control the kernel width and the size of the output independently<ul>
@@ -3555,15 +3677,7 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 </ul>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <div class="highlight"><pre><span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span><span class="p">[</span><span class="s">&#39;conv1&#39;</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">padding</span> <span class="o">=</span> <span class="s">&#39;SAME&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -3575,31 +3689,9 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>The number of channels: 2
-<img src="./image_files/cnn_conv_1.png" width = 400>
-<br></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Second, each linear activation is running through a nonlinear activation function</strong></p>
-<p><img src="./image_files/ReLU.png" width = 500></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<center><img src="./image_files/ReLU.png" width = 500></center><p><br></p>
 <div class="highlight"><pre><span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">conv1</span><span class="p">,</span> <span class="n">biases</span><span class="p">[</span><span class="s">&#39;conv1&#39;</span><span class="p">]))</span>
 </pre></div>
 
@@ -3615,23 +3707,10 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 <ul>
 <li>Compute a maximum value in a sliding window (max pooling)</li>
 </ul>
-<p><img src="./image_files/Max_pooling_image.png" width = 500></p>
-<ul>
-<li><p>Pooling size : $2\times2$</p>
-</li>
-<li><p>Max pooling introduces invariances</p>
-</li>
+<center><img src="./image_files/Max_pooling_image.png" width = 500></center><ul>
+<li>Pooling size : $2\times2$</li>
 </ul>
-<p><img src="./image_files/max_pool.PNG" width = 450></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <div class="highlight"><pre><span class="n">maxp1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">conv1</span><span class="p">,</span> 
                        <span class="n">ksize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">p1_h</span><span class="p">,</span> <span class="n">p1_w</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
                        <span class="n">strides</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">p1_h</span><span class="p">,</span> <span class="n">p1_w</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
@@ -3648,18 +3727,15 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Fully connected layer</strong></p>
 <ul>
-<li>Input is typically in a form of flattened features</li>
+<li><p>Input is typically in a form of flattened features</p>
+</li>
+<li><p>Then, apply <code>softmax</code> to multiclass classification problems</p>
+</li>
+<li><p>The output of the softmax function is equivalent to a categorical probability distribution, it tells you the probability that any of the classes are true.</p>
+</li>
 </ul>
-<p><img src="./image_files/classification.png" width = 450></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<center><img src="./image_files/classification.png" width = 450></center><p><br></p>
 <div class="highlight"><pre><span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hidden1</span><span class="p">,</span> <span class="n">weights</span><span class="p">[</span><span class="s">&#39;output&#39;</span><span class="p">]),</span> <span class="n">biases</span><span class="p">[</span><span class="s">&#39;output&#39;</span><span class="p">])</span>
 </pre></div>
 
@@ -3677,7 +3753,7 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">input_h</span> <span class="o">=</span> <span class="mi">28</span> <span class="c"># Input height</span>
@@ -3735,7 +3811,7 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
@@ -3763,7 +3839,7 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Define Network</span>
@@ -3813,12 +3889,11 @@ o+AIjYIjNAqO0Cg4QqPgCI2CIzQKjtAoOELrmnP8TUmX22MiQE6DyxmU67kowOuGtygIjYIjNAqO
 <h2 id="3.6.-Define-Loss,-Initializer-and-Optimizer">3.6. Define Loss, Initializer and Optimizer<a class="anchor-link" href="#3.6.-Define-Loss,-Initializer-and-Optimizer">&#182;</a></h2><p><strong>Loss</strong></p>
 <ul>
 <li>Classification: Cross entropy<ul>
-<li>Equivalent to apply logistic regression
-$$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^{(i)})\log(1-h_{\theta}\left(x^{(i)}\right)) $$</li>
+<li>Equivalent to apply logistic regression</li>
 </ul>
 </li>
 </ul>
-<p><strong>Initializer</strong></p>
+$$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^{(i)})\log(1-h_{\theta}\left(x^{(i)}\right)) $$<p><strong>Initializer</strong></p>
 <ul>
 <li>Initialize all the empty variables</li>
 </ul>
@@ -3833,7 +3908,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">LR</span> <span class="o">=</span> <span class="mf">0.0001</span>
@@ -3858,8 +3933,8 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.7.-Summary-of-Model">3.7. Summary of Model<a class="anchor-link" href="#3.7.-Summary-of-Model">&#182;</a></h2><p><br>
-<img src="./image_files/cnn_summary of model.png" width = 500>
+<h2 id="3.7.-Summary-of-Model">3.7. Summary of Model<a class="anchor-link" href="#3.7.-Summary-of-Model">&#182;</a></h2><p><br></p>
+<p><center><img src="./image_files/cnn_summary of model.png" width = 500></center>
 <br></p>
 
 </div>
@@ -3884,7 +3959,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">n_batch</span> <span class="o">=</span> <span class="mi">50</span>
@@ -3908,7 +3983,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Run initialize</span>
@@ -3940,25 +4015,25 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Iter : 0
-Cost : 2.4444782733917236
+Cost : 2.5034751892089844
 Iter : 250
-Cost : 0.8332914113998413
+Cost : 1.026344656944275
 Iter : 500
-Cost : 0.3245970904827118
+Cost : 0.3719373047351837
 Iter : 750
-Cost : 0.31694334745407104
+Cost : 0.3204430639743805
 Iter : 1000
-Cost : 0.18161849677562714
+Cost : 0.16134536266326904
 Iter : 1250
-Cost : 0.396183580160141
+Cost : 0.09678461402654648
 Iter : 1500
-Cost : 0.23486380279064178
+Cost : 0.11738217622041702
 Iter : 1750
-Cost : 0.23770183324813843
+Cost : 0.06727408617734909
 Iter : 2000
-Cost : 0.10626211017370224
+Cost : 0.15396641194820404
 Iter : 2250
-Cost : 0.11698855459690094
+Cost : 0.1193595603108406
 </pre>
 </div>
 </div>
@@ -3978,7 +4053,7 @@ Cost : 0.11698855459690094
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -4002,7 +4077,7 @@ Cost : 0.11698855459690094
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Accuracy : 98.0%
+<pre>Accuracy : 100.0%
 </pre>
 </div>
 </div>
@@ -4013,7 +4088,7 @@ Cost : 0.11698855459690094
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -4026,6 +4101,10 @@ Cost : 0.11698855459690094
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s">&#39;Prediction : {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
 <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s">&#39;Probability : {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>
 </pre></div>
@@ -4083,7 +4162,91 @@ XAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAi0rMXX/1OpVP7/J24EqFQqlcr/mnlRtVar
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Prediction : 6
-Probability : [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAD8CAYAAACMwORRAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAADrNJREFUeJzt3X+s3Xddx/Hni3aFjh+rSa8JawutsUwbwJTcjGETJTCy
+Dk27IJHVgEqQ8gdDFDLTqZlk/gE4Q9Q4kYpARNyYc5mNVEviZkyIm72juNHWmlpgvXczu/zoMFLZ
+Ot/+cU/h9NL2nNue2++9n/t8JE3u93s+Pd93vluf/fZ877knVYUkqS3P6XoASdLoGXdJapBxl6QG
+GXdJapBxl6QGGXdJapBxl6QGGXdJapBxl6QGLe/qwKtXr67169d3dXhJWpQefvjhr1fV2KB1ncV9
+/fr1TExMdHV4SVqUknxtmHW+LCNJDTLuktQg4y5JDTLuktQg4y5JDRoY9ySfSPJkki+f4/Ek+aMk
+R5M8kuRVox9T0lzcd2CKLR+6nw27PseWD93PfQemuh5Jl9gwV+6fArae5/HrgY29XzuBj178WJIu
+1H0Hprjl3keZOnGSAqZOnOSWex818EvMwLhX1T8D3zzPku3AX9SMB4FVSV48qgElzc3t+45w8pln
+z9h38plnuX3fkY4mUhdG8Zr7GuB43/Zkb98PSLIzyUSSienp6REcWtJsj584Oaf9atMlvaFaVbur
+aryqxsfGBr57VtIFuHLVyjntV5tGEfcpYF3f9trePkkduPm6q1h52bIz9q28bBk3X3dVRxOpC6OI
++x7gF3vfNXMN8FRVPTGC55V0AW7YvIYPvukVrFg288d7zaqVfPBNr+CGzWd9tVSNGviDw5LcCbwW
+WJ1kEvgd4DKAqvpTYC/wRuAo8B3g7fM1rKTh3LB5DXf+62MAfPZdr+l4GnVhYNyraseAxwt498gm
+kiRdNN+hKkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S
+1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDj
+LkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1KCh4p5ka5IjSY4m2XWWx1+S5IEkB5I8kuSNox9VkjSs
+gXFPsgy4A7ge2ATsSLJp1rLfBu6uqs3AjcCfjHpQSdLwhrlyvxo4WlXHqupp4C5g+6w1Bbyo9/UV
+wOOjG1GSNFfLh1izBjjetz0JvHrWmg8An0/yHuD5wLUjmU6SdEFGdUN1B/CpqloLvBH4dJIfeO4k
+O5NMJJmYnp4e0aElSbMNE/cpYF3f9trevn7vAO4GqKp/AZ4HrJ79RFW1u6rGq2p8bGzswiaWJA00
+TNz3AxuTbEiygpkbpntmrXkMeD1Akh9nJu5emktSRwbGvapOATcB+4DDzHxXzMEktyXZ1lv2fuCd
+Sf4NuBP45aqq+RpaknR+w9xQpar2Antn7bu17+tDwJbRjiZJulC+Q1WSGmTcJalBxl2SGmTcJalB
+xl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2S
+GmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTcJalBxl2SGmTc
+JalBxl2SGjRU3JNsTXIkydEku86x5ueTHEpyMMlfjXZMSdJcLB+0IMky4A7gDcAksD/Jnqo61Ldm
+I3ALsKWqvpXkh+drYEnSYMNcuV8NHK2qY1X1NHAXsH3WmncCd1TVtwCq6snRjilJmoth4r4GON63
+Pdnb1+9lwMuSfCHJg0m2nu2JkuxMMpFkYnp6+sImliQNNKobqsuBjcBrgR3AnyVZNXtRVe2uqvGq
+Gh8bGxvRoSVJsw0T9ylgXd/22t6+fpPAnqp6pqq+AvwHM7GXJHVgmLjvBzYm2ZBkBXAjsGfWmvuY
+uWonyWpmXqY5NsI5JUlzMDDuVXUKuAnYBxwG7q6qg0luS7Ktt2wf8I0kh4AHgJur6hvzNbQk6fwG
+fiskQFXtBfbO2ndr39cFvK/3S5LUMd+hKkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S
+1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDj
+LkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1CDjLkkNMu6S1KCh4p5ka5IjSY4m2XWe
+dT+XpJKMj25ESdJcDYx7kmXAHcD1wCZgR5JNZ1n3QuC9wEOjHlKSNDfDXLlfDRytqmNV9TRwF7D9
+LOt+F/gw8L8jnE+SdAGGifsa4Hjf9mRv3/ckeRWwrqo+N8LZJEkX6KJvqCZ5DvAR4P1DrN2ZZCLJ
+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
+"
+>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Probability : [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
 </pre>
 </div>
 </div>
@@ -4106,11 +4269,11 @@ Probability : [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/baPLXhjslL8&quot; 
+&lt;center&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/baPLXhjslL8?rel=0&quot; 
 width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
 </pre></div>
 
@@ -4125,7 +4288,7 @@ width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfull
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<center><iframe src="https://www.youtube.com/embed/baPLXhjslL8" 
+<center><iframe src="https://www.youtube.com/embed/baPLXhjslL8?rel=0" 
 width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
@@ -4137,7 +4300,7 @@ width="560" height="315" frameborder="0" allowfullscreen></iframe></center>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="nx">javascript</span>

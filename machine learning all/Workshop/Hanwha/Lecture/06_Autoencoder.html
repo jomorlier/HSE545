@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>03_KSME_Autoencoder</title>
+<title>06_Autoencoder</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -186,7 +186,16 @@ div#notebook {
         By Prof. Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
         </td>
     </tr>
-</table><p>Table of Contents</p>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Table of Contents</p>
 <p><div id="toc"></div></p>
 
 </div>
@@ -197,7 +206,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Unsupervised-Learning">1. Unsupervised Learning<a class="anchor-link" href="#1.-Unsupervised-Learning">&#182;</a></h1><p><strong> Definition </strong></p>
+<h1 id="1.-Unsupervised-Learning">1. Unsupervised Learning<a class="anchor-link" href="#1.-Unsupervised-Learning">&#182;</a></h1><p><br>
+<strong> Definition </strong></p>
 <ul>
 <li>Unsupervised learning refers to most attempts to extract information from a distribution that do not require human labor to annotate example</li>
 <li>Main task is to find the 'best' representation of the data</li>
@@ -207,31 +217,85 @@ div#notebook {
 <li>Attempt to compress as much information as possible in a smaller representation</li>
 <li>Preserve as much information as possible while obeying some constraint aimed at keeping the representation simpler</li>
 </ul>
-<p><br>
-<img src="./image_files/dim_reduction.png" width = 400>
-<br>
-<img src="./image_files/pca_timeseries.png" width = 800>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p><center><img src="./image_files/dim_reduction.png" width = 450></center>
 <br></p>
-<h1 id="2.-Autoencoders">2. Autoencoders<a class="anchor-link" href="#2.-Autoencoders">&#182;</a></h1><ul>
-<li>It is like 'deep learning version' of unsupervised learning</li>
-</ul>
-<p><strong>Definition</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><center><img src="./image_files/pca_timeseries.png" width = 800></center>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.-Autoencoders">2. Autoencoders<a class="anchor-link" href="#2.-Autoencoders">&#182;</a></h1><p>It is like 'deep learning version' of unsupervised learning</p>
+<p><br>
+<strong>Definition</strong></p>
 <ul>
 <li>An autoencoder is a neural network that is trained to attempt to copy its input to its output</li>
 <li>The network consists of two parts: an <strong>encoder</strong> and a <strong>decoder</strong> that produce a reconstruction</li>
 </ul>
-<p><strong> Encoder and Decoder </strong></p>
+<p><br>
+<strong> Encoder and Decoder </strong></p>
 <ul>
 <li>Encoder function : $h = f(x)$</li>
 <li>Decoder function : $r = g(h)$</li>
 <li>We learn to set $g\left(f(x)\right) = x$</li>
 </ul>
-<p><br>
-<img src="./image_files/autoencoder_before.png" width = 600>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p><center><img src="./image_files/autoencoder_before.png" width = 600></center>
 <br></p>
-<p><br>
-<img src="./image_files/autoencoder_cat.png" width = 600>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p><center><img src="./image_files/autoencoder_cat.png" width = 600></center>
 <br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> Modern Autoencoders </strong></p>
 <ul>
 <li>Beyond deterministic functions to stochastic mapping: $p_{\text{encoder}}(h\mid x)$ and $p_{\text{decoder}}(x\mid h)$<ul>
@@ -243,8 +307,8 @@ div#notebook {
 <ul>
 <li>Will not cover them in this tutorial</li>
 </ul>
-<p><br>
-<img src="./image_files/autoencoder_gaussian.png" width = 800>
+<p><br></p>
+<p><center><img src="./image_files/autoencoder_gaussian.png" width = 800></center>
 <br></p>
 
 </div>
@@ -255,7 +319,12 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-Autoencoder-with-TensorFlow">3. Autoencoder with TensorFlow<a class="anchor-link" href="#3.-Autoencoder-with-TensorFlow">&#182;</a></h1>
+<h1 id="3.-Autoencoder-with-TensorFlow">3. Autoencoder with TensorFlow<a class="anchor-link" href="#3.-Autoencoder-with-TensorFlow">&#182;</a></h1><ul>
+<li>MNIST example</li>
+<li>Use only (1, 5, 6) digits to visualize in 2-D</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/autoencoder4.png" width = 700></center>
 </div>
 </div>
 </div>
@@ -264,10 +333,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>MNIST example</li>
-<li>Use only (1, 5, 6) digits to visualize in 2-D</li>
-</ul>
 <p><br>
 <img src="./image_files/AE_arch2.png" width = 800></p>
 
@@ -409,9 +474,8 @@ The number of testimgs : 2985, shape : (2985, 784)
 <li>Encoder shape</li>
 <li>Decoder shape</li>
 </ul>
-<p><br>
-<img src="./image_files/AE_arch2.png" width = 700></p>
-
+<p><br></p>
+<center><img src="./image_files/AE_arch2.png" width = 700></center>
 </div>
 </div>
 </div>
@@ -489,7 +553,16 @@ The number of testimgs : 2985, shape : (2985, 784)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.5.-Build-a-Model">3.5. Build a Model<a class="anchor-link" href="#3.5.-Build-a-Model">&#182;</a></h2><p><strong>Encoder</strong></p>
+<h2 id="3.5.-Build-a-Model">3.5. Build a Model<a class="anchor-link" href="#3.5.-Build-a-Model">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Encoder</strong></p>
 <ul>
 <li>Simple ANN (MLP) model</li>
 <li>Use <code>tanh</code> for a nonlinear activation function</li>
@@ -502,7 +575,7 @@ The number of testimgs : 2985, shape : (2985, 784)
 <li><code>reconst</code> is not applied with a nonlinear activation function</li>
 </ul>
 <p><br>
-<img src="./image_files/autoencoder2.png" width = 700></p>
+<img src="./image_files/autoencoder4.png" width = 700></p>
 
 </div>
 </div>
@@ -558,10 +631,9 @@ The number of testimgs : 2985, shape : (2985, 784)
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="3.6.-Define-Loss,-Initializer-and-Optimizer">3.6. Define Loss, Initializer and Optimizer<a class="anchor-link" href="#3.6.-Define-Loss,-Initializer-and-Optimizer">&#182;</a></h2><p><strong>Loss</strong></p>
 <ul>
-<li>Squared loss
-$$  \frac{1}{N}\sum_{i=1}^{N} (t_{i} - y_{i})^2 $$</li>
+<li>Squared loss</li>
 </ul>
-<p><strong>Optimizer</strong></p>
+$$  \frac{1}{N}\sum_{i=1}^{N} (t_{i} - y_{i})^2 $$<p><strong>Optimizer</strong></p>
 <ul>
 <li>AdamOptimizer: the most popular optimizer</li>
 </ul>
@@ -600,8 +672,8 @@ $$  \frac{1}{N}\sum_{i=1}^{N} (t_{i} - y_{i})^2 $$</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.7.-Summary-of-Model">3.7. Summary of Model<a class="anchor-link" href="#3.7.-Summary-of-Model">&#182;</a></h2><p><img src="./image_files/rnn_summary of model.png" width = 500></p>
-
+<h2 id="3.7.-Summary-of-Model">3.7. Summary of Model<a class="anchor-link" href="#3.7.-Summary-of-Model">&#182;</a></h2><p><br></p>
+<center><img src="./image_files/rnn_summary of model.png" width = 600></center>
 </div>
 </div>
 </div>
@@ -610,7 +682,7 @@ $$  \frac{1}{N}\sum_{i=1}^{N} (t_{i} - y_{i})^2 $$</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.8.-Define-Configuration">2.8. Define Configuration<a class="anchor-link" href="#2.8.-Define-Configuration">&#182;</a></h2><ul>
+<h2 id="3.8.-Define-Configuration">3.8. Define Configuration<a class="anchor-link" href="#3.8.-Define-Configuration">&#182;</a></h2><ul>
 <li>Define parameters for training autoencoder<ul>
 <li><code>n_batch</code> : batch size for stochastic gradient descent</li>
 <li><code>n_iter</code> : the number of training steps</li>
@@ -642,7 +714,7 @@ $$  \frac{1}{N}\sum_{i=1}^{N} (t_{i} - y_{i})^2 $$</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.9.-Optimization">2.9. Optimization<a class="anchor-link" href="#2.9.-Optimization">&#182;</a></h2>
+<h2 id="3.9.-Optimization">3.9. Optimization<a class="anchor-link" href="#3.9.-Optimization">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -711,7 +783,7 @@ Cost : 0.03825182095170021
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.10.-Test">2.10. Test<a class="anchor-link" href="#2.10.-Test">&#182;</a></h2><ul>
+<h2 id="3.10.-Test">3.10. Test<a class="anchor-link" href="#3.10.-Test">&#182;</a></h2><ul>
 <li>Test reconstruction performance of the autoencoder</li>
 </ul>
 
@@ -2086,16 +2158,7 @@ z34N0bNqXQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-Visualization">3. Visualization<a class="anchor-link" href="#3.-Visualization">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Image Generation</strong></p>
+<h1 id="4.-Visualization">4. Visualization<a class="anchor-link" href="#4.-Visualization">&#182;</a></h1><p><strong>Image Generation</strong></p>
 <ul>
 <li>Select an arbitrary latent varibale $z$</li>
 <li>Generate images using the learned decoder</li>
