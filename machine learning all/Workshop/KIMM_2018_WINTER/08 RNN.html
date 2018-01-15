@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>08 RNN</title>
+<title>08 RNN (1)</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -285,14 +285,12 @@ $$ p(q_0, q_1, \dots, q_T) = p(q_0)p(q_1\mid q_0)p(q_2 \mid q_1,q_0) \cdots $$</
 $$ p(q_{t+1}\mid q_t, \cdots, q_0) = p(q_{t+1} \mid q_t) $$</li>
 </ul>
 <ul>
-<li>Tractable in computation of joint distribution
-$$ \begin{align}
-p(q_0, q_1, \cdots, q_T) &amp;= p(q_0)p(q_1 \mid q_0)p(q_2 \mid q_1,q_0) \cdots \
-<pre><code>                  &amp;= p(q_0)p(q_1 \mid q_0)p(q_2 \mid q_1)p(q_2 \mid q_2) \cdots
-</code></pre>
-\end{align}$$</li>
+<li>Tractable in computation of joint distribution</li>
 </ul>
-
+$$\begin{align}
+p(q_0, q_1, \cdots, q_T) &= p(q_0)p(q_1 \mid q_0)p(q_2 \mid q_1,q_0) \cdots \\
+                        &= p(q_0)p(q_1 \mid q_0)p(q_2 \mid q_1)p(q_2 \mid q_2) \cdots
+\end{align}$$
 </div>
 </div>
 </div>
