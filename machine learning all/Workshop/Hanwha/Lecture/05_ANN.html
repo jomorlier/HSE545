@@ -183,7 +183,7 @@ div#notebook {
 
         </td>
         <td width = 35%>
-        By Prof. Seungchul Lee<br>iSystems Design Lab<br>http://isystems.unist.ac.kr/<br>UNIST
+        By Prof. Seungchul Lee<br>Industrial AI Lab<br>http://isystems.unist.ac.kr/<br>POSTECH
         </td>
     </tr>
 </table>
@@ -206,42 +206,47 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Recall-Supervised-Learning-Setup">1. Recall Supervised Learning Setup<a class="anchor-link" href="#1.-Recall-Supervised-Learning-Setup">&#182;</a></h1><p><br></p>
-<ul>
-<li><p>Input features $x^{(i)} \in \mathbb{R}^n$</p>
-</li>
-<li><p>Ouput $y^{(i)}$
-<br>
-<br></p>
-</li>
-<li><p>Model parameters $\theta \in \mathbb{R}^k$</p>
-</li>
-<li><p>Hypothesis function $h_{\theta}: \mathbb{R}^n \rightarrow y$
-<br>
-<br></p>
-</li>
-<li>Loss function $\ell: y \times y \rightarrow \mathbb{R}_+$
-<br>
-<br></li>
-<li>Machine learning optimization problem</li>
-</ul>
-<p><br>
-$$ \min_{\theta} \sum_{i=1}^{m}\ell\left( h_{\theta}\left(x^{(i)}\right),y^{(i)}\right)$$</p>
-<p>$\quad \;$(possibly plus some additional regularization)</p>
-<ul>
-<li>But, many specialized domains required highly engineered special features</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="1.-Recall-Supervised-Learning-Setup">1. Recall Supervised Learning Setup<a class="anchor-link" href="#1.-Recall-Supervised-Learning-Setup">&#182;</a></h1><p><strong>Perceptron</strong></p>
 <p><br></p>
-<center><img src="./image_files/ML_DL.png" width = 550></center>
+<center><img src="./image_files/perceptron2.png", width = 500></center><p><strong>XOR Problem</strong></p>
+<ul>
+<li>Minsky-Papert Controversy on XOR<ul>
+<li>not linearly separable</li>
+<li>limitation of perceptron</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead><tr>
+<th>$x_1$</th>
+<th>$x_2$</th>
+<th>$x_1$ XOR $x_2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<center><img src="./image_files/xor_prob.png", width = 500></center>
 </div>
 </div>
 </div>
@@ -265,7 +270,9 @@ o &= \sigma(\omega_0 + \omega_1 x_1 + \cdots)
 $$</p>
 <p><br></p>
 <center><img src="./image_files/perceptron_01.png" width = 400></center><ul>
-<li>A step function is not differentiable</li>
+<li>A step function is not differentiable<center><img src="./image_files/stepfunc.png" width = 250></center></li>
+</ul>
+<ul>
 <li>One layer is often not enough</li>
 </ul>
 
@@ -313,6 +320,19 @@ $$</p>
             <center><img src="./image_files/mlp_03.png" width = 400></center>
         </td>
     </tr>
+</table><table style="border-style: hidden; border-collapse: collapse;" width = "70%"> 
+    <tr style="border-style: hidden; border-collapse: collapse;">
+        <td width = 35% style="border-style: hidden; border-collapse: collapse;">
+            <center><img src="./image_files/stepfunc.png" width = 400></center>
+        </td>
+        <td width = 10%>
+        $\implies$
+
+        </td>
+        <td width = 35% style="border-style: hidden; border-collapse: collapse;">
+            <center><img src="./image_files/sigmoid_function.png" width = 400></center>
+        </td>
+    </tr>
 </table>
 </div>
 </div>
@@ -324,7 +344,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br>
 in a compact representation</p>
-<center><img src="./image_files/mlp_04.png" width = 400></center>
+<center><img src="./image_files/mlp_04.png" width = 200></center>
 </div>
 </div>
 </div>
@@ -392,6 +412,44 @@ $$o_2 = \sigma_2 \left(\theta_2^T  o_1 + b_2 \right) = \sigma_2 \left(\theta_2^T
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Linear Classifier</strong></p>
+<ul>
+<li>Perceptron tries to separate the two classes of data by dividing them with a line</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/Linearcls.png" width = 600></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Neural Networks</strong></p>
+<ul>
+<li>The hidden layer learns a representation so that the data is linearly separable</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/NN.png" width = 700></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<center><img src="./image_files/ML_DL.png" width = 550></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="3.-Training-Neural-Networks">3. Training Neural Networks<a class="anchor-link" href="#3.-Training-Neural-Networks">&#182;</a></h1><p>$=$ Learning or estimating weights and biases of multi-layer perceptron from training data</p>
 <h2 id="3.1.-Optimization">3.1. Optimization<a class="anchor-link" href="#3.1.-Optimization">&#182;</a></h2><p><strong>3 key components</strong></p>
 <ol>
@@ -431,6 +489,252 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log\left(h_{\theta}\left(x^{(i)}\right)\rig
 </li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<center><img src="./image_files/nn_train.png" width = 350></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Solving Optimization Problems</strong></p>
+<ul>
+<li>Starting with the unconstrained, one dimensional case
+<br>
+<center><img src="./image_files/opt_pro.png" width = 350></center><ul>
+<li>To find minimum point $x^*$, we can look at the derivative of the function $f'(x)$: any location where $f'(x)=0$ will be a “flat” point in the function</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>For convex problems, this is guaranteed to be a minimum </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Generalization for multivariate function $f:\mathbb{R}^n \rightarrow \ \mathbb{R}$</p>
+<ul>
+<li>the gradient of $f$ must be zero</li>
+</ul>
+</li>
+</ul>
+$$ \nabla _x f(x) = 0$$<ul>
+<li>For defined as above, gradient is a n-dimensional vector containing partial derivatives with respect to each dimension</li>
+</ul>
+$$ \nabla _x f(x) = \begin{bmatrix}
+\partial f(x) \over \partial x_1 \\
+\vdots\\
+\partial f(x) \over \partial x_n
+\end{bmatrix} $$<ul>
+<li>For continuously differentiable $f$ and unconstrained optimization, optimal point must have $\nabla _x f(x^*)=0$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>How do we Find $\nabla _x f(x) = 0$</strong></p>
+<ul>
+<li><p>Direct solution</p>
+<ul>
+<li>In some cases, it is possible to analytically compute $x^*$ such that $ \nabla _x f(x^*)=0$</li>
+</ul>
+</li>
+</ul>
+<p><br>
+$$ f(x) = 2x_1^2+ x_2^2 + x_1 x_2 -6 x_1 -5 x_2$$</p>
+$$\Longrightarrow \nabla _x f(x) = \begin{bmatrix}
+4x_1+x_2+6\\
+2x_2 + x_1 +5
+\end{bmatrix} $$$$
+\Longrightarrow x^\star = \begin{bmatrix}
+4 & 1\\
+1 & 2
+\end{bmatrix} ^{-1} \begin{bmatrix}
+6 \\ 5\\
+\end{bmatrix} = \begin{bmatrix}
+1 \\ 2\\
+\end{bmatrix}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\color{Red}{\text{Iterative methods}}$<ul>
+<li>More commonly the condition that the gradient equal zero will not have an analytical solution, require iterative methods</li>
+</ul>
+</li>
+</ul>
+<center><img src="./image_files/iterativemethods.png", width =400 ></center><ul>
+<li>The gradient points in the direction of "steepest ascent" for function $f$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Decent Direction (1D)</strong></p>
+<ul>
+<li>It motivates the gradient descent algorithm, which repeatedly takes steps in the direction of the negative gradient</li>
+</ul>
+<p><br>
+$$ x \leftarrow x - \alpha \nabla _x f(x) \quad \quad \text{for some step size } \alpha > 0$$</p>
+<p><br></p>
+<center><img src="./image_files/descentdir1d.png", width =800 ></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Gradient Descent</li>
+</ul>
+$$\text{Repeat : } x \leftarrow x - \alpha \nabla _x f(x) \quad \quad \text{for some step size } \alpha > 0$$<p></p>
+<center><img src="./image_files/graddesc.png", width =400 ></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Gradient Descent in High Dimension</li>
+</ul>
+$$\text{Repeat : } x \leftarrow x - \alpha \nabla _x f(x)$$<p><br><br></p>
+<center><img src="./image_files/graddescinhigh.png", width =800 ></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Gradient Descent Example</li>
+</ul>
+$$\text{min} \quad (x_1 - 3)^2 + (x_2 - 3)^2$$$$ = \text{min} \quad {1\over 2} [ x_1 \quad x_2 ] \begin{bmatrix}
+2 & 0\\
+0 & 2
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} - [6 \quad 6] \begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} + 18$$<ul>
+<li>Update rule </li>
+</ul>
+$$X_{i+1} = X_i-\alpha _i \nabla f(X_i)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">],[</span><span class="mi">6</span><span class="p">]])</span>
+
+<span class="n">x</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>    
+    <span class="n">g</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">g</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[2.99999147]
+ [2.99999147]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font size='3'><b>Choosing Step Size $\alpha$</b></font></p>
+<ul>
+<li>Learning rate</li>
+</ul>
+<center><img src="./image_files/ChoosingStep.png", width =800 ></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font size='3'><b>Where will We Converge?</b></font>
+<br><br><br></p>
+<center><img src="./image_files/wherewillweconv.png", width =700 ></center>
 </div>
 </div>
 </div>
@@ -487,16 +791,130 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Chain Rule</p>
+<ul>
+<li><p>Computing the derivative of the composition of functions</p>
+<ul>
+<li><p>$\space f(g(x))' = f'(g(x))g'(x)$</p>
+</li>
+<li><p>$\space {dz \over dx} = {dz \over dy} \bullet {dy \over dx}$</p>
+</li>
+<li><p>$\space {dz \over dw} = ({dz \over dy} \bullet {dy \over dx}) \bullet {dx \over dw}$</p>
+</li>
+<li><p>$\space {dz \over du} = ({dz \over dy} \bullet {dy \over dx} \bullet {dx \over dw}) \bullet {dw \over du}$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Backpropagation</p>
+<ul>
+<li><p>Update weights recursively</p>
+<center><img src="./image_files/backpropa.png" width = 250></center></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Optimization procedure</strong></p>
 <p><br></p>
 <center><img src="./image_files/gradient_descent.png" width = 600 style="border:1px solid black;"></center><ul>
 <li>It is not easy to numerically compute gradients in network in general.<ul>
 <li>The good news: people have already done all the "hardwork" of developing numerical solvers (or libraries)</li>
-<li>There are a wide range of tools</li>
+<li>There are a wide range of tools: $\color{Red}{\text{TensorFlow}}$</li>
 </ul>
 </li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Summary</strong></p>
+<ul>
+<li>Learning weights and biases from data using gradient descent</li>
+</ul>
+<center><img src="./image_files/backsum.png" width = 500></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Artificial Neural Networks</p>
+<ul>
+<li>Complex/Nonlinear function approximator<ul>
+<li>Linearly connected networks </li>
+<li>Simple nonlinear neurons</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Hidden layers<ul>
+<li>Autonomous feature learning</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/ANN_struc1.png" width = 500></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Deep Artificial Neural Networks</p>
+<ul>
+<li>Complex/Nonlinear function approximator<ul>
+<li>Linearly connected networks </li>
+<li>Simple nonlinear neurons</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Hidden layers<ul>
+<li>Autonomous feature learning</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/ANN_struc2.png" width = 500></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Machine Learning vs. Deep Learning</strong></p>
+<ul>
+<li>State-of-the-art until 2012</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/MLvsDL1.png" width = 700></center><ul>
+<li>Deep supervised learning</li>
+</ul>
+<p><br></p>
+<center><img src="./image_files/MLvsDL2.png" width = 700></center>
 </div>
 </div>
 </div>
@@ -548,7 +966,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
@@ -564,10 +982,25 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\ProgramData\Anaconda3\lib\site-packages\h5py\__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from &#96;float&#96; to &#96;np.floating&#96; is deprecated. In future, it will be treated as &#96;np.float64 == np.dtype(float).type&#96;.
+  from ._conv import register_converters as _register_converters
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">A</span>
@@ -581,7 +1014,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -596,7 +1029,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">B</span>
@@ -610,7 +1043,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -636,7 +1069,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
@@ -651,11 +1084,11 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([5, 7, 9], dtype=int32)</pre>
+<pre>array([5, 7, 9])</pre>
 </div>
 
 </div>
@@ -666,7 +1099,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
@@ -680,11 +1113,11 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([ 4, 10, 18], dtype=int32)</pre>
+<pre>array([ 4, 10, 18])</pre>
 </div>
 
 </div>
@@ -705,7 +1138,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -718,7 +1151,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
@@ -732,7 +1165,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
@@ -746,11 +1179,11 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([1, 1], dtype=int32)</pre>
+<pre>array([1, 1])</pre>
 </div>
 
 </div>
@@ -771,7 +1204,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -784,7 +1217,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span> <span class="p">:</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]})</span>
@@ -798,12 +1231,12 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 1.,  2.],
-       [ 3.,  4.]], dtype=float32)</pre>
+<pre>array([[1., 2.],
+       [3., 4.]], dtype=float32)</pre>
 </div>
 
 </div>
@@ -884,13 +1317,23 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Mini-batch Gradient Descent</strong></p>
+<center><img src="./image_files/minibatchGD.png" width = 600></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="4.1.-Import-Library">4.1. Import Library<a class="anchor-link" href="#4.1.-Import-Library">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Import Library</span>
@@ -918,7 +1361,7 @@ $$ \theta:= \theta - \alpha \nabla_{\theta} \left( h_{\theta} \left(x^{(i)}\righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="k">import</span> <span class="n">input_data</span>
@@ -949,7 +1392,7 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -976,41 +1419,45 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALgAAADECAYAAAAs0+t9AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-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
-rkJggg==
+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
 "
 >
 </div>
@@ -1033,7 +1480,7 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="p">(</span><span class="s">&#39;Train labels : {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">train_y</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]))</span>
@@ -1049,7 +1496,7 @@ rkJggg==
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Train labels : [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+<pre>Train labels : [0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]
 </pre>
 </div>
 </div>
@@ -1119,7 +1566,7 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">n_input</span> <span class="o">=</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span>
@@ -1147,7 +1594,7 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
@@ -1171,7 +1618,7 @@ rkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Define Network</span>
@@ -1218,7 +1665,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Define Cost</span>
@@ -1234,6 +1681,27 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>WARNING:tensorflow:From &lt;ipython-input-20-f59549b55e1c&gt;:3: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See tf.nn.softmax_cross_entropy_with_logits_v2.
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1269,7 +1737,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">n_batch</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c"># Batch Size</span>
@@ -1293,7 +1761,7 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="c"># Run initialize</span>
@@ -1324,25 +1792,25 @@ $$ -\frac{1}{N}\sum_{i=1}^{N}y^{(i)}\log(h_{\theta}\left(x^{(i)}\right)) + (1-y^
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Iter : 0
-Cost : 2.4568586349487305
+Cost : 2.8692855834960938
 Iter : 250
-Cost : 1.4568665027618408
+Cost : 1.202142357826233
 Iter : 500
-Cost : 0.7992963194847107
+Cost : 0.8901556134223938
 Iter : 750
-Cost : 0.6279309988021851
+Cost : 0.5407989621162415
 Iter : 1000
-Cost : 0.4135037958621979
+Cost : 0.3589915931224823
 Iter : 1250
-Cost : 0.4587893784046173
+Cost : 0.28060182929039
 Iter : 1500
-Cost : 0.3380467891693115
+Cost : 0.37031352519989014
 Iter : 1750
-Cost : 0.4487552344799042
+Cost : 0.6127738952636719
 Iter : 2000
-Cost : 0.39212024211883545
+Cost : 0.47615474462509155
 Iter : 2250
-Cost : 0.3634752631187439
+Cost : 0.3511289358139038
 </pre>
 </div>
 </div>
@@ -1362,7 +1830,7 @@ Cost : 0.3634752631187439
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -1386,7 +1854,7 @@ Cost : 0.3634752631187439
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Accuracy : 92.0%
+<pre>Accuracy : 93.0%
 </pre>
 </div>
 </div>
@@ -1397,7 +1865,7 @@ Cost : 0.3634752631187439
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1427,37 +1895,35 @@ Cost : 0.3634752631187439
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO4AAADuCAYAAAA+7jsiAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-AAALEgAACxIB0t1+/AAABsBJREFUeJzt3U+IzP8Dx/EZf5bSulAo7e8mJxyUg7AnraT2sraEo5ZS
-K5GbmziQg9LaIgeHvTmyJdok5U+ODlI/EuWbVlssLfM9fY/znpndMbuv9XhcX/Pho+3po95mplqr
-1SpAliXzfQNA64QLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgZa18uJqteq/WcEfVqvVqo1e44kLgYQL
-gYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgYQLgVp6Wx+dd/78+eJ+9OjR4j44OFjc
-nz9/3vI9Mf88cSGQcCGQcCGQcCGQcCGQcCGQ46AFoLe3t+527Nix4rXfvn0r7tu3by/ujoMyeeJC
-IOFCIOFCIOFCIOFCIOFCIOFCoGqt1vwX8Pm2vtnp7u4u7m/fvq273b59u3jtuXPninujn++vX7+K
-O53n2/pgkRIuBBIuBBIuBBIuBBIuBBIuBPJ+3A44fvx4cZ+enq67Xb58uXjtzMzMrO6JbJ64EEi4
-EEi4EEi4EEi4EEi4EEi4EMg5bgecPXu2uI+MjNTdPn782O7bYRHwxIVAwoVAwoVAwoVAwoVAwoVA
-joPaoNHHr65YsaK4v379up23w1/AExcCCRcCCRcCCRcCCRcCCRcCCRcCOcdtg76+vjldf+/evTbd
-CX8LT1wIJFwIJFwIJFwIJFwIJFwIJFwI5By3DYaGhor7jx8/ivvnz5/beTv8BTxxIZBwIZBwIZBw
-IZBwIZBwIZBwIZBz3CZUq9XivmbNmuL+4MGDdt7OgtHb21vcBwcH5/TrT05O1t0mJiaK1zZ6j3Ot
-VpvVPS0UnrgQSLgQSLgQSLgQSLgQSLgQSLgQyDluEzZs2FDct2zZUtwvXbrUzttpq66uruJ+8eLF
-utvw8HDx2nfv3hX3qampWV9/4sSJ4rUDAwPFfXx8vLgvdJ64EEi4EEi4EEi4EEi4EEi4EMhxUAfM
-58evLllS/rt5dHS0uB85cqTu1uhI5tatW8W90cfWlvT39xf3kZGR4r5t27bi/vXr15bvqZM8cSGQ
-cCGQcCGQcCGQcCGQcCGQcCGQc9wm9PT0zOn6Z8+etelOWnft2rXivnfv3lnvjT529k9+BOr9+/eL
-+8qVK4v7qlWrirtzXKDthAuBhAuBhAuBhAuBhAuBhAuBnOM2Yd26dfN9C3WtX7++uB84cKC4Hzp0
-qLg/fPiw5XvqhO/fvxf3N2/eFPddu3YV97GxsZbvqZM8cSGQcCGQcCGQcCGQcCGQcCGQcCGQc9wm
-/Pz5c07Xb9y4sbjP5b2fhw8fLu6NznmfPHky6987WXd393zfwpx44kIg4UIg4UIg4UIg4UIg4UIg
-4UIg57hNePz4cXH/9OlTcR8aGiruJ0+ebPme/vP06dPivmxZ+Ue8Z8+e4j4+Pt7yPXVCoz/X6tWr
-i/vk5GQ7b6fjPHEhkHAhkHAhkHAhkHAhkHAhkOOgJkxNTRX3Dx8+FPeBgYHifurUqbrbzMxM8dov
-X74U99+/fxf3pUuXFveFqtERWqO3Mzb6itCFzhMXAgkXAgkXAgkXAgkXAgkXAgkXAlVrtVrzL65W
-m3/xX2RwcLC437lzp7hfv3697jaXt/xVKpXKjRs3ivv+/fuL+82bN+tu09PTs7qn/zR6u2RPT0/d
-bXR0tHjtvn37ivtC/frQSqVSqdVq1Uav8cSFQMKFQMKFQMKFQMKFQMKFQMKFQM5xO2BsbKy49/f3
-192uXr1avPbKlSvFvdFXePb19RX3tWvX1t2q1fJxY1dXV3HftGlTcd+6dWvd7fTp08VrX7x4UdwX
-Mue4sEgJFwIJFwIJFwIJFwIJFwIJFwI5x+2A5cuXF/cLFy7U3YaHh4vXNvpM57t37xb39+/fF/eS
-0vlzpVKp7Ny5s7g3+mzjM2fO1N1evXpVvDaZc1xYpIQLgYQLgYQLgYQLgYQLgRwHLXA7duwo7gcP
-Hizuu3fvLu6bN28u7o8ePaq7vXz5snjtxMREcW/0EamNviJ0sXIcBIuUcCGQcCGQcCGQcCGQcCGQ
-cCGQc1xYYJzjwiIlXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgk
-XAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgk
-XAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAi0rMXX/1OpVP7/J24EqFQqlcr/mnlRtVar
-/ekbAdrMP5UhkHAhkHAhkHAhkHAhkHAhkHAhkHAhkHAh0L+lfC/Jvaa25wAAAABJRU5ErkJggg==
+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
 "
 >
 </div>
@@ -1466,8 +1932,8 @@ XAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAgkXAi0rMXX/1OpVP7/J24EqFQqlcr/mnlRtVar
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Prediction : 6
-Probability : [ 0.    0.01  0.04  0.    0.01  0.    0.93  0.    0.01  0.  ]
+<pre>Prediction : 2
+Probability : [0.   0.   0.93 0.01 0.   0.   0.06 0.   0.   0.  ]
 </pre>
 </div>
 </div>
@@ -1478,7 +1944,7 @@ Probability : [ 0.    0.01  0.04  0.    0.01  0.    0.93  0.    0.01  0.  ]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="nx">javascript</span>
