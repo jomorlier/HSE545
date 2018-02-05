@@ -426,7 +426,8 @@ $$ \hat{y}_{i} = f(x_{i}, \theta) \; \text{ in general}$$
 </ul>
 <p><br>
 $$ \hat{y}_{i} = \theta_{1}x_{i} + \theta_{2} \;\quad\text{  such that  } \quad \min\limits_{\theta_{1}, \theta_{2}}\sum\limits_{i = 1}^{m} (\hat{y}_{i} - y_{i})^2$$</p>
-<p><img src='./image_files/regression_linear.png' width = 400></p>
+<p><br>
+<img src='./image_files/regression_linear.png' width = 400></p>
 
 </div>
 </div>
@@ -1019,20 +1020,11 @@ SMD+P28vWm7N+CsVAAAAAElFTkSuQmCC
 </ul>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Perceptron: make use of sign of data<ul>
-<li>Discuss it later</li>
+<li>Perceptron: make use of sign of data</li>
 </ul>
-</li>
+<ul>
+<li>Support Vector Machine (SVM)</li>
 </ul>
 <ul>
 <li>Logistic regression is a classification algorithm<ul>
@@ -5603,17 +5595,22 @@ hMlJwSaEEEIIYXJSsAkhhBBCmNz/A6C0U5DwTwKsAAAAAElFTkSuQmCC
 <ul>
 <li>basic idea: to find the decision boundary (hyperplane) of $g(x)=\omega^T x = 0$ such that maximizes $\prod_i \vert h_i \vert \rightarrow$ optimization</li>
 </ul>
-<p><img src='./image_files/distance.png' width = 500></p>
+<p><br>
+<img src='./image_files/distance.png' width = 500></p>
+<p><br></p>
 <ul>
-<li>Inequality of arithmetic and geometric means
-$${x_1 + x_2 + \dots + x_m \over m} \ge \sqrt[m]{x_1 \cdot x_2 \dots x_m}$$
-and that equality holds if and only if $x_1=x_2=\dots=x_m$</li>
+<li>Inequality of arithmetic and geometric means</li>
 </ul>
+$$
+\begin{align*}
+{x_1 + x_2 + \dots + x_m \over m} \ge \sqrt[m]{x_1 \cdot x_2 \dots x_m}\\
+\text{equality holds if and only if } x_1=x_2=\dots=x_m
+\end{align*}
+$$<p><br></p>
 <ul>
-<li>Roughly speaking, this optimization of $\max \prod_i \vert h_i \vert$ tends to position a hyperplane in the middle of two classes
-$$h = {g(x) \over \Vert \omega \Vert} = {\omega^T x \over \Vert \omega \Vert} \sim \omega^T x$$</li>
+<li>Roughly speaking, this optimization of $\max \prod_i \vert h_i \vert$ tends to position a hyperplane in the middle of two classes</li>
 </ul>
-
+$$h = {g(x) \over \Vert \omega \Vert} = {\omega^T x \over \Vert \omega \Vert} \sim \omega^T x$$
 </div>
 </div>
 </div>
@@ -5676,11 +5673,11 @@ $$ \sigma(z) = \frac{1}{1+e^{-z}} \implies \sigma(\omega^T x) = \frac{1}{1+e^{-\
 </ul>
 <p>$$P\left(y = +1 \mid x,\omega\right) = \frac{1}{1+e^{-\omega^T x}} \;\; \in \; [0,1]$$</p>
 </li>
-<li><p>Goal: we need to fit $\omega$ to our data
-$$\max \prod_i \vert h_i \vert$$</p>
-</li>
 </ul>
-
+<ul>
+<li>Goal: we need to fit $\omega$ to our data</li>
+</ul>
+$$\max \prod_i \vert h_i \vert$$
 </div>
 </div>
 </div>
