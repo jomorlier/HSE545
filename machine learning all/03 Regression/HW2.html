@@ -242,7 +242,7 @@ $$<p>Note: this problem will be revisited after a midterm. We will solve this pr
 <p><img src="./image_files/problem06.png", width = 400></p>
 <p>Next, corrupt the original signal with Gaussian noise. This can be done using <code>randn</code> command in Python. One of realizations of the corrupted signal will be given:</p>
 <p><img src="./image_files/problem07.png", width = 400></p>
-<h3 id="Step-2.-$L_1$-optimization">Step 2. $L_1$ optimization<a class="anchor-link" href="#Step-2.-$L_1$-optimization">&#182;</a></h3><p>Note that the signal is sparse (in a sense of frequency domain). Therefore we can apply the $L_1$ optimization. We will optimize the $L_2$ cost function with the $L_1$ constraints. Here’s a rough CVX code :</p>
+<h3 id="Step-2.-$L_1$-optimization">Step 2. $L_1$ optimization<a class="anchor-link" href="#Step-2.-$L_1$-optimization">&#182;</a></h3><p>Note that the signal is sparse (in a sense of frequency domain). Therefore we can apply the $L_1$ optimization. We will optimize the $L_1$ cost function with the $L_2$ constraints. Here’s a rough CVX code :</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">cvxpy</span> <span class="kn">as</span> <span class="nn">cvx</span>
 
 <span class="n">x_con</span> <span class="o">=</span> <span class="n">cvx</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
