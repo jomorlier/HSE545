@@ -193,6 +193,22 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>For your handwritten solution, hand in your hardcopy at class.</li>
+<li>For your code, email your .ipynb file to (<code>iai.postech@gmail.com</code>)</li>
+<li>When you send an e-mail, write down <font color="red">[Machine Learning HW2]</font> on the title</li>
+<li>And please <font color="red">write your NAME</font> on your .ipynb files.  ex) 김지원_20182315_HW2.ipynb</li>
+<li>Do not submit a printed version of your code. It will not be graded.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h1>
 </div>
 </div>
@@ -205,8 +221,8 @@ div#notebook {
 <p><strong>(a)</strong> 
 Find the solution using the derivatives of the following objective function:</p>
 $$\min_{x} \, (2x_1 - 1)^2 + (-x_1 + x_2)^2 + (2x_2 +1)^2$$<p><strong>(b)</strong>
-Formulate the corresponding least-squares problem (<em>i.e.</em>, find $A$ and $b$), and solve it using cvxpy.</p>
-$$\min_{x} \, \lVert Ax - b\rVert_2$$<p><strong>(c)</strong>
+Formulate the above corresponding least-squares problem (<em>i.e.</em>, find one of possible $A$ and $b$), and solve it using cvxpy.</p>
+$$\min_{x} \, \lVert Ax - b\rVert_2 ^2$$<p><strong>(c)</strong>
 How many suboptimal points exist? Why?</p>
 
 </div>
@@ -279,7 +295,7 @@ Show that, by introducing slack variable $t_i$, the absolute value optimization 
 <table style="border-style: hidden; border-collapse: collapse;" width = "60%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
         <td width = 30% style="border-style: hidden; border-collapse: collapse;">
-        $$ \min_{y_i} \,\lvert y_i \rvert = \min_{y_i} \left\{\max \left(-y_i,y_i \right) \right\} $$ 
+        $$ \min \,\lvert y_i \rvert = \min \left\{\max \left(-y_i,y_i \right) \right\} $$ 
 
         </td>
         <td width = 5% style="border-style: hidden; border-collapse: collapse;">
@@ -289,7 +305,7 @@ Show that, by introducing slack variable $t_i$, the absolute value optimization 
         <td width = 20%>
         $$
         \begin{align*}
-        \min_{t_i} \quad & t_i  \\
+        \min \quad & t_i  \\
         \text{subject to} \quad 
         & y_i \leq t_i \\
         & -y_i \leq t_i 
@@ -302,7 +318,7 @@ Suppose $A\theta-b = r$ and $t = \begin{bmatrix} t_1 & t_2 & \cdots & t_m \end{b
 <table style="border-style: hidden; border-collapse: collapse;" width = "60%"> 
     <tr style="border-style: hidden; border-collapse: collapse;">
         <td width = 30% style="border-style: hidden; border-collapse: collapse;">
-        $$ \min_{\theta} \,\lVert A\theta-b \rVert_{1} $$
+        $$ \min \,\lVert A\theta-b \rVert_{1} $$
         </td>
         <td width = 5% style="border-style: hidden; border-collapse: collapse;">
              $$ \iff $$
@@ -311,7 +327,7 @@ Suppose $A\theta-b = r$ and $t = \begin{bmatrix} t_1 & t_2 & \cdots & t_m \end{b
         <td width = 20%>
         $$
         \begin{align*}
-        \min_{t, \theta} \quad & t_1 + \cdots + t_m \\
+        \min \quad & t_1 + \cdots + t_m \\
         \text{subject to} \quad 
         & A\theta - b \leq t \\
         & -(A\theta - b) \leq t 
@@ -323,7 +339,7 @@ Suppose $A\theta-b = r$ and $t = \begin{bmatrix} t_1 & t_2 & \cdots & t_m \end{b
 Change the LP in matrix form where $\mathbb{1} = \begin{bmatrix} 1& \cdots & 1\end{bmatrix}^T$ and $\mathbb{0} = \begin{bmatrix} 0& \cdots & 0\end{bmatrix}^T$</p>
 $$
 \begin{align*}
-\min_{t, \theta} \quad & \begin{bmatrix} \mathbb{0}^T & \mathbb{1}^T \end{bmatrix} \begin{bmatrix} \theta \\ t \end{bmatrix} \\
+\min \quad & \begin{bmatrix} \mathbb{0}^T & \mathbb{1}^T \end{bmatrix} \begin{bmatrix} \theta \\ t \end{bmatrix} \\
 \text{subject to} \quad 
 & \begin{bmatrix} A & -I \\ -A & -I \end{bmatrix}\begin{bmatrix} \theta \\ t \end{bmatrix} 
 \leq \begin{bmatrix} b \\ -b \end{bmatrix}
