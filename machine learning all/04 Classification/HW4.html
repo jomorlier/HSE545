@@ -309,7 +309,7 @@ The below is a pseudo code of the perceptron. Write the code to classify the dig
 
 <pre><code>For k = 1:100 {
       For j = 1:100 {
-            i = random integer selection between 1 and 2000
+            i = random integer selection between 1 and 1000
             compute yhat(i)
             if yhat(i) is wrong {
                 w = w + y(i)x(i)
@@ -441,7 +441,7 @@ Plot the ideal loss function and the loss function of the logistic regression. C
 <p><strong>(a)</strong> Image Representation</p>
 <p>The data for this exercise contains a 128-pixel by 128-pixel TIFF image named "bird.tiff." It looks like the picture in Figure 1.
 <br><br>
-<img src="./image_files/clus01.bmp", width = 250>
+<img src="./image_files/clus01.bmp" width = '250'>
 <br><br>
 In a straightforward 24-bit color representation of this image, each pixel is represented as three 8-bit numbers (ranging from 0 to 255) that specify red, green and blue (RGB) intensity values. Our bird photo contains thousands of colors, but we'd like to reduce that number to 16. By making this reduction, it would be possible to represent the photo in a more efficient way by storing only the RGB values of the 16 colors present in the image.</p>
 <p>In this problem, you will use K-means to reduce the color count to $k = 16$. That is, you will compute 16 colors as the cluster centroids and replace each pixel in the image with its nearest cluster centroid color.</p>
@@ -481,7 +481,7 @@ In a straightforward 24-bit color representation of this image, each pixel is re
 
 
 <div class="output_text output_subarea ">
-<pre>&lt;matplotlib.figure.Figure at 0x7f0baf255518&gt;</pre>
+<pre>&lt;Figure size 400x400 with 1 Axes&gt;</pre>
 </div>
 
 </div>
