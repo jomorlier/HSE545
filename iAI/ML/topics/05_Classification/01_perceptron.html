@@ -13182,7 +13182,8 @@ $$\begin{align*} \text{Approve credit if} \;
 \text{Deny credit if} \;
 &amp; \sum\limits_{i=1}^{d}\omega_ix_i &lt; \text{threshold}.
 \end{align*}$$<p><br>
-$$h(x) = \text{sign} \left(\left( \sum\limits_{i=1}^{d}\omega_ix_i \right)- \text{threshold} \right) = \text{sign}\left(\left( \sum\limits_{i=1}^{d}\omega_ix_i \right)+ \omega_0\right)$$</p>
+$$h(x) = \text{sign} \left(\left( \sum\limits_{i=1}^{d}\omega_ix_i \right)- \text{threshold} \right) = \text{sign}\left(\left( \sum\limits_{i=1}^{d}\omega_ix_i \right)+ \omega_0\right)$$
+<br><br></p>
 <ul>
 <li>Introduce an artificial coordinate $x_0 = 1$:</li>
 </ul>
@@ -13190,7 +13191,7 @@ $$h(x) = \text{sign}\left( \sum\limits_{i=0}^{d}\omega_ix_i \right)$$<ul>
 <li>In a vector form, the perceptron implements</li>
 </ul>
 $$h(x) = \text{sign}\left( \omega^T x \right)$$<ul>
-<li>sign function</li>
+<li>Sign function</li>
 </ul>
 $$
 \text{sgn}(x) = 
@@ -13252,9 +13253,9 @@ $$<p><br><br></p>
 <ul>
 <li><p>How to find $\omega$</p>
 <ul>
-<li>All data in class 1
+<li>All data in class 1 ($y = +1$)
 $$g(x) &gt; 0$$</li>
-<li>All data in class 0
+<li>All data in class 0 ($y = -1$)
 $$g(x) &lt; 0$$</li>
 </ul>
 </li>
@@ -13310,7 +13311,7 @@ $$ \begin{align*}\omega_{new} &amp;= \omega_{old} + y_n x_n = \omega_{old} + x_n
  $$\omega \leftarrow \omega + yx$$
  where $(x, y)$ is a misclassified training point
 <br><br></li>
-<li>At iteration $t = 1, 2, 3, \cdots,$ pick a misclassified point from
+<li>At iteration $i = 1, 2, 3, \cdots,$ pick a misclassified point from
  $$(x_1,y_1),(x_2,y_2),\cdots,(x_N, y_N)$$
 <br><br></li>
 <li>and run a PLA iteration on it
@@ -13322,7 +13323,7 @@ $$ \begin{align*}\omega_{new} &amp;= \omega_{old} + y_n x_n = \omega_{old} + x_n
 <br><br></p>
 <p>Summary</p>
 <p><br><br></p>
-<p><center><img src="./image_files/perceptron_net.png" width = 600></center>
+<p><center><img src="./image_files/perceptron_net_2.png" width = 600></center>
 <br><br></p>
 
 </div>
@@ -13331,16 +13332,17 @@ $$ \begin{align*}\omega_{new} &amp;= \omega_{old} + y_n x_n = \omega_{old} + x_n
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.3.-Perceptron-loss-function">2.3. Perceptron loss function<a class="anchor-link" href="#2.3.-Perceptron-loss-function">&#182;</a></h2><p><br>
-$$ \mathscr{L}(\omega) = \sum_{n =1}^{m} \max \left\{ 0, -y_n \cdot \left(\omega^T x_n \right)\right\} $$</p>
+<h2 id="2.3.-Perceptron-loss-function">2.3. Perceptron loss function<a class="anchor-link" href="#2.3.-Perceptron-loss-function">&#182;</a></h2><p><br><br>
+$$ \mathscr{L}(\omega) = \sum_{n =1}^{m} \max \left\{ 0, -y_n \cdot \left(\omega^T x_n \right)\right\} $$
+<br><br></p>
 <ul>
-<li>$\text{Loss} = 0$ on examples where perceptron is correct, <em>i.e.</em>, $y_n \cdot \left(\omega^T x_n \right) &gt; 0$</li>
+<li>Loss $ = 0$ on examples where perceptron is correct, <em>i.e.</em>, $y_n \cdot \left(\omega^T x_n \right) &gt; 0$</li>
 </ul>
 <ul>
-<li>$\text{Loss} &gt; 0$ on examples where perceptron misclassified, <em>i.e.</em>, $y_n \cdot \left(\omega^T x_n \right) &lt; 0$</li>
+<li>Loss $ &gt; 0$ on examples where perceptron misclassified, <em>i.e.</em>, $y_n \cdot \left(\omega^T x_n \right) &lt; 0$</li>
 </ul>
 <p><br></p>
-<p><strong>note</strong>: $\text{sign}\left(\omega^T x_n \right) \neq y_n$ is equivalent to $ y_n \cdot \left(\omega^T x_n \right) &lt; 0$</p>
+<p><strong>Note</strong>: $\text{sign}\left(\omega^T x_n \right) \neq y_n$ is equivalent to $ y_n \cdot \left(\omega^T x_n \right) &lt; 0$</p>
 
 </div>
 </div>
@@ -13354,8 +13356,8 @@ $$g(x) = \omega_0 + \omega^Tx  = \omega_0 + \omega_1x_1 + \omega_2x_2  = 0$$</p>
 $$ 
 \begin{align*}
 \omega &amp;= \begin{bmatrix} \omega_0 \\ \omega_1 \\ \omega_2\end{bmatrix}\\ \\
-x &amp;= \begin{bmatrix} \left(x^{(1)}\right)^T \\ \left(x^{(2)}\right)^T \\ \left(x^{(3)}\right)^T\\ \vdots \\ \left(x^{(m)}\right)^T \end{bmatrix} = \begin{bmatrix} 1 &amp; x_1^{(1)} &amp; x_2^{(1)} \\ 1 &amp; x_1^{(2)} &amp; x_2^{(2)} \\ 1 &amp; x_1^{(3)} &amp; x_2^{(3)}\\\vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_1^{(m)} &amp; x_2^{(m)}\end{bmatrix} \\ \\
-y &amp;= \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatrix}
+x &amp;= \begin{bmatrix} \left(x^{(1)}\right)^T \\ \left(x^{(2)}\right)^T \\ \left(x^{(3)}\right)^T\\ \vdots \\ \left(x^{(m)}\right)^T \end{bmatrix} = \begin{bmatrix} 1 &amp; x_1^{(1)} &amp; x_2^{(1)} \\ 1 &amp; x_1^{(2)} &amp; x_2^{(2)} \\ 1 &amp; x_1^{(3)} &amp; x_2^{(3)}\\\vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_1^{(m)} &amp; x_2^{(m)}\end{bmatrix}, \qquad
+y = \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatrix}
 \end{align*}$$</p>
 
 </div>
@@ -13512,8 +13514,8 @@ y &amp;= \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{b
 <div class="text_cell_render border-box-sizing rendered_html">
 $$ 
 \begin{align*}
-x &amp;= \begin{bmatrix} \left(x^{(1)}\right)^T \\ \left(x^{(2)}\right)^T \\ \left(x^{(3)}\right)^T\\ \vdots \\ \left(x^{(m)}\right)^T \end{bmatrix} = \begin{bmatrix} 1 &amp; x_1^{(1)} &amp; x_2^{(1)} \\ 1 &amp; x_1^{(2)} &amp; x_2^{(2)} \\ 1 &amp; x_1^{(3)} &amp; x_2^{(3)}\\\vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_1^{(m)} &amp; x_2^{(m)}\end{bmatrix} \\\\
-y &amp;= \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatrix}
+x &amp;= \begin{bmatrix} \left(x^{(1)}\right)^T \\ \left(x^{(2)}\right)^T \\ \left(x^{(3)}\right)^T\\ \vdots \\ \left(x^{(m)}\right)^T \end{bmatrix} = \begin{bmatrix} 1 &amp; x_1^{(1)} &amp; x_2^{(1)} \\ 1 &amp; x_1^{(2)} &amp; x_2^{(2)} \\ 1 &amp; x_1^{(3)} &amp; x_2^{(3)}\\\vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_1^{(m)} &amp; x_2^{(m)}\end{bmatrix} \qquad 
+y = \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatrix}
 \end{align*}$$
 </div>
 </div>
@@ -13653,8 +13655,8 @@ $$
 <h1 id="4.-Perceptron-using-Scikit-Learn">4. Perceptron using Scikit-Learn<a class="anchor-link" href="#4.-Perceptron-using-Scikit-Learn">&#182;</a></h1><p><br><br>
 $$ 
 \begin{align*}
-x &amp;= \begin{bmatrix} \left(x^{(1)}\right)^T \\ \left(x^{(2)}\right)^T \\ \left(x^{(3)}\right)^T\\ \vdots \\ \left(x^{(m)}\right)^T \end{bmatrix} = \begin{bmatrix} x_1^{(1)} &amp; x_2^{(1)} \\ x_1^{(2)} &amp; x_2^{(2)} \\ x_1^{(3)} &amp; x_2^{(3)}\\ \vdots &amp; \vdots \\ x_1^{(m)} &amp; x_2^{(m)}\end{bmatrix} \\\\
-y &amp;= \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatrix}
+x &amp;= \begin{bmatrix} \left(x^{(1)}\right)^T \\ \left(x^{(2)}\right)^T \\ \left(x^{(3)}\right)^T\\ \vdots \\ \left(x^{(m)}\right)^T \end{bmatrix} = \begin{bmatrix} x_1^{(1)} &amp; x_2^{(1)} \\ x_1^{(2)} &amp; x_2^{(2)} \\ x_1^{(3)} &amp; x_2^{(3)}\\ \vdots &amp; \vdots \\ x_1^{(m)} &amp; x_2^{(m)}\end{bmatrix} \qquad 
+y = \begin{bmatrix}y^{(1)} \\ y^{(2)} \\ y^{(3)}\\ \vdots \\ y^{(m)} \end{bmatrix}
 \end{align*}$$</p>
 
 </div>
@@ -13974,10 +13976,10 @@ $$
 
 
 
-<div id="c9895ac1-c1c5-4fba-a0fd-67adf56a04fa"></div>
+<div id="2eeda3cd-1b30-4877-ab79-e04bdad5dcf2"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c9895ac1-c1c5-4fba-a0fd-67adf56a04fa');
+var element = $('#2eeda3cd-1b30-4877-ab79-e04bdad5dcf2');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 
 </script>

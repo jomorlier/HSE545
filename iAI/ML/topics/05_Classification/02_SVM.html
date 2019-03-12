@@ -13682,7 +13682,7 @@ $$\begin{align*} \text{minimize} \quad
 &amp; \text{something} \\
 \text{subject to} \quad 
 &amp; X_1\omega \geq 1 \\
-&amp; X_2\omega \leq -1
+&amp; X_0\omega \leq -1
 \end{align*}$$
 </div>
 </div>
@@ -13919,16 +13919,16 @@ $$x^i = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \end{bmatrix}$$<ul>
 $$\begin{align*} \text{minimize} \quad &amp; \sum\limits_{i=1}^{N}u_i + \sum\limits_{i=1}^{M}\upsilon_i \\ \\
 \text{subject to} \quad
 &amp; \begin{cases}
-\omega_0 + \omega^Tx^{(1)} \geq 1-u_1\\
-\omega_0 + \omega^Tx^{(2)} \geq 1-u_2\\
+\omega^Tx^{(1)} \geq 1-u_1\\
+\omega^Tx^{(2)} \geq 1-u_2\\
  \quad  \quad \vdots \\
-\omega_0 + \omega^Tx^{(N)} \geq 1-u_N\\
+\omega^Tx^{(N)} \geq 1-u_N\\
 \end{cases} \\\\
 &amp; \begin{cases}
-\omega_0 + \omega^Tx^{(N+1)} \leq {-(1-\upsilon_1)}\\
-\omega_0 + \omega^Tx^{(N+2)} \leq {-(1-\upsilon_2)}\\
+\omega^Tx^{(N+1)} \leq {-(1-\upsilon_1)}\\
+\omega^Tx^{(N+2)} \leq {-(1-\upsilon_2)}\\
  \quad  \quad \vdots \\
-\omega_0 + \omega^Tx^{(N+M)} \leq {-(1-\upsilon_M)}\\
+\omega^Tx^{(N+M)} \leq {-(1-\upsilon_M)}\\
 \end{cases} \\\\
 &amp; \begin{cases}
 u \geq 0\\
@@ -13953,7 +13953,7 @@ $$
 \begin{bmatrix} x_1^{(1)} & x_2^{(1)} \\ x_1^{(2)} & x_2^{(2)} \\ 
 \vdots & \vdots \\ x_1^{(N)} & x_2^{(N)} \\ 
 \end{bmatrix}\\\\
-X_2 &= \begin{bmatrix} x^{(N+1)^T} \\ x^{(N+2)^T} \\ \vdots \\ x^{(N+M)^T}\end{bmatrix} =
+X_0 &= \begin{bmatrix} x^{(N+1)^T} \\ x^{(N+2)^T} \\ \vdots \\ x^{(N+M)^T}\end{bmatrix} =
 \begin{bmatrix} x_1^{(N+1)} & x_2^{(N+1)} \\ x_1^{(N+2)} & x_2^{(N+2)} \\ 
 \vdots & \vdots \\ x_1^{(N+M)} & x_2^{(N+M)} \\ 
 \end{bmatrix} \\\\
@@ -13975,7 +13975,7 @@ $$
 \begin{bmatrix} 1 & x_1^{(1)} & x_2^{(1)} \\ 1 & x_1^{(2)} & x_2^{(2)} \\ 
 \vdots & \vdots & \vdots \\ 1 & x_1^{(N)} & x_2^{(N)} \\ 
 \end{bmatrix}\\\\
-X_2 &= \begin{bmatrix} \left(x^{(N+1)}\right)^T \\ \left(x^{(N+2)}\right)^T \\ \vdots \\ \left(x^{(N+M)}\right)^T\end{bmatrix} =
+X_0 &= \begin{bmatrix} \left(x^{(N+1)}\right)^T \\ \left(x^{(N+2)}\right)^T \\ \vdots \\ \left(x^{(N+M)}\right)^T\end{bmatrix} =
 \begin{bmatrix} 1 & x_1^{(N+1)} & x_2^{(N+1)} \\ 1 & x_1^{(N+2)} & x_2^{(N+2)} \\ 
 \vdots & \vdots & \vdots \\ 1 & x_1^{(N+M)} & x_2^{(N+M)} \\ 
 \end{bmatrix} \\\\
@@ -13999,7 +13999,7 @@ u_N\\
 $$\begin{align*} \text{minimize} \quad  & 1^Tu + 1^T\upsilon \\
 \text{subject to} \quad
 & \omega_0 + X_1\omega \geq 1-u \\
-& \omega_0 + X_2\omega \leq -(1-\upsilon) \\
+& \omega_0 + X_0\omega \leq -(1-\upsilon) \\
 & u \geq 0 \\
 & \upsilon \geq 0
 \end{align*}$$
@@ -14008,7 +14008,7 @@ $$\begin{align*} \text{minimize} \quad  & 1^Tu + 1^T\upsilon \\
 $$\begin{align*} \text{minimize} \quad  & 1^Tu + 1^T\upsilon \\
 \text{subject to} \quad
 & X_1\omega \geq 1-u \\
-& X_2\omega \leq -(1-\upsilon) \\
+& X_0\omega \leq -(1-\upsilon) \\
 & u \geq 0 \\
 & \upsilon \geq 0
 \end{align*}$$
@@ -14159,7 +14159,7 @@ $$\begin{align*} \text{minimize} \quad
 &amp; \lVert \omega \rVert_2 + \gamma(1^Tu + 1^T\upsilon) \\
 \text{subject to} \quad
 &amp; X_1\omega \geq 1-u \\
-&amp; X_2\omega \leq -(1-\upsilon) \\
+&amp; X_0\omega \leq -(1-\upsilon) \\
 &amp; u \geq 0 \\
 &amp; \upsilon \geq 0
 \end{align*}$$</p>
@@ -14269,28 +14269,22 @@ $$\begin{align*} \text{minimize} \quad
 &amp; \lVert \omega \rVert_2 + \gamma(1^Tu + 1^T\upsilon) \\
 \text{subject to} \quad
 &amp; X_1\omega  \geq 1-u \\
-&amp; X_2\omega  \leq -(1-\upsilon) \\
+&amp; X_0\omega  \leq -(1-\upsilon) \\
 &amp; u \geq 0 \\
 &amp; \nu \geq 0
 \end{align*}$$</p>
 <ul>
 <li>In a more compact form</li>
 </ul>
-<p><br></p>
-<table style="border-style: hidden; border-collapse: collapse;" width = "50%"> 
-    <tr style="border-style: hidden; border-collapse: collapse;">
-        <td width = 20% style="border-style: hidden; border-collapse: collapse;">
-             $$\begin{align*}\omega^T x_n  &\geq 1 \;\text{for }\; y_n = +1\\
-                \omega^T x_n  &\leq -1 \;\text{for }\; y_n = -1 \end{align*}$$
-        </td>
-        <td width = 10% style="border-style: hidden; border-collapse: collapse;">
-             $$ \Longleftrightarrow $$
-        </td>
-        <td width = 20%>
-            $$y_n \cdot \left( \omega^T x_n  \right) \geq 1$$
-        </td>
-    </tr>
-</table><p><br>
+<p><br>
+$$
+\begin{align*}
+\omega^T x_n  &amp;\geq 1 \;\text{for }\; y_n = +1 \\
+\omega^T x_n  &amp;\leq -1 \;\text{for }\; y_n = -1 
+\end{align*} 
+\Longleftrightarrow y_n \cdot \left( \omega^T x_n  \right) \geq 1
+$$</p>
+<p><br>
 $$\begin{align*} \text{minimize} \quad 
 &amp; \lVert \omega \rVert_2 + \gamma(1^T \xi) \\
 \text{subject to} \quad
@@ -14715,10 +14709,10 @@ z = \phi(x) = \begin{bmatrix} 1\\ x_1^2 \\ \sqrt{2}x_1 x_2 \\x_2^2 \end{bmatrix}
 
 
 
-<div id="66392bbc-2160-409d-8cd7-a48e7e7cf2fa"></div>
+<div id="64ab4227-22ce-4f58-a49e-e2fa9e00093f"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#66392bbc-2160-409d-8cd7-a48e7e7cf2fa');
+var element = $('#64ab4227-22ce-4f58-a49e-e2fa9e00093f');
 $.getScript('https://kmahelona.github.io/ipython_notebook_goodies/ipython_notebook_toc.js')
 
 </script>
